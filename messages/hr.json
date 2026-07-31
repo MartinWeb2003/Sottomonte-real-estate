@@ -1,0 +1,410 @@
+{
+  "nav": {
+    "home": "Početna",
+    "properties": "Nekretnine",
+    "selling": "Prodaja",
+    "contact": "Kontakt",
+    "buying": "Kupnja"
+  },
+  "hero": {
+    "titleLead": "Vaš pouzdani partner za nekretnine na",
+    "titleItalic": "Pelješcu",
+    "subline": "Ne objavljujemo samo oglase. Poznajemo svaku lokaciju, svaku parcelu i svakog vlasnika na Pelješcu osobno.",
+    "ctaProperties": "Pogledajte nekretnine",
+    "ctaContact": "Kontaktirajte nas"
+  },
+  "intro": {
+    "statement": "Kupnja nekretnine na poluotoku gdje svi znaju svakoga traži partnera koji stvarno poznaje teren.",
+    "body": "Sottomonte je licencirana agencija za nekretnine s Pelješca. Iza svake nekretnine koju predstavljamo stoji priča koju znamo iz prve ruke: tko je vlasnik, kakva je lokacija, kakvo je selo i jesu li svi papiri čisti. To ne možete pročitati u oglasniku."
+  },
+  "difference": {
+    "items": [
+      {
+        "title": "Osoban obilazak svake parcele",
+        "body": "Svaku kuću i zemljište u ponudi obišli smo osobno. Znamo gdje popodne pada sjena, odakle puše bura i kakav je pogled s terase u predvečerje."
+      },
+      {
+        "title": "Izravan kontakt s vlasnicima",
+        "body": "Na Pelješcu se najbolje nekretnine često ne prodaju putem javnih oglasnika nego povjerenjem. Godinama građeni odnosi donose nam ponude koje uopće ne izlaze na otvoreno tržište."
+      },
+      {
+        "title": "Transparentno savjetovanje",
+        "body": "Ako nekretnina ne odgovara vašim željama ili budžetu, reći ćemo vam to otvoreno prije nego što potrošite vrijeme i novac. Jedan iskren savjet nama je važniji od brze prodaje."
+      }
+    ]
+  },
+  "featured": {
+    "title": "Izdvojene nekretnine na Pelješcu",
+    "viewAll": "Pogledajte sve nekretnine"
+  },
+  "peninsula": {
+    "title": "Jedan poluotok. Jedinstvene lokacije.",
+    "subtitle": "Svako mjesto na Pelješcu ima svoj specifičan karakter, povijest, ritam i atmosferu. Pomoći ćemo vam pronaći idealnu lokaciju."
+  },
+  "howWeWork": {
+    "title": "Postupak kupnje",
+    "steps": [
+      {
+        "title": "Prvi neobvezujući razgovor",
+        "body": "Slušamo vaše želje, budžet i kriterije. Bez obveza, uz poziv ili sastanak na Pelješcu."
+      },
+      {
+        "title": "Pažljivo odabrana ponuda",
+        "body": "Predlažemo samo nekretnine koje odgovaraju vašim parametrima, uključujući i diskretne off-market ponude."
+      },
+      {
+        "title": "Stručni obilasci na terenu",
+        "body": "Obilazimo lokacije zajedno, bez žurbe. Ukazujemo na sve prednosti, ali i potencijalne mane nekretnine."
+      },
+      {
+        "title": "Pravna provjera i primopredaja",
+        "body": "Vodimo cjelokupni postupak kupoprodaje u suradnji s odvjetnikom i javnim bilježnikom do uknjižbe vlasništva."
+      }
+    ]
+  },
+  "offMarket": {
+    "title": "Neke od najboljih nekretnina nikad ne dođu na javno tržište.",
+    "body": "Mnogi vlasnici na Pelješcu prodaju kuće i zemljišta diskretno. Opišite nam što tražite i kontaktirat ćemo vas čim se pojavi odgovarajući objekt.",
+    "cta": "Pošaljite nam svoje kriterije"
+  },
+  "finalCta": {
+    "title": "Pronađimo vašu savršenu nekretninu na Pelješcu.",
+    "subtitle": "Javite nam se. Neobvezujući razgovor štedi mjesece samostalnog traženja.",
+    "button": "Kontaktirajte nas",
+    "orCall": "ili nas nazovite izravno"
+  },
+  "footer": {
+    "tagline": "Specijalizirana agencija za nekretnine na Pelješcu. Poznajemo svaku lokaciju, parcelu i vlasnika osobno.",
+    "pages": "Stranice",
+    "locations": "Lokacije",
+    "contact": "Kontakt",
+    "privacy": "Privatnost",
+    "license": "Licenca posredovanja: 123/2024, HGK",
+    "rights": "Sva prava pridržana."
+  },
+  "properties": {
+    "title": "Ponuda nekretnina na Pelješcu",
+    "breadcrumbHome": "Početna",
+    "breadcrumb": "Nekretnine",
+    "results": "{count, plural, one {# nekretnina} few {# nekretnine} other {# nekretnina}}",
+    "reserved": "Rezervirano",
+    "filters": {
+      "title": "Pretražite nekretnine",
+      "button": "Filteri",
+      "type": "Vrsta nekretnine",
+      "allTypes": "Svi tipovi",
+      "price": "Cijena (€)",
+      "anyPrice": "Sve cijene",
+      "priceUpTo": "do {price}",
+      "priceFrom": "od {price}",
+      "seaDistance": "Udaljenost od mora",
+      "anyDistance": "Sve udaljenosti",
+      "under100": "< 100 m",
+      "under500": "< 500 m",
+      "under1km": "< 1 km",
+      "sort": "Sortiranje",
+      "sortNewest": "Najnovije u ponudi",
+      "sortPriceAsc": "Cijena: od najniže",
+      "sortPriceDesc": "Cijena: od najviše",
+      "clearAll": "Očisti sve filtere",
+      "apply": "Primijeni filtere",
+      "selected": "{count} odabrano"
+    },
+    "types": {
+      "house": "Kuća / Vila",
+      "apartment": "Stan / Apartman",
+      "land": "Građevinsko zemljište",
+      "stone-ruin": "Kamena kuća za obnovu"
+    },
+    "pagination": {
+      "previous": "Prethodna",
+      "next": "Sljedeća",
+      "page": "Stranica {page} od {total}"
+    },
+    "bottomCta": {
+      "title": "Niste pronašli ono što vas zanima? Dio ponude je izvan oglasa.",
+      "body": "Opišite nam kakvu nekretninu tražite na Pelješcu i obavijestit ćemo vas čim se pojavi prilika.",
+      "lookingFor": "Kakvu nekretninu tražite?",
+      "lookingForPlaceholder": "npr. kamena kuća prvi red do mora, Viganj ili Orebić, budžet do 350.000 €",
+      "budget": "Okvirni budžet (€)",
+      "submit": "Pošaljite upit za nekretninu"
+    }
+  },
+  "property": {
+    "viewAllPhotos": "Sve fotografije ({count})",
+    "droneVideo": "Video snimka dronom",
+    "photos": "Galerija fotografija",
+    "inquire": "Pošaljite upit za ovu nekretninu",
+    "aboutProperty": "O nekretnini",
+    "aboutLocation": "O lokaciji na Pelješcu",
+    "papersTitle": "Pravni status i dokumentacija",
+    "priceOnRequest": "Cijena na upit",
+    "perM2": "≈ {price}/m²",
+    "approximateLocation": "Prikazana je približna mikrolokacija. Točnu adresu i parcelu dijelimo nakon upita.",
+    "similar": "Slične nekretnine na Pelješcu",
+    "weSpeak": "Govorimo HR / EN / DE",
+    "yourAgent": "Vaš agent za nekretnine",
+    "whatsapp": "Kontaktirajte putem WhatsAppa",
+    "call": "Nazovite agenta",
+    "inquiryPlaceholder": "Zanima me nekretnina: {title}",
+    "specs": {
+      "area": "Stambena površina",
+      "landArea": "Površina zemljišta",
+      "bedrooms": "Spavaće sobe",
+      "bathrooms": "Kupaonice",
+      "floors": "Broj etaža",
+      "condition": "Stanje nekretnine",
+      "seaDistance": "Udaljenost od mora",
+      "parking": "Parkirno mjesto",
+      "parkingYes": "Da",
+      "parkingNo": "Ne"
+    },
+    "status": {
+      "available": "Dostupno",
+      "reserved": "Rezervirano",
+      "sold": "Prodano"
+    }
+  },
+  "selling": {
+    "title": "Prodajete na Pelješcu?",
+    "subtitle": "Vjerojatno već poznajemo kupca za vašu nekretninu.",
+    "pitchTitle": "Ozbiljni kupci, bez gubljenja vremena",
+    "pitchItems": [
+      {
+        "title": "Međunarodni doseg",
+        "body": "Naši kupci dolaze iz Njemačke, Austrije i Švicarske, Velike Britanije i Skandinavije. Provjereni su i s jasnim budžetom."
+      },
+      {
+        "title": "Prezentacija koja prodaje",
+        "body": "Profesionalna fotografija, snimke dronom i iskreno predstavljanje. Bez uljepšavanja koje se osveti na razgledavanju."
+      },
+      {
+        "title": "Diskrecija po želji",
+        "body": "Ne želite oglas? Nekretninu nudimo tiho, samo provjerenim kupcima iz naše baze."
+      }
+    ],
+    "processTitle": "Pet koraka do prodaje",
+    "processSteps": [
+      {
+        "title": "Besplatna procjena i obilazak",
+        "body": "Dolazimo na lokaciju, gledamo nekretninu i dajemo realnu procjenu vrijednosti."
+      },
+      {
+        "title": "Provjera dokumentacije",
+        "body": "Uočavamo probleme u papirima prije nego što ih uoče kupci i pomažemo ih riješiti."
+      },
+      {
+        "title": "Prezentacija i marketing",
+        "body": "Fotografija, dron, tekstovi na tri jezika i plasman prema pravim kupcima."
+      },
+      {
+        "title": "Razgledavanja i pregovori",
+        "body": "Vodimo razgledavanja i pregovaramo u vašem interesu, bez pritiska."
+      },
+      {
+        "title": "Zatvaranje",
+        "body": "Odvjetnici, javni bilježnik, porezi. Vodimo vas do isplate i primopredaje."
+      }
+    ],
+    "formTitle": "Recite nam nešto o nekretnini",
+    "formLocation": "Lokacija",
+    "formType": "Tip nekretnine",
+    "formSize": "Približna površina (m²)",
+    "formMessage": "Poruka",
+    "orCall": "Ili nas jednostavno nazovite:",
+    "faqTitle": "Česta pitanja o prodaji",
+    "faq": [
+      {
+        "question": "Kolika je provizija i tko je plaća?",
+        "answer": "Provizija se dogovara ugovorom o posredovanju prije početka rada, transparentno i bez skrivenih troškova. Plaća je strana koja nas je angažirala, prema dogovoru."
+      },
+      {
+        "question": "Koliko traje prodaja?",
+        "answer": "Realno oglašene nekretnine na Pelješcu prodaju se obično u roku od šest do dvanaest mjeseci. Precijenjene stoje godinama, zato prvo dajemo iskrenu procjenu."
+      },
+      {
+        "question": "Što ako papiri nisu čisti?",
+        "answer": "To rješavamo prije oglašavanja. Provjeravamo vlasništvo, terete i dozvole te s odvjetnikom sređujemo što nedostaje, prije nego što kupac išta pita."
+      },
+      {
+        "question": "Mogu li prodati diskretno, bez javnog oglasa?",
+        "answer": "Da. Dio ponude nudimo samo provjerenim kupcima iz naše baze, bez fotografija na portalima i bez znatiželjnih susjeda."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Razgovarajmo.",
+    "detailsTitle": "Kontakt podaci",
+    "phone": "Telefon",
+    "email": "E-mail",
+    "address": "Adresa",
+    "addressValue": "Obala pomoraca 1, 20250 Orebić, Hrvatska",
+    "hours": "Radno vrijeme",
+    "hoursValue": "Pon do sub, 9:00 do 18:00",
+    "languages": "Govorimo HR / EN / DE",
+    "formTitle": "Pošaljite poruku",
+    "interest": "Zanima me",
+    "interestBuying": "Kupnja",
+    "interestSelling": "Prodaja",
+    "interestOther": "Ostalo",
+    "success": "Hvala vam na poruci. Javit ćemo se u najkraćem mogućem roku.",
+    "responseNote": "Odgovaramo u najkraćem mogućem roku.",
+    "budget": "Okvirni budžet",
+    "budgetOptions": [
+      "do € 200.000",
+      "€ 200.000 do € 500.000",
+      "€ 500.000 do € 1.000.000",
+      "iznad € 1.000.000"
+    ],
+    "timeline": "Vremenski okvir",
+    "timelineOptions": [
+      "Što prije",
+      "Unutar 6 mjeseci",
+      "Unutar godine dana",
+      "Tek razgledavam"
+    ],
+    "optional": "Nije obavezno"
+  },
+  "forms": {
+    "name": "Ime i prezime",
+    "email": "E-mail adresa",
+    "phone": "Telefon (neobavezno)",
+    "message": "Poruka",
+    "note": "Napomena (neobavezno)",
+    "notePlaceholder": "Želite li još nešto dodati? Željena lokacija na Pelješcu, budžet, način financiranja, posebne želje…",
+    "consent": "Slažem se da Sottomonte pohrani moje podatke radi odgovora na upit, u skladu s <link>pravilima privatnosti</link>.",
+    "submit": "Pošaljite upit",
+    "sending": "Šaljemo…",
+    "success": "Hvala vam. Javit ćemo se u najkraćem mogućem roku.",
+    "error": "Nešto je pošlo po zlu. Pokušajte ponovno ili nas nazovite.",
+    "required": "Obavezno polje",
+    "invalidEmail": "Unesite ispravnu e-mail adresu",
+    "consentRequired": "Potrebna je privola"
+  },
+  "consent": {
+    "text": "Koristimo kolačiće za anonimnu analitiku posjeta (Google Analytics). Osobne podatke ne dijelimo s trećima.",
+    "accept": "Prihvaćam",
+    "decline": "Odbijam",
+    "privacy": "Pravila privatnosti"
+  },
+  "meta": {
+    "home": {
+      "title": "Nekretnine Pelješac: kuće, zemljišta i kamene kuće | Sottomonte",
+      "description": "Tražite nekretnine na Pelješcu? Prodaja kuća, građevinskih zemljišta i kamenih kuća uz obalu i u unutrašnjosti poluotoka. Provjerena dokumentacija."
+    },
+    "properties": {
+      "title": "Prodaja nekretnina Pelješac: ponuda kuća i zemljišta | Sottomonte",
+      "description": "Istražite ponudu nekretnina na Pelješcu. Kuće s pogledom na more, građevinska zemljišta i autohtone kamene kuće. Čisti papiri i sigurna kupnja."
+    },
+    "selling": {
+      "title": "Prodaja nekretnine na Pelješcu: besplatna procjena | Sottomonte",
+      "description": "Prodajete kuću ili zemljište na Pelješcu? Spajamo vas s provjerenim kupcima uz profesionalnu prezentaciju, besplatnu procjenu i potpunu diskreciju."
+    },
+    "contact": {
+      "title": "Kontakt: Agencija za nekretnine Pelješac | Sottomonte",
+      "description": "Kontaktirajte našu agenciju za nekretnine na Pelješcu putem telefona, e-maila ili WhatsAppa. Brz odgovor u roku od 24 sata na hrvatskom, engleskom i njemačkom."
+    },
+    "buying": {
+      "title": "Kupnja nekretnine na Pelješcu: vodič i troškovi | Sottomonte",
+      "description": "Kompletan vodič za kupnju nekretnina na Pelješcu za domaće i strane državljane. Saznajte sve o pravnom postupku, porezima i dodatnim troškovima."
+    }
+  },
+  "contactBar": {
+    "call": "Nazovite nas"
+  },
+  "trust": {
+    "reply": "Odgovaramo u najkraćem mogućem roku",
+    "licensed": "Licencirana agencija za nekretnine, HGK",
+    "languages": "Govorimo HR / EN / DE"
+  },
+  "buying": {
+    "title": "Kupnja nekretnine na Pelješcu",
+    "subtitle": "Kompletan vodič kroz postupak kupnje, pravnu provjeru, poreze i troškove.",
+    "introStatement": "Državljani EU kupuju nekretnine u Hrvatskoj pod jednakim uvjetima kao i hrvatski državljani.",
+    "introBody": "Čest strah stranih kupaca jest kupnja u nepoznatom pravnom okruženju. Sottomonte osigurava potpunu pravnu sigurnost: stručna provjera vlasničkog lista, građevinskih dozvola te vođenje postupka s ovlaštenim odvjetnikom i javnim bilježnikom.",
+    "processTitle": "Kako izgleda postupak kupnje nekretnine",
+    "processSteps": [
+      {
+        "title": "Razgovor i definiranje kriterija",
+        "body": "Analiziramo vaše potrebe i predlažemo odgovarajuće nekretnine na Pelješcu, uključujući ponudu izvan javnih oglasnika."
+      },
+      {
+        "title": "Organizacija obilazaka",
+        "body": "Obilazimo nekretnine bez pritiska. Objašnjavamo detalje o lokaciji, infrastrukturi i potencijalu ulaganja."
+      },
+      {
+        "title": "Pravna provjera dokumentacije",
+        "body": "Prije izrade ugovora detaljno provjeravamo zemljišne knjige, katastar, terete i uporabne dozvole."
+      },
+      {
+        "title": "Kupoprodajni ugovor i ovjera",
+        "body": "Odvjetnik sastavlja dvojezični kupoprodajni ugovor. Potpisi se ovjeravaju kod javnog bilježnika, a postupak je moguć i putem punomoći."
+      },
+      {
+        "title": "Porez, uknjižba vlasništva i primopredaja",
+        "body": "Prijavljujemo porez na promet nekretnina, podnosimo prijedlog za uknjižbu u zemljišne knjige i organiziramo primopredaju."
+      }
+    ],
+    "costsTitle": "Pregled troškova kupnje nekretnine",
+    "costsIntro": "Uz ugovorenu cijenu nekretnine, dodatni troškovi kupnje u Hrvatskoj iznose okvirno 4% do 5%. Detaljan prikaz:",
+    "costs": [
+      {
+        "label": "Porez na promet nekretnina",
+        "value": "3%",
+        "note": "Plaća se jednokratno nakon kupnje. Kod novogradnji s obračunatim PDV-om ovaj se porez ne plaća."
+      },
+      {
+        "label": "Javni bilježnik i uknjižba",
+        "value": "200 do 500 €",
+        "note": "Troškovi ovjere potpisnih izjava i takse za upis prava vlasništva u zemljišne knjige."
+      },
+      {
+        "label": "Odvjetnik",
+        "value": "oko 1%",
+        "note": "Nije obavezan, ali ga preporučujemo. Radimo s provjerenim odvjetnicima koji govore vaš jezik."
+      },
+      {
+        "label": "Posrednička provizija",
+        "value": "prema ugovoru",
+        "note": "Dogovara se transparentno i unaprijed, prije prvog obilaska."
+      }
+    ],
+    "faqTitle": "Česta pitanja o kupnji",
+    "faq": [
+      {
+        "question": "Mogu li kao stranac kupiti nekretninu u Hrvatskoj?",
+        "answer": "Građani EU-a kupuju bez ikakvih ograničenja, jednako kao hrvatski državljani. Državljani trećih zemalja trebaju suglasnost Ministarstva pravosuđa po načelu uzajamnosti ili kupuju putem hrvatske tvrtke. Kroz oba postupka vodimo vas mi."
+      },
+      {
+        "question": "Koliki su ukupni troškovi uz cijenu nekretnine?",
+        "answer": "Okvirno 4 do 5% povrh cijene: porez na promet nekretnina od 3%, javni bilježnik i uknjižba te odvjetnik. Posrednička provizija dogovara se unaprijed, prije prvog obilaska."
+      },
+      {
+        "question": "Koliko traje kupnja?",
+        "answer": "Od dogovora do potpisa ugovora obično prođe dva do četiri tjedna, a s porezom i uknjižbom cijeli postupak traje četiri do osam tjedana. Ključeve u pravilu preuzimate odmah po isplati."
+      },
+      {
+        "question": "Moram li biti u Hrvatskoj za kupnju?",
+        "answer": "Ne. Uz punomoć ovjerenu kod javnog bilježnika ili u hrvatskom konzulatu cijeli postupak možemo odraditi bez vašeg dolaska."
+      },
+      {
+        "question": "Što sve provjeravate prije kupnje?",
+        "answer": "Vlasništvo 1/1, terete i hipoteke, usklađenost katastra i zemljišnih knjiga te građevinsku i uporabnu dozvolu. Ako nešto nije čisto, saznat ćete to od nas, prije ponude."
+      },
+      {
+        "question": "Mogu li nekretninu iznajmljivati turistima?",
+        "answer": "Da, uz rješenje o kategorizaciji. Postupak je standardan i pomažemo vam ga pokrenuti nakon kupnje."
+      }
+    ]
+  },
+  "locations": {
+    "metaTitle": "{name}, nekretnine na Pelješcu | Sottomonte",
+    "metaDescription": "Kuće, zemljišta i stanovi u mjestu {name} na Pelješcu. Poznajemo svaku ulicu i svakog vlasnika osobno.",
+    "aboutTitle": "O mjestu",
+    "propertiesTitle": "Nekretnine u ponudi",
+    "viewFiltered": "Pretražite s filterima",
+    "emptyTitle": "Za {name} pitajte nas izravno.",
+    "emptyBody": "Da nemamo ništa javno oglašeno ne znači da nemamo ništa. Velik dio ponude na Pelješcu nikada ne izađe na internet, jer vlasnici tako žele. Recite nam što tražite i provjerit ćemo što je trenutno slobodno u mjestu {name}, uključujući i ono o čemu se još nije počelo govoriti.",
+    "emptyCta": "Recite nam što tražite"
+  }
+}

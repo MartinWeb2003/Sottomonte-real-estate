@@ -1,0 +1,62 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# testing
+/coverage
+
+# misc
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+*.pem
+
+# editors
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# env files
+# .env.example is intentionally NOT ignored: it is the template that documents
+# which keys the app needs. Real values live in .env.local, which is.
+.env*.local
+.env
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# sanity
+/dist
+.sanity
+
+# raw media
+# Camera/drone originals are kept out of git: they are tens of MB each, git
+# stores binaries badly, and GitHub warns above 50 MB. Only the compressed
+# derivatives the site actually serves (public/videos/hero-*.mp4 and the
+# images referenced from src/lib/images.ts) are tracked.
+#
+# KEEP YOUR OWN COPY OF THESE OUTSIDE THE REPO. Git will not back them up.
+public/videos/drone-*.mp4
+public/videos/*-raw.*
+/raw-media/

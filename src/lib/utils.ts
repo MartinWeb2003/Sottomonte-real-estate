@@ -1,0 +1,55 @@
+import type { Locale, LocalizedString, LocalizedPortableText } from '@/types';
+
+/**
+ * Locale fallback chain: requested → en → hr. Never returns an empty string
+ * for a field that has at least one translation.
+ */
+const FALLBACK_CHAIN: Record<Locale, Locale[]> = {
+  hr: ['hr', 'en', 'de'],
+  en: ['en', 'hr', 'de'],
+  de: ['de', 'en', 'hr'],
+};
+
+export function pickLocale(
+  field: LocalizedString | undefined,
+  locale: Locale
+): string {
+  if (!field) return '';
+  for (const l of FALLBACK_CHAIN[locale]) {
+    const value = field[l];
+    if (value && value.trim().length > 0) return value;
+  }
+  return '';
+}
+
+export function pickLocaleBlocks(
+  field: LocalizedPortableText | undefined,
+  locale: Locale
+) {
+  if (!field) return undefined;
+  for (const l of FALLBACK_CHAIN[locale]) {
+    const value = field[l];
+    if (value && value.length > 0) return value;
+  }
+  return undefined;
+}
+
+export function cn(...classes: Array<string | false | null | undefined>) {
+  return classes.filter(Boolean).join(' ');
+}
+
+/** Builds a WhatsApp deep link from a phone number in any human format */
+export function whatsappHref(phone: string, text?: string) {
+  const digits = phone.replace(/[^\d]/g, '');
+  const query = text ? `?text=${encodeURIComponent(text)}` : '';
+  return `https://wa.me/${digits}${query}`;
+}
+
+export const AGENCY = {
+  name: 'Sottomonte',
+  phone: '+385 98 123 4567',
+  email: 'info@sottomonte.hr',
+  address: 'Obala pomoraca 1, 20250 Orebić',
+  instagram: 'https://instagram.com/sottomonte.hr',
+  facebook: 'https://facebook.com/sottomonte.hr',
+};

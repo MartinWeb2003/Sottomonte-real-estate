@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <!-- Placeholder used when a property has no gallery yet -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#EAE6DF"/>
+      <stop offset="1" stop-color="#d9d2c6"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <g fill="none" stroke="#0E2A47" stroke-width="2" opacity="0.25">
+    <path d="M320 360 L400 290 L480 360"/>
+    <path d="M340 350 V 420 H 460 V 350"/>
+    <rect x="385" y="375" width="30" height="45"/>
+  </g>
+  <path d="M370 240 h60 v1.5 h-60 z" fill="#C9A96A"/>
+</svg>

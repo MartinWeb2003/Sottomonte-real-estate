@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <!-- Placeholder golden-hour coastline — replace with real Pelješac drone photography -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2b4a6b"/>
+      <stop offset="0.45" stop-color="#7d8fa3"/>
+      <stop offset="0.72" stop-color="#c9a96a"/>
+      <stop offset="1" stop-color="#e0bd82"/>
+    </linearGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d9b87e"/>
+      <stop offset="0.25" stop-color="#8b93a0"/>
+      <stop offset="1" stop-color="#0e2a47"/>
+    </linearGradient>
+    <linearGradient id="hillFar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3d5673"/>
+      <stop offset="1" stop-color="#1b3a5c"/>
+    </linearGradient>
+    <linearGradient id="hillNear" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1b3a5c"/>
+      <stop offset="1" stop-color="#0e2a47"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="700" fill="url(#sky)"/>
+  <circle cx="1370" cy="560" r="86" fill="#f2d9a4" opacity="0.9"/>
+  <path d="M0 520 Q 300 430 640 500 T 1250 480 T 1920 430 V 700 H 0 Z" fill="url(#hillFar)" opacity="0.8"/>
+  <path d="M0 610 Q 420 480 860 590 T 1920 540 V 760 H 0 Z" fill="url(#hillNear)" opacity="0.95"/>
+  <rect y="660" width="1920" height="420" fill="url(#sea)"/>
+  <path d="M1240 660 h260 v6 h-260 z M1180 700 h380 v5 h-380 z M1100 750 h520 v5 h-520 z" fill="#e8c98f" opacity="0.35"/>
+</svg>

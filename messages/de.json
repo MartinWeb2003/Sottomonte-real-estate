@@ -1,0 +1,410 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "properties": "Immobilien",
+    "selling": "Verkaufen",
+    "contact": "Kontakt",
+    "buying": "Kaufen"
+  },
+  "hero": {
+    "titleLead": "Ihr verlässlicher Immobilienpartner auf",
+    "titleItalic": "Pelješac",
+    "subline": "Wir veröffentlichen nicht nur Inserate. Wir kennen jede Lage, jedes Grundstück und jeden Eigentümer persönlich.",
+    "ctaProperties": "Immobilien ansehen",
+    "ctaContact": "Kontakt aufnehmen"
+  },
+  "intro": {
+    "statement": "Wer auf einer Halbinsel kauft, auf der jeder jeden kennt, braucht einen Partner, der die Region wirklich kennt.",
+    "body": "Sottomonte ist eine lizenzierte Immobilienagentur von Pelješac. Hinter jeder Immobilie steht eine Geschichte aus erster Hand: Eigentümer, Lage, Dorfleben und rechtliche Dokumentation."
+  },
+  "difference": {
+    "items": [
+      {
+        "title": "Persönliche Besichtigung jedes Grundstücks",
+        "body": "Jede Immobilie in unserem Portfolio besichtigen wir persönlich. Wir kennen Schattenverhältnisse, Windverhältnisse und Aussichten bei Sonnenuntergang."
+      },
+      {
+        "title": "Direkter Kontakt zu Eigentümern",
+        "body": "Auf Pelješac wechseln Top-Immobilien meist durch Vertrauen den Besitzer. Durch jahrelange Beziehungen erhalten wir exklusive Off-Market Angebote."
+      },
+      {
+        "title": "Transparente Beratung",
+        "body": "Passt eine Immobilie nicht zu Ihren Vorstellungen oder Ihrem Budget, sagen wir es direkt. Ehrliche Beratung steht bei uns an erster Stelle."
+      }
+    ]
+  },
+  "featured": {
+    "title": "Ausgewählte Immobilien auf Pelješac",
+    "viewAll": "Alle Immobilien ansehen"
+  },
+  "peninsula": {
+    "title": "Eine Halbinsel. Einzigartige Orte.",
+    "subtitle": "Jedes Dorf auf Pelješac hat seinen eigenen Charakter, seine Geschichte und seinen Rhythmus. Wir helfen Ihnen, den passenden Ort zu finden."
+  },
+  "howWeWork": {
+    "title": "Der Kaufprozess",
+    "steps": [
+      {
+        "title": "Erstes Beratungsgespräch",
+        "body": "Wir besprechen Ihre Wünsche, Budget und Kriterien. Unverbindlich, per Anruf oder vor Ort auf Pelješac."
+      },
+      {
+        "title": "Kuratierte Auswahl",
+        "body": "Wir präsentieren nur passende Objekte, einschließlich vertraulicher Off-Market Angebote."
+      },
+      {
+        "title": "Vor-Ort Besichtigungen",
+        "body": "Wir besichtigen gemeinsam und ohne Eile. Wir zeigen Vor- und Nachteile der Immobilie transparent auf."
+      },
+      {
+        "title": "Rechtliche Abwicklung und Übergabe",
+        "body": "Wir begleiten den gesamten Kaufprozess in Zusammenarbeit mit Anwalt und Notar bis zur Grundbucheintragung."
+      }
+    ]
+  },
+  "offMarket": {
+    "title": "Einige der besten Immobilien erreichen nie den offenen Markt.",
+    "body": "Viele Eigentümer verkaufen ihre Immobilien diskret. Teilen Sie uns Ihre Wünsche mit für direkten Zugang zu neuen Objekten.",
+    "cta": "Kriterien mitteilen"
+  },
+  "finalCta": {
+    "title": "Finden wir Ihre Wunschimmobilie auf Pelješac.",
+    "subtitle": "Melden Sie sich bei uns. Ein unverbindliches Gespräch erspart Ihnen Monate der Suche.",
+    "button": "Kontakt aufnehmen",
+    "orCall": "oder rufen Sie uns direkt an"
+  },
+  "footer": {
+    "tagline": "Boutique Immobilienagentur auf Pelješac, Kroatien. Wir kennen jede Lage und jeden Eigentümer persönlich.",
+    "pages": "Seiten",
+    "locations": "Orte",
+    "contact": "Kontakt",
+    "privacy": "Datenschutz",
+    "license": "Maklerlizenz: 123/2024, Kroatische Wirtschaftskammer",
+    "rights": "Alle Rechte vorbehalten."
+  },
+  "properties": {
+    "title": "Immobilienangebot auf Pelješac",
+    "breadcrumbHome": "Startseite",
+    "breadcrumb": "Immobilien",
+    "results": "{count, plural, one {# Immobilie} other {# Immobilien}}",
+    "reserved": "Reserviert",
+    "filters": {
+      "title": "Immobilien suchen",
+      "button": "Filter",
+      "type": "Immobilientyp",
+      "allTypes": "Alle Typen",
+      "price": "Preis (€)",
+      "anyPrice": "Alle Preise",
+      "priceUpTo": "bis {price}",
+      "priceFrom": "ab {price}",
+      "seaDistance": "Entfernung zum Meer",
+      "anyDistance": "Beliebig",
+      "under100": "< 100 m",
+      "under500": "< 500 m",
+      "under1km": "< 1 km",
+      "sort": "Sortieren nach",
+      "sortNewest": "Neueste zuerst",
+      "sortPriceAsc": "Preis: aufsteigend",
+      "sortPriceDesc": "Preis: absteigend",
+      "clearAll": "Filter zurücksetzen",
+      "apply": "Filter anwenden",
+      "selected": "{count} ausgewählt"
+    },
+    "types": {
+      "house": "Haus / Villa",
+      "apartment": "Wohnung / Apartment",
+      "land": "Baugrundstück",
+      "stone-ruin": "Steinhaus zum Renovieren"
+    },
+    "pagination": {
+      "previous": "Zurück",
+      "next": "Weiter",
+      "page": "Seite {page} von {total}"
+    },
+    "bottomCta": {
+      "title": "Nicht gefunden, was Sie suchen? Ein Teil des Portfolios ist off-market.",
+      "body": "Beschreiben Sie Ihre Wunschimmobilie auf Pelješac und wir benachrichtigen Sie bei passenden Angeboten.",
+      "lookingFor": "Was für eine Immobilie suchen Sie?",
+      "lookingForPlaceholder": "z. B. Steinhaus am Meer, Viganj oder Orebić, Budget bis 350.000 €",
+      "budget": "Ungefähres Budget (€)",
+      "submit": "Anfrage absenden"
+    }
+  },
+  "property": {
+    "viewAllPhotos": "Alle Fotos ansehen ({count})",
+    "droneVideo": "Drohnenvideo",
+    "photos": "Fotogalerie",
+    "inquire": "Anfrage für diese Immobilie senden",
+    "aboutProperty": "Objektbeschreibung",
+    "aboutLocation": "Über die Lage",
+    "papersTitle": "Status der Unterlagen",
+    "priceOnRequest": "Preis auf Anfrage",
+    "perM2": "≈ {price}/m²",
+    "approximateLocation": "Ungefähre Lage dargestellt. Genaue Adresse und Flurstück auf Anfrage.",
+    "similar": "Ähnliche Immobilien auf Pelješac",
+    "weSpeak": "Wir sprechen HR / EN / DE",
+    "yourAgent": "Ihr Ansprechpartner",
+    "whatsapp": "WhatsApp Kontakt",
+    "call": "Agenten anrufen",
+    "inquiryPlaceholder": "Ich interessiere mich für die Immobilie: {title}",
+    "specs": {
+      "area": "Wohnfläche",
+      "landArea": "Grundstücksfläche",
+      "bedrooms": "Schlafzimmer",
+      "bathrooms": "Badezimmer",
+      "floors": "Etagen",
+      "condition": "Zustand",
+      "seaDistance": "Entfernung zum Meer",
+      "parking": "Parkplatz",
+      "parkingYes": "Ja",
+      "parkingNo": "Nein"
+    },
+    "status": {
+      "available": "Verfügbar",
+      "reserved": "Reserviert",
+      "sold": "Verkauft"
+    }
+  },
+  "selling": {
+    "title": "Sie verkaufen auf Pelješac?",
+    "subtitle": "Wahrscheinlich kennen wir den Käufer für Ihre Immobilie bereits.",
+    "pitchTitle": "Ernsthafte Käufer, keine Zeitverschwendung",
+    "pitchItems": [
+      {
+        "title": "Internationale Reichweite",
+        "body": "Unsere Käufer kommen aus Deutschland, Österreich und der Schweiz, aus Großbritannien und Skandinavien. Sie sind geprüft und haben ein klares Budget."
+      },
+      {
+        "title": "Präsentation, die verkauft",
+        "body": "Professionelle Fotografie, Drohnenaufnahmen und ehrliche Darstellung. Keine Beschönigung, die sich bei der Besichtigung rächt."
+      },
+      {
+        "title": "Diskretion auf Wunsch",
+        "body": "Sie möchten kein öffentliches Inserat? Wir bieten Ihre Immobilie still an, nur geprüften Käufern aus unserem Netzwerk."
+      }
+    ],
+    "processTitle": "Fünf Schritte zum Verkauf",
+    "processSteps": [
+      {
+        "title": "Kostenlose Bewertung & Besichtigung",
+        "body": "Wir kommen vor Ort, sehen uns die Immobilie an und geben Ihnen eine realistische Werteinschätzung."
+      },
+      {
+        "title": "Prüfung der Unterlagen",
+        "body": "Wir erkennen Probleme in den Unterlagen, bevor Käufer sie erkennen, und helfen, sie zu lösen."
+      },
+      {
+        "title": "Präsentation & Marketing",
+        "body": "Fotografie, Drohne, Texte in drei Sprachen und Platzierung bei den richtigen Käufern."
+      },
+      {
+        "title": "Besichtigungen & Verhandlung",
+        "body": "Wir führen die Besichtigungen und verhandeln in Ihrem Interesse, ohne Druck."
+      },
+      {
+        "title": "Abschluss",
+        "body": "Anwälte, Notar, Steuern. Wir begleiten Sie bis zur Zahlung und Übergabe."
+      }
+    ],
+    "formTitle": "Erzählen Sie uns von Ihrer Immobilie",
+    "formLocation": "Lage",
+    "formType": "Immobilientyp",
+    "formSize": "Ungefähre Fläche (m²)",
+    "formMessage": "Nachricht",
+    "orCall": "Oder rufen Sie uns einfach an:",
+    "faqTitle": "Häufige Fragen zum Verkauf",
+    "faq": [
+      {
+        "question": "Wie hoch ist die Provision und wer zahlt sie?",
+        "answer": "Die Provision wird im Maklervertrag festgelegt, bevor wir beginnen, transparent und ohne versteckte Kosten. Sie zahlt die Partei, die uns beauftragt hat, wie vereinbart."
+      },
+      {
+        "question": "Wie lange dauert ein Verkauf?",
+        "answer": "Realistisch bewertete Immobilien auf Pelješac verkaufen sich meist innerhalb von sechs bis zwölf Monaten. Überteuerte stehen jahrelang, deshalb beginnen wir mit einer ehrlichen Bewertung."
+      },
+      {
+        "question": "Was, wenn die Unterlagen nicht sauber sind?",
+        "answer": "Das lösen wir vor der Vermarktung. Wir prüfen Eigentum, Lasten und Genehmigungen und klären mit einem Anwalt, was fehlt, bevor ein Käufer überhaupt fragt."
+      },
+      {
+        "question": "Kann ich diskret verkaufen, ohne öffentliches Inserat?",
+        "answer": "Ja. Einen Teil unseres Angebots zeigen wir nur geprüften Käufern aus unserer Datenbank, ohne Fotos auf Portalen und ohne neugierige Nachbarn."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Sprechen wir.",
+    "detailsTitle": "Kontaktdaten",
+    "phone": "Telefon",
+    "email": "E-Mail",
+    "address": "Adresse",
+    "addressValue": "Obala pomoraca 1, 20250 Orebić, Kroatien",
+    "hours": "Öffnungszeiten",
+    "hoursValue": "Mo bis Sa, 9:00 bis 18:00 Uhr",
+    "languages": "Wir sprechen HR / EN / DE",
+    "formTitle": "Nachricht senden",
+    "interest": "Ich interessiere mich für",
+    "interestBuying": "Kauf",
+    "interestSelling": "Verkauf",
+    "interestOther": "Sonstiges",
+    "success": "Vielen Dank für Ihre Nachricht. Wir antworten so schnell wie möglich.",
+    "responseNote": "Wir antworten so schnell wie möglich.",
+    "budget": "Ungefähres Budget",
+    "budgetOptions": [
+      "bis € 200.000",
+      "€ 200.000 bis € 500.000",
+      "€ 500.000 bis € 1.000.000",
+      "über € 1.000.000"
+    ],
+    "timeline": "Zeitrahmen",
+    "timelineOptions": [
+      "So bald wie möglich",
+      "Innerhalb von 6 Monaten",
+      "Innerhalb eines Jahres",
+      "Ich schaue mich nur um"
+    ],
+    "optional": "Optional"
+  },
+  "forms": {
+    "name": "Vor- und Nachname",
+    "email": "E-Mail-Adresse",
+    "phone": "Telefon (optional)",
+    "message": "Nachricht",
+    "note": "Anmerkung (optional)",
+    "notePlaceholder": "Möchten Sie noch etwas ergänzen? Gewünschte Lage auf Pelješac, Budget, Finanzierung, besondere Wünsche…",
+    "consent": "Ich bin einverstanden, dass Sottomonte meine Daten zur Beantwortung meiner Anfrage speichert, gemäß der <link>Datenschutzerklärung</link>.",
+    "submit": "Anfrage senden",
+    "sending": "Wird gesendet…",
+    "success": "Vielen Dank. Wir antworten so schnell wie möglich.",
+    "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder rufen Sie uns an.",
+    "required": "Pflichtfeld",
+    "invalidEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+    "consentRequired": "Einwilligung erforderlich"
+  },
+  "consent": {
+    "text": "Wir verwenden Cookies für anonyme Besucherstatistiken (Google Analytics). Persönliche Daten geben wir niemals an Dritte weiter.",
+    "accept": "Akzeptieren",
+    "decline": "Ablehnen",
+    "privacy": "Datenschutzerklärung"
+  },
+  "meta": {
+    "home": {
+      "title": "Immobilien auf Pelješac kaufen: Häuser & Grundstücke | Sottomonte",
+      "description": "Sie suchen Immobilien auf der Halbinsel Pelješac? Wir bieten geprüfte Häuser, Grundstücke am Meer und Steinhäuser zum Kauf. Jetzt informieren."
+    },
+    "properties": {
+      "title": "Immobilien zum Kauf auf Pelješac: Angebote | Sottomonte",
+      "description": "Entdecken Sie geprüfte Immobilien zum Kauf auf Pelješac, Kroatien. Häuser, Baugrundstücke und Wohnungen am Meer. Jetzt Portfolio durchstöbern."
+    },
+    "selling": {
+      "title": "Immobilie auf Pelješac verkaufen: Agentur | Sottomonte",
+      "description": "Möchten Sie ein Haus oder Grundstück auf Pelješac verkaufen? Wir verbinden Sie mit internationalen Käufern. Kostenlose Bewertung und Diskretion."
+    },
+    "contact": {
+      "title": "Kontakt: Immobilienagentur Pelješac | Sottomonte",
+      "description": "Kontaktieren Sie unsere Immobilienagentur auf Pelješac per Telefon, E-Mail oder WhatsApp. Schnelle Antwort innerhalb von 24 Stunden."
+    },
+    "buying": {
+      "title": "Immobilie auf Pelješac kaufen: Ablauf und Kosten | Sottomonte",
+      "description": "Leitfaden zum Immobilienkauf auf Pelješac für ausländische Käufer. Erfahren Sie alles über Kaufablauf, Steuern, rechtliche Prüfung und Nebenkosten."
+    }
+  },
+  "contactBar": {
+    "call": "Anrufen"
+  },
+  "trust": {
+    "reply": "Antwort so schnell wie möglich",
+    "licensed": "Lizenzierte Immobilienagentur, HGK",
+    "languages": "Wir sprechen DE / EN / HR"
+  },
+  "buying": {
+    "title": "Immobilienkauf auf Pelješac, Kroatien",
+    "subtitle": "Umfassender Leitfaden zu Kaufabwicklung, rechtlicher Prüfung, Steuern und Nebenkosten.",
+    "introStatement": "EU Bürger kaufen Immobilien in Kroatien zu den gleichen Bedingungen wie kroatische Staatsbürger.",
+    "introBody": "Die Sorge ausländischer Käufer vor unübersichtlichen Rechtslagen ist verständlich. Sottomonte garantiert vollständige Transparenz: Grundbuchprüfung, Baugenehmigungen und zweisprachige Verträge.",
+    "processTitle": "Schritt für Schritt zum Immobilienkauf",
+    "processSteps": [
+      {
+        "title": "Erstgespräch und Kriterien",
+        "body": "Wir analysieren Ihre Wünsche und präsentieren passende Objekte auf Pelješac, auch off-market."
+      },
+      {
+        "title": "Besichtigungen vor Ort",
+        "body": "Wir besichtigen Immobilien ohne Druck und erklären Lage, Infrastruktur und Wertentwicklung."
+      },
+      {
+        "title": "Rechtliche Dokumentenprüfung",
+        "body": "Vor jeder Anzahlung prüfen wir Grundbuch, Kataster, Lasten und Baugenehmigungen gründlich."
+      },
+      {
+        "title": "Kaufvertrag und Notar",
+        "body": "Ein Anwalt erstellt einen zweisprachigen Kaufvertrag. Die Beglaubigung erfolgt beim Notar, auch per Vollmacht möglich."
+      },
+      {
+        "title": "Steuer, Grundbucheintrag und Übergabe",
+        "body": "Wir übernehmen die Grunderwerbsteuer-Meldung, den Grundbuchantrag und die kaufmännische Übergabe."
+      }
+    ],
+    "costsTitle": "Übersicht der Kaufnebenkosten",
+    "costsIntro": "Zusätzlich zum Kaufpreis fallen in Kroatien Nebenkosten von ca. 4% bis 5% an. Hier die Aufstellung:",
+    "costs": [
+      {
+        "label": "Grunderwerbsteuer",
+        "value": "3%",
+        "note": "Einmalige Zahlung nach dem Kauf. Entfällt bei Neubauten mit ausgewiesener Mehrwertsteuer."
+      },
+      {
+        "label": "Notar- und Grundbuchgebühren",
+        "value": "200 bis 500 €",
+        "note": "Gebühren für Unterschriftsbeglaubigungen und Eintragungsantrag ins Grundbuch."
+      },
+      {
+        "label": "Anwalt",
+        "value": "etwa 1%",
+        "note": "Nicht verpflichtend, aber empfohlen. Wir arbeiten mit bewährten Anwälten, die Ihre Sprache sprechen."
+      },
+      {
+        "label": "Maklerprovision",
+        "value": "laut Vertrag",
+        "note": "Wird transparent und im Voraus vereinbart, vor der ersten Besichtigung."
+      }
+    ],
+    "faqTitle": "Häufige Fragen zum Kauf",
+    "faq": [
+      {
+        "question": "Kann ich als Ausländer in Kroatien eine Immobilie kaufen?",
+        "answer": "EU-Bürger kaufen ohne jede Einschränkung, genau wie kroatische Staatsbürger. Bürger aus Drittstaaten benötigen eine Genehmigung des Justizministeriums nach dem Gegenseitigkeitsprinzip oder kaufen über eine kroatische Gesellschaft. Durch beide Verfahren führen wir Sie."
+      },
+      {
+        "question": "Wie hoch sind die Gesamtkosten zusätzlich zum Kaufpreis?",
+        "answer": "Etwa 4 bis 5% zusätzlich: 3% Grunderwerbsteuer, Notar und Grundbuch sowie Anwalt. Die Maklerprovision wird im Voraus vereinbart, vor der ersten Besichtigung."
+      },
+      {
+        "question": "Wie lange dauert der Kauf?",
+        "answer": "Von der Einigung bis zur Vertragsunterzeichnung vergehen meist zwei bis vier Wochen, mit Steuer und Grundbucheintrag dauert das gesamte Verfahren vier bis acht Wochen. Die Schlüssel erhalten Sie in der Regel direkt nach der Zahlung."
+      },
+      {
+        "question": "Muss ich für den Kauf in Kroatien sein?",
+        "answer": "Nein. Mit einer beim Notar oder im kroatischen Konsulat beglaubigten Vollmacht können wir das gesamte Verfahren ohne Ihre Anreise abwickeln."
+      },
+      {
+        "question": "Was prüfen Sie vor dem Kauf?",
+        "answer": "Eigentum 1/1, Lasten und Hypotheken, die Übereinstimmung von Kataster und Grundbuch sowie Bau- und Nutzungsgenehmigung. Wenn etwas nicht sauber ist, erfahren Sie es von uns, vor dem Angebot."
+      },
+      {
+        "question": "Darf ich die Immobilie an Touristen vermieten?",
+        "answer": "Ja, mit einem Kategorisierungsbescheid. Das Verfahren ist Standard, und wir helfen Ihnen, es nach dem Kauf einzuleiten."
+      }
+    ]
+  },
+  "locations": {
+    "metaTitle": "{name}, Immobilien auf Pelješac | Sottomonte",
+    "metaDescription": "Häuser, Grundstücke und Wohnungen in {name} auf Pelješac. Wir kennen jede Straße und jeden Eigentümer persönlich.",
+    "aboutTitle": "Über den Ort",
+    "propertiesTitle": "Aktuell im Angebot",
+    "viewFiltered": "Mit Filtern durchsuchen",
+    "emptyTitle": "Für {name} fragen Sie uns direkt.",
+    "emptyBody": "Nichts öffentlich inseriert heißt nicht nichts verfügbar. Ein großer Teil dessen, was auf Pelješac verkauft wird, erreicht das Internet nie, weil die Eigentümer es so wollen. Sagen Sie uns, was Sie suchen, und wir prüfen, was in {name} gerade frei ist, auch das, worüber noch niemand spricht.",
+    "emptyCta": "Sagen Sie uns, was Sie suchen"
+  }
+}
