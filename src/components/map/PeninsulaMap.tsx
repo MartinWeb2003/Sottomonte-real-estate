@@ -2,13 +2,17 @@
 
 import { useEffect, useRef } from 'react';
 import '@maptiler/sdk/dist/maptiler-sdk.css';
+import { MAP_ATTRIBUTION, collapseAttribution } from './attribution';
+import { AGENCY } from '@/lib/utils';
 
 /**
  * Small office / coverage map (contact page). Navy style, gold marker.
+ * Defaults to the office pin in AGENCY so the map, the footer address and the
+ * PostalAddress JSON-LD can never drift apart.
  */
 export function PeninsulaMap({
-  lat = 42.9758,
-  lng = 17.1786, // Orebić
+  lat = AGENCY.coordinates.lat,
+  lng = AGENCY.coordinates.lng,
   zoom = 10,
   className = 'h-64 w-full',
 }: {
@@ -38,7 +42,18 @@ export function PeninsulaMap({
         zoom,
         navigationControl: false,
         geolocateControl: false,
+        // Replaced below with a compact version. See attribution.ts for why
+        // the credit has to be passed in by hand.
+        forceNoAttributionControl: true,
       });
+      map.addControl(
+        new maptiler.AttributionControl({
+          compact: true,
+          customAttribution: MAP_ATTRIBUTION,
+        }),
+        'bottom-right'
+      );
+      collapseAttribution(container);
       map.on('load', () => {
         if (!map) return;
         const el = document.createElement('div');

@@ -62,10 +62,15 @@ export function realEstateAgentJsonLd() {
     email: AGENCY.email,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Obala pomoraca 1',
-      addressLocality: 'Orebić',
-      postalCode: '20250',
+      streetAddress: AGENCY.street,
+      addressLocality: AGENCY.city,
+      postalCode: AGENCY.postalCode,
       addressCountry: 'HR',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: AGENCY.coordinates.lat,
+      longitude: AGENCY.coordinates.lng,
     },
     areaServed: 'Pelješac peninsula, Croatia',
     knowsLanguage: ['hr', 'en', 'de'],

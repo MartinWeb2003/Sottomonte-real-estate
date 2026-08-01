@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import '@maptiler/sdk/dist/maptiler-sdk.css';
+import { MAP_ATTRIBUTION, collapseAttribution } from './attribution';
 
 /**
  * MapTiler map with navy-toned style and gold marker.
@@ -41,7 +42,17 @@ export function PropertyMap({
         zoom: exact ? 15 : 13,
         navigationControl: 'top-right',
         geolocateControl: false,
+        // See attribution.ts: the credit is required and must be passed by hand.
+        forceNoAttributionControl: true,
       });
+      map.addControl(
+        new maptiler.AttributionControl({
+          compact: true,
+          customAttribution: MAP_ATTRIBUTION,
+        }),
+        'bottom-right'
+      );
+      collapseAttribution(container);
 
       map.on('load', () => {
         if (!map) return;

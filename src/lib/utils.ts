@@ -47,9 +47,16 @@ export function whatsappHref(phone: string, text?: string) {
 
 export const AGENCY = {
   name: 'Sottomonte',
-  phone: '+385 98 123 4567',
+  phone: '+385 98 589 235',
   email: 'info@sottomonte.hr',
-  address: 'Obala pomoraca 1, 20250 Orebić',
+  address: 'Ul. Kralja Zvonimira 8, 20250 Orebić',
+  /** Split form, for the PostalAddress JSON-LD. */
+  street: 'Ul. Kralja Zvonimira 8',
+  city: 'Orebić',
+  postalCode: '20250',
+  /** Office pin on the contact-page map. Exact, taken from the map listing,
+      not geocoded from the street name. */
+  coordinates: { lat: 42.976336, lng: 17.187399 },
   instagram: 'https://instagram.com/sottomonte.hr',
   facebook: 'https://facebook.com/sottomonte.hr',
 };

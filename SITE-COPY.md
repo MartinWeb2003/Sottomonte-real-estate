@@ -1469,9 +1469,9 @@ Generirano iz `messages/hr.json`, `en.json`, `de.json`, jedinog izvora teksta na
 
 **KLJUČ: `contact.addressValue`**
 
-- HR: Obala pomoraca 1, 20250 Orebić, Hrvatska
-- EN: Obala pomoraca 1, 20250 Orebić, Croatia
-- DE: Obala pomoraca 1, 20250 Orebić, Kroatien
+- HR: Ul. Kralja Zvonimira 8, 20250 Orebić, Hrvatska
+- EN: Ul. Kralja Zvonimira 8, 20250 Orebić, Croatia
+- DE: Ul. Kralja Zvonimira 8, 20250 Orebić, Kroatien
 
 **KLJUČ: `contact.hours`**
 
