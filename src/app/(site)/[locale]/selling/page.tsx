@@ -53,20 +53,19 @@ export default async function SellingPage({
           <FadeUp>
             <SectionHeader title={t('pitchTitle')} />
           </FadeUp>
-          {/* Subgrid so the number, title and body of all three columns sit on
-              shared rows. Without it a title that wraps to two lines pushes its
-              own body down and the paragraphs stop lining up. Row heights come
-              from the tallest title, whatever the locale does to it. */}
-          <div className="mt-14 grid gap-12 md:mt-20 md:grid-cols-3 md:grid-rows-[auto_auto_1fr] md:gap-x-10 md:gap-y-0">
+          {/* Subgrid so the title and body of all three columns sit on shared
+              rows. Without it a title that wraps to two lines pushes its own
+              body down and the paragraphs stop lining up. Row heights come from
+              the tallest title, whatever the locale does to it.
+              Two rows now, not three: the 01/02/03 numbers were removed. */}
+          <div className="mt-14 grid gap-12 md:mt-20 md:grid-cols-3 md:grid-rows-[auto_1fr] md:gap-x-10 md:gap-y-0">
             {pitchItems.map((i) => (
               <FadeUp
                 key={i}
                 delay={i * 120}
-                spotlight
-                className="border-t border-gold px-5 pb-8 pt-8 md:row-span-3 md:grid md:grid-rows-subgrid"
+                className="border-t border-gold pt-8 md:row-span-2 md:grid md:grid-rows-subgrid"
               >
-                <p className="font-display text-xl text-gold">0{i + 1}</p>
-                <h3 className="mt-4 font-display text-2xl text-navy">
+                <h3 className="font-display text-2xl text-navy">
                   {t(`pitchItems.${i}.title`)}
                 </h3>
                 <p className="mt-4 text-sm leading-relaxed text-muted md:text-base">
@@ -100,15 +99,6 @@ export default async function SellingPage({
             <div className="mt-10">
               <SellerLeadForm />
             </div>
-            <p className="mt-8 text-sm text-muted">
-              {t('orCall')}{' '}
-              <a
-                href={`tel:${AGENCY.phone.replace(/\s/g, '')}`}
-                className="font-medium text-navy transition-colors hover:text-gold"
-              >
-                {AGENCY.phone}
-              </a>
-            </p>
           </div>
         </FadeUp>
       </section>

@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { PageHeader } from '@/components/sections/PageHeader';
 import { FinalCTA } from '@/components/sections/FinalCTA';
 import { SectionHeader } from '@/components/ui/SectionHeader';
-import { HairlineDivider } from '@/components/ui/HairlineDivider';
 import { FadeUp } from '@/components/ui/FadeUp';
+import { HairlineDivider } from '@/components/ui/HairlineDivider';
 import { FaqSection, type FaqItem } from '@/components/sections/FaqSection';
 import { buildMetadata, faqJsonLd, JsonLd } from '@/lib/seo';
 import type { Locale } from '@/types';
@@ -55,19 +56,34 @@ export default async function BuyingPage({
         subtitle={t('subtitle')}
       />
 
-      {/* Reassurance first: the one sentence every foreign buyer needs */}
+      {/* Reassurance: the one thing every foreign buyer needs answered.
+          60/40 editorial split, text left, photo right, per the layout rule
+          preferring asymmetry over centered blocks. */}
       <section className="section-pad bg-white">
-        <FadeUp className="container-site">
-          <div className="mx-auto max-w-[720px] text-center">
-            <HairlineDivider width="w-[60px]" className="mx-auto mb-10" />
-            <p className="font-display text-2xl leading-snug text-navy md:text-[40px] md:leading-[1.25]">
-              {t('introStatement')}
-            </p>
-            <p className="mt-8 text-base leading-relaxed text-muted md:text-lg">
-              {t('introBody')}
-            </p>
+        <div className="container-site">
+          <div className="grid items-center gap-12 lg:grid-cols-[60fr_40fr] lg:gap-20">
+            <FadeUp>
+              <HairlineDivider width="w-[60px]" className="mb-10" />
+              <p className="font-display text-2xl leading-snug text-navy md:text-[40px] md:leading-[1.25]">
+                {t('introStatement')}
+              </p>
+              <p className="mt-8 max-w-xl text-base leading-relaxed text-muted md:text-lg">
+                {t('introBody')}
+              </p>
+            </FadeUp>
+            <FadeUp delay={150}>
+              <div className="relative aspect-[4/5] overflow-hidden bg-navy/5">
+                <Image
+                  src={IMAGES.buyingIntro}
+                  alt=""
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                />
+              </div>
+            </FadeUp>
           </div>
-        </FadeUp>
+        </div>
       </section>
 
       {/* Process — numbered steps on a gold line, same pattern as selling */}

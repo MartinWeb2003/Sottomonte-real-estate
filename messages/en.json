@@ -70,8 +70,7 @@
   "finalCta": {
     "title": "Let's find your dream property on Pelješac, Croatia.",
     "subtitle": "Get in touch. A quick consultation costs nothing and saves months of searching.",
-    "button": "Contact us",
-    "orCall": "or call us directly"
+    "button": "Contact us"
   },
   "footer": {
     "tagline": "Boutique real estate agency on Pelješac, Croatia. We know every location and property owner personally.",
@@ -79,7 +78,6 @@
     "locations": "Locations",
     "contact": "Contact",
     "privacy": "Privacy",
-    "license": "Brokerage license: 123/2024, Croatian Chamber of Economy",
     "rights": "All rights reserved."
   },
   "properties": {
@@ -144,8 +142,6 @@
     "similar": "Similar properties on Pelješac",
     "weSpeak": "We speak HR / EN / DE",
     "yourAgent": "Your real estate agent",
-    "whatsapp": "WhatsApp contact",
-    "call": "Call agent",
     "inquiryPlaceholder": "I am interested in property: {title}",
     "specs": {
       "area": "Living area",
@@ -211,7 +207,6 @@
     "formType": "Property type",
     "formSize": "Approximate size (m²)",
     "formMessage": "Message",
-    "orCall": "Or just call us:",
     "faqTitle": "Frequently asked questions about selling",
     "faq": [
       {
@@ -235,7 +230,6 @@
   "contact": {
     "title": "Let's talk.",
     "detailsTitle": "Contact details",
-    "phone": "Phone",
     "email": "Email",
     "address": "Address",
     "addressValue": "Ul. Kralja Zvonimira 8, 20250 Orebić, Croatia",
@@ -248,7 +242,6 @@
     "interestSelling": "Selling",
     "interestOther": "Other",
     "success": "Thank you for your message. We will reply as soon as possible.",
-    "responseNote": "We reply as soon as possible.",
     "budget": "Approximate budget",
     "budgetOptions": [
       "up to € 200.000",
@@ -308,9 +301,6 @@
       "title": "Buying Property in Pelješac Croatia: Process & Costs | Sottomonte",
       "description": "Complete guide to buying real estate on Pelješac, Croatia. Learn about legal procedures, property transfer tax, notary steps, and buying costs."
     }
-  },
-  "contactBar": {
-    "call": "Call us"
   },
   "trust": {
     "reply": "We reply as soon as possible",

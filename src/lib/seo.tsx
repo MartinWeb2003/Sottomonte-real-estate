@@ -58,7 +58,6 @@ export function realEstateAgentJsonLd() {
     '@type': 'RealEstateAgent',
     name: AGENCY.name,
     url: SITE_URL,
-    telephone: AGENCY.phone,
     email: AGENCY.email,
     address: {
       '@type': 'PostalAddress',

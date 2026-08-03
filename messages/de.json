@@ -70,8 +70,7 @@
   "finalCta": {
     "title": "Finden wir Ihre Wunschimmobilie auf Pelješac.",
     "subtitle": "Melden Sie sich bei uns. Ein unverbindliches Gespräch erspart Ihnen Monate der Suche.",
-    "button": "Kontakt aufnehmen",
-    "orCall": "oder rufen Sie uns direkt an"
+    "button": "Kontakt aufnehmen"
   },
   "footer": {
     "tagline": "Boutique Immobilienagentur auf Pelješac, Kroatien. Wir kennen jede Lage und jeden Eigentümer persönlich.",
@@ -79,7 +78,6 @@
     "locations": "Orte",
     "contact": "Kontakt",
     "privacy": "Datenschutz",
-    "license": "Maklerlizenz: 123/2024, Kroatische Wirtschaftskammer",
     "rights": "Alle Rechte vorbehalten."
   },
   "properties": {
@@ -144,8 +142,6 @@
     "similar": "Ähnliche Immobilien auf Pelješac",
     "weSpeak": "Wir sprechen HR / EN / DE",
     "yourAgent": "Ihr Ansprechpartner",
-    "whatsapp": "WhatsApp Kontakt",
-    "call": "Agenten anrufen",
     "inquiryPlaceholder": "Ich interessiere mich für die Immobilie: {title}",
     "specs": {
       "area": "Wohnfläche",
@@ -211,7 +207,6 @@
     "formType": "Immobilientyp",
     "formSize": "Ungefähre Fläche (m²)",
     "formMessage": "Nachricht",
-    "orCall": "Oder rufen Sie uns einfach an:",
     "faqTitle": "Häufige Fragen zum Verkauf",
     "faq": [
       {
@@ -235,7 +230,6 @@
   "contact": {
     "title": "Sprechen wir.",
     "detailsTitle": "Kontaktdaten",
-    "phone": "Telefon",
     "email": "E-Mail",
     "address": "Adresse",
     "addressValue": "Ul. Kralja Zvonimira 8, 20250 Orebić, Kroatien",
@@ -248,7 +242,6 @@
     "interestSelling": "Verkauf",
     "interestOther": "Sonstiges",
     "success": "Vielen Dank für Ihre Nachricht. Wir antworten so schnell wie möglich.",
-    "responseNote": "Wir antworten so schnell wie möglich.",
     "budget": "Ungefähres Budget",
     "budgetOptions": [
       "bis € 200.000",
@@ -308,9 +301,6 @@
       "title": "Immobilie auf Pelješac kaufen: Ablauf und Kosten | Sottomonte",
       "description": "Leitfaden zum Immobilienkauf auf Pelješac für ausländische Käufer. Erfahren Sie alles über Kaufablauf, Steuern, rechtliche Prüfung und Nebenkosten."
     }
-  },
-  "contactBar": {
-    "call": "Anrufen"
   },
   "trust": {
     "reply": "Antwort so schnell wie möglich",

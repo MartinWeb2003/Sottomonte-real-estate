@@ -26,6 +26,11 @@ export const IMAGES = {
   /** Reuses the hero shot until a dedicated banner-buying.jpg is provided. */
   bannerBuying: '/images/hero.jpg',
 
+  /** Buying page, image beside the reassurance statement. Rendered into a 4:5
+      portrait slot, so a landscape source gets cropped hard on the sides.
+      Wants at least 1200x1500 to stay sharp on a retina screen. */
+  buyingIntro: '/images/document-image.jpg',
+
   /** Off-market teaser detail shot (stone wall, old door). Portrait 4:5. */
   offMarketDetail: '/images/off-market.jpeg',
 

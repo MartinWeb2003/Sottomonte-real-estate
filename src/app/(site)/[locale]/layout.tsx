@@ -6,7 +6,6 @@ import { routing } from '@/i18n/routing';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { ConsentBanner } from '@/components/layout/ConsentBanner';
-import { MobileContactBar } from '@/components/layout/MobileContactBar';
 import { getLocations } from '@sanity-config/lib/queries';
 import { JsonLd, realEstateAgentJsonLd } from '@/lib/seo';
 
@@ -51,7 +50,6 @@ export default async function LocaleLayout({
           <Navbar />
           <main>{children}</main>
           <Footer locations={locations} />
-          <MobileContactBar />
           <ConsentBanner />
         </NextIntlClientProvider>
         <JsonLd data={realEstateAgentJsonLd()} />

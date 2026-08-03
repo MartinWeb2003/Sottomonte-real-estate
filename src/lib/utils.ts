@@ -1,3 +1,5 @@
+import { clsx, type ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
 import type { Locale, LocalizedString, LocalizedPortableText } from '@/types';
 
 /**
@@ -38,16 +40,8 @@ export function cn(...classes: Array<string | false | null | undefined>) {
   return classes.filter(Boolean).join(' ');
 }
 
-/** Builds a WhatsApp deep link from a phone number in any human format */
-export function whatsappHref(phone: string, text?: string) {
-  const digits = phone.replace(/[^\d]/g, '');
-  const query = text ? `?text=${encodeURIComponent(text)}` : '';
-  return `https://wa.me/${digits}${query}`;
-}
-
 export const AGENCY = {
   name: 'Sottomonte',
-  phone: '+385 98 589 235',
   email: 'info@sottomonte.hr',
   address: 'Ul. Kralja Zvonimira 8, 20250 Orebić',
   /** Split form, for the PostalAddress JSON-LD. */

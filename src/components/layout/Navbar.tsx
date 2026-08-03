@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link, usePathname } from '@/i18n/routing';
-import { cn, AGENCY } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 import { LangSwitcher } from './LangSwitcher';
 import { MobileMenu } from './MobileMenu';
 import { NAV_ITEMS, isActive } from './navItems';
@@ -78,16 +78,8 @@ export function Navbar() {
               </Link>
             );
           })}
-          {/* Direct call: the fastest-converting lead path, always in reach */}
-          <a
-            href={`tel:${AGENCY.phone.replace(/\s/g, '')}`}
-            className={cn(
-              'hidden whitespace-nowrap text-sm font-medium tracking-wide transition-colors duration-300 lg:block',
-              solid ? 'text-navy hover:text-gold' : 'text-white hover:text-gold'
-            )}
-          >
-            {AGENCY.phone}
-          </a>
+          {/* The direct-call link that used to sit here went with the agency
+              phone number. Contact now runs through /contact and the forms. */}
           <LangSwitcher light={!solid} />
         </nav>
 

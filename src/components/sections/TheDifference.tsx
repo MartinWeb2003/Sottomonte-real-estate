@@ -31,9 +31,15 @@ export async function TheDifference() {
           {items.map((i) => (
             <FadeUp key={i} delay={i * 120}>
               <div className="border-t border-gold pt-8">
-                <p className="font-display text-xl text-gold">
-                  0{i + 1}
-                </p>
+                {/* Replaces the 01/02/03 numerals. The h-7 wrapper keeps the
+                    old line box, so the titles below sit exactly where the
+                    numbers used to put them. */}
+                <div className="flex h-7 items-center">
+                  <span
+                    aria-hidden
+                    className="block h-[14px] w-[14px] rounded-full border border-gold"
+                  />
+                </div>
                 <h3 className="mt-4 font-display text-2xl text-navy">
                   {t(`items.${i}.title`)}
                 </h3>

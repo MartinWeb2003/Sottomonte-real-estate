@@ -145,50 +145,6 @@
     animation: ken-burns 24s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 
-  /* Card lifts on hover and casts a soft shadow onto the page beneath it.
-     `isolation: isolate` gives the card its own stacking context so the
-     z-index:-1 shadow sits behind the card but still above the section
-     background, rather than disappearing behind it. */
-  .spotlight {
-    position: relative;
-    isolation: isolate;
-  }
-
-  /* All hover motion lives on this span, never on .spotlight itself: that
-     element is also .fade-up, which owns `transform` and the `transition`
-     shorthand and carries an inline transition-delay for the stagger.
-     Touching either there kills the scroll fade-in and makes hover lag.
-
-     Anchored to the bottom edge and following the cursor horizontally, so a
-     pointer near one side pools the shadow under that side. Settling
-     downward and widening as it fades in is what reads as the card lifting. */
-  .spotlight-glow {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 25%;
-    bottom: -22px;
-    z-index: -1;
-    pointer-events: none;
-    opacity: 0;
-    transform: translateY(-8px) scaleX(0.92);
-    transition:
-      opacity 500ms cubic-bezier(0.22, 1, 0.36, 1),
-      transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
-    background: radial-gradient(
-      55% 80% at var(--spot-x, 50%) 100%,
-      rgba(14, 42, 71, 0.22),
-      rgba(14, 42, 71, 0.08) 45%,
-      transparent 76%
-    );
-    filter: blur(18px);
-  }
-
-  .spotlight:hover .spotlight-glow {
-    opacity: 1;
-    transform: translateY(0) scaleX(1);
-  }
-
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
@@ -204,16 +160,6 @@
     .ken-burns {
       transform: none;
       animation: none;
-      transition: none;
-    }
-
-    .spotlight,
-    .spotlight:hover {
-      transform: none;
-      transition: none;
-    }
-
-    .spotlight-glow {
       transition: none;
     }
   }

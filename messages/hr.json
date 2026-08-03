@@ -70,8 +70,7 @@
   "finalCta": {
     "title": "Pronađimo vašu savršenu nekretninu na Pelješcu.",
     "subtitle": "Javite nam se. Neobvezujući razgovor štedi mjesece samostalnog traženja.",
-    "button": "Kontaktirajte nas",
-    "orCall": "ili nas nazovite izravno"
+    "button": "Kontaktirajte nas"
   },
   "footer": {
     "tagline": "Specijalizirana agencija za nekretnine na Pelješcu. Poznajemo svaku lokaciju, parcelu i vlasnika osobno.",
@@ -79,7 +78,6 @@
     "locations": "Lokacije",
     "contact": "Kontakt",
     "privacy": "Privatnost",
-    "license": "Licenca posredovanja: 123/2024, HGK",
     "rights": "Sva prava pridržana."
   },
   "properties": {
@@ -144,8 +142,6 @@
     "similar": "Slične nekretnine na Pelješcu",
     "weSpeak": "Govorimo HR / EN / DE",
     "yourAgent": "Vaš agent za nekretnine",
-    "whatsapp": "Kontaktirajte putem WhatsAppa",
-    "call": "Nazovite agenta",
     "inquiryPlaceholder": "Zanima me nekretnina: {title}",
     "specs": {
       "area": "Stambena površina",
@@ -211,7 +207,6 @@
     "formType": "Tip nekretnine",
     "formSize": "Približna površina (m²)",
     "formMessage": "Poruka",
-    "orCall": "Ili nas jednostavno nazovite:",
     "faqTitle": "Česta pitanja o prodaji",
     "faq": [
       {
@@ -235,7 +230,6 @@
   "contact": {
     "title": "Razgovarajmo.",
     "detailsTitle": "Kontakt podaci",
-    "phone": "Telefon",
     "email": "E-mail",
     "address": "Adresa",
     "addressValue": "Ul. Kralja Zvonimira 8, 20250 Orebić, Hrvatska",
@@ -248,7 +242,6 @@
     "interestSelling": "Prodaja",
     "interestOther": "Ostalo",
     "success": "Hvala vam na poruci. Javit ćemo se u najkraćem mogućem roku.",
-    "responseNote": "Odgovaramo u najkraćem mogućem roku.",
     "budget": "Okvirni budžet",
     "budgetOptions": [
       "do € 200.000",
@@ -308,9 +301,6 @@
       "title": "Kupnja nekretnine na Pelješcu: vodič i troškovi | Sottomonte",
       "description": "Kompletan vodič za kupnju nekretnina na Pelješcu za domaće i strane državljane. Saznajte sve o pravnom postupku, porezima i dodatnim troškovima."
     }
-  },
-  "contactBar": {
-    "call": "Nazovite nas"
   },
   "trust": {
     "reply": "Odgovaramo u najkraćem mogućem roku",

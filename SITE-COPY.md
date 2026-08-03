@@ -87,30 +87,11 @@ Generirano iz `messages/hr.json`, `en.json`, `de.json`, jedinog izvora teksta na
 - EN: Privacy
 - DE: Datenschutz
 
-**KLJUČ: `footer.license`**
-
-- HR: Licenca posredovanja: 123/2024, HGK
-- EN: Brokerage license: 123/2024, Croatian Chamber of Economy
-- DE: Maklerlizenz: 123/2024, Kroatische Wirtschaftskammer
-
 **KLJUČ: `footer.rights`**
 
 - HR: Sva prava pridržana.
 - EN: All rights reserved.
 - DE: Alle Rechte vorbehalten.
-
----
-
-# Global: mobile contact bar
-
-*The fixed call/WhatsApp bar at the bottom on phones.*
-
-
-**KLJUČ: `contactBar.call`**
-
-- HR: Nazovite nas
-- EN: Call us
-- DE: Anrufen
 
 ---
 
@@ -283,12 +264,6 @@ Generirano iz `messages/hr.json`, `en.json`, `de.json`, jedinog izvora teksta na
 - HR: Kontaktirajte nas
 - EN: Contact us
 - DE: Kontakt aufnehmen
-
-**KLJUČ: `finalCta.orCall`**
-
-- HR: ili nas nazovite izravno
-- EN: or call us directly
-- DE: oder rufen Sie uns direkt an
 
 ---
 
@@ -858,18 +833,6 @@ Generirano iz `messages/hr.json`, `en.json`, `de.json`, jedinog izvora teksta na
 - EN: Your real estate agent
 - DE: Ihr Ansprechpartner
 
-**KLJUČ: `property.whatsapp`**
-
-- HR: Kontaktirajte putem WhatsAppa
-- EN: WhatsApp contact
-- DE: WhatsApp Kontakt
-
-**KLJUČ: `property.call`**
-
-- HR: Nazovite agenta
-- EN: Call agent
-- DE: Agenten anrufen
-
 **KLJUČ: `property.inquiryPlaceholder`**
 
 - HR: Zanima me nekretnina: {title}
@@ -1370,12 +1333,6 @@ Generirano iz `messages/hr.json`, `en.json`, `de.json`, jedinog izvora teksta na
 - EN: Message
 - DE: Nachricht
 
-**KLJUČ: `selling.orCall`**
-
-- HR: Ili nas jednostavno nazovite:
-- EN: Or just call us:
-- DE: Oder rufen Sie uns einfach an:
-
 **KLJUČ: `selling.faqTitle`**
 
 - HR: Česta pitanja o prodaji
@@ -1449,12 +1406,6 @@ Generirano iz `messages/hr.json`, `en.json`, `de.json`, jedinog izvora teksta na
 - EN: Contact details
 - DE: Kontaktdaten
 
-**KLJUČ: `contact.phone`**
-
-- HR: Telefon
-- EN: Phone
-- DE: Telefon
-
 **KLJUČ: `contact.email`**
 
 - HR: E-mail
@@ -1526,12 +1477,6 @@ Generirano iz `messages/hr.json`, `en.json`, `de.json`, jedinog izvora teksta na
 - HR: Hvala vam na poruci. Javit ćemo se u najkraćem mogućem roku.
 - EN: Thank you for your message. We will reply as soon as possible.
 - DE: Vielen Dank für Ihre Nachricht. Wir antworten so schnell wie möglich.
-
-**KLJUČ: `contact.responseNote`**
-
-- HR: Odgovaramo u najkraćem mogućem roku.
-- EN: We reply as soon as possible.
-- DE: Wir antworten so schnell wie möglich.
 
 **KLJUČ: `contact.budget`**
 

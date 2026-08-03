@@ -13,20 +13,12 @@ export function FadeUp({
   className,
   delay = 0,
   as: Tag = 'div',
-  spotlight = false,
 }: {
   children: React.ReactNode;
   className?: string;
   /** stagger delay in ms */
   delay?: number;
   as?: 'div' | 'section' | 'li' | 'article';
-  /**
-   * Soft navy glow that follows the cursor inside this element, clipped to its
-   * own box so a cursor near a corner only lights that corner. Pointer coords
-   * are written straight to CSS custom properties, never to React state, so
-   * mousemove never triggers a re-render.
-   */
-  spotlight?: boolean;
 }) {
   const ref = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
@@ -47,21 +39,12 @@ export function FadeUp({
     return () => observer.disconnect();
   }, []);
 
-  const onMouseMove = (e: React.MouseEvent<HTMLElement>) => {
-    const el = e.currentTarget;
-    const rect = el.getBoundingClientRect();
-    el.style.setProperty('--spot-x', `${e.clientX - rect.left}px`);
-    el.style.setProperty('--spot-y', `${e.clientY - rect.top}px`);
-  };
-
   return (
     <Tag
       ref={ref as never}
-      className={cn('fade-up', spotlight && 'spotlight', visible && 'is-visible', className)}
+      className={cn('fade-up', visible && 'is-visible', className)}
       style={delay ? { transitionDelay: `${delay}ms` } : undefined}
-      onMouseMove={spotlight ? onMouseMove : undefined}
     >
-      {spotlight && <span aria-hidden className="spotlight-glow" />}
       {children}
     </Tag>
   );

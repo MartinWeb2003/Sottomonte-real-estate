@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { getTranslations, getLocale } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
-import { AGENCY, pickLocale, whatsappHref } from '@/lib/utils';
+import { AGENCY, pickLocale } from '@/lib/utils';
 import type { Locale, Location } from '@/types';
 import { NAV_ITEMS } from './navItems';
 import { LOGOS } from '@/lib/images';
@@ -91,21 +91,6 @@ export async function Footer({ locations }: { locations: Location[] }) {
           </p>
           <ul className="mt-5 space-y-3 text-sm text-white/80">
             <li>
-              <a href={`tel:${AGENCY.phone.replace(/\s/g, '')}`} className="transition-colors hover:text-white">
-                {AGENCY.phone}
-              </a>
-            </li>
-            <li>
-              <a
-                href={whatsappHref(AGENCY.phone)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-colors hover:text-white"
-              >
-                WhatsApp
-              </a>
-            </li>
-            <li>
               <a href={`mailto:${AGENCY.email}`} className="transition-colors hover:text-white">
                 {AGENCY.email}
               </a>
@@ -120,7 +105,11 @@ export async function Footer({ locations }: { locations: Location[] }) {
           <p>
             © Sottomonte {new Date().getFullYear()} · {t('rights')}
           </p>
-          <p>{t('license')}</p>
+          {/* Brokerage licence line removed: the number that was here was a
+              placeholder, and a fabricated registration number is worse than
+              none. Restore this with the real HGK registry number once the
+              agency provides it; the `footer.license` strings were deleted
+              from the message files along with it. */}
         </div>
       </div>
     </footer>

@@ -5,7 +5,7 @@ import { ContactForm } from '@/components/forms/ContactForm';
 import { PeninsulaMap } from '@/components/map/PeninsulaMap';
 import { FadeUp } from '@/components/ui/FadeUp';
 import { buildMetadata } from '@/lib/seo';
-import { AGENCY, whatsappHref } from '@/lib/utils';
+import { AGENCY } from '@/lib/utils';
 import type { Locale } from '@/types';
 import { IMAGES } from '@/lib/images';
 
@@ -31,31 +31,9 @@ export default async function ContactPage({
   setRequestLocale(locale);
   const t = await getTranslations('contact');
 
+  // Phone and WhatsApp rows removed with the agency phone number. Email, the
+  // address and the form are the contact routes now.
   const details: Array<{ label: string; value: React.ReactNode }> = [
-    {
-      label: t('phone'),
-      value: (
-        <a
-          href={`tel:${AGENCY.phone.replace(/\s/g, '')}`}
-          className="transition-colors hover:text-gold"
-        >
-          {AGENCY.phone}
-        </a>
-      ),
-    },
-    {
-      label: 'WhatsApp',
-      value: (
-        <a
-          href={whatsappHref(AGENCY.phone)}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[#128C4A] transition-opacity hover:opacity-80"
-        >
-          {AGENCY.phone}
-        </a>
-      ),
-    },
     {
       label: t('email'),
       value: (
@@ -103,7 +81,8 @@ export default async function ContactPage({
             <div className="mt-8">
               <ContactForm />
             </div>
-            <p className="mt-6 text-xs text-muted">{t('responseNote')}</p>
+            {/* No reply-time line here: TrustStrip inside the form already
+                carries it, and on this page the two sat one above the other. */}
           </FadeUp>
         </div>
       </section>

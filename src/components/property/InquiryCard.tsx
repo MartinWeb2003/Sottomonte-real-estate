@@ -13,7 +13,7 @@ import {
 } from '@/components/forms/FormBits';
 import { TrustStrip } from '@/components/forms/TrustStrip';
 import { submitInquiry, type FormState } from '@/lib/actions';
-import { pickLocale, whatsappHref, AGENCY } from '@/lib/utils';
+import { pickLocale } from '@/lib/utils';
 import type { Locale, TeamMember } from '@/types';
 
 const initialState: FormState = { status: 'idle' };
@@ -36,7 +36,6 @@ export function InquiryCard({
   const tForms = useTranslations('forms');
   const [state, formAction] = useFormState(submitInquiry, initialState);
 
-  const phone = agent?.phone || AGENCY.phone;
   const prefill = t('inquiryPlaceholder', { title: propertyTitle });
 
   return (
@@ -65,22 +64,9 @@ export function InquiryCard({
         </div>
       </div>
 
-      <div className="mt-5 flex flex-col gap-2 text-sm">
-        <a
-          href={`tel:${phone.replace(/\s/g, '')}`}
-          className="font-medium text-navy transition-colors hover:text-gold"
-        >
-          {phone}
-        </a>
-        <a
-          href={whatsappHref(phone, prefill)}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex w-fit items-center gap-2 bg-[#25D366] px-4 py-2 text-sm font-medium text-white transition-opacity hover:opacity-90"
-        >
-          {t('whatsapp')}
-        </a>
-      </div>
+      {/* The agent's phone and WhatsApp buttons were removed with the agency
+          phone number. The inquiry form below is the only contact route here,
+          so it carries more weight than it used to. */}
 
       {state.status === 'success' ? (
         <div className="mt-6 border-t border-navy/10 pt-6">
