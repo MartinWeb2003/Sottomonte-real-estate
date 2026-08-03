@@ -36,8 +36,21 @@ export function pickLocaleBlocks(
   return undefined;
 }
 
-export function cn(...classes: Array<string | false | null | undefined>) {
-  return classes.filter(Boolean).join(' ');
+/**
+ * Joins class names AND resolves Tailwind conflicts, last one winning.
+ *
+ * This used to be a plain `.join(' ')`, which meant a conditional override
+ * emitted both classes and left CSS source order to decide. That fails
+ * silently and in the wrong direction: the navbar's active link shipped
+ * `text-navy text-gold` and rendered navy on every page, because `.text-navy`
+ * happens to come later in the generated stylesheet. Nothing errors, nothing
+ * warns, the style is just quietly ignored.
+ *
+ * `twMerge` understands Tailwind's groups, so `cn('text-navy', 'text-gold')`
+ * now yields `text-gold`, and `cn('px-4', 'px-0')` yields `px-0`.
+ */
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
 }
 
 export const AGENCY = {
