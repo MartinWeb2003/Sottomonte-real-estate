@@ -282,12 +282,6 @@
     "invalidEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
     "consentRequired": "Einwilligung erforderlich"
   },
-  "consent": {
-    "text": "Wir verwenden Cookies für anonyme Besucherstatistiken (Google Analytics). Persönliche Daten geben wir niemals an Dritte weiter.",
-    "accept": "Akzeptieren",
-    "decline": "Ablehnen",
-    "privacy": "Datenschutzerklärung"
-  },
   "meta": {
     "home": {
       "title": "Immobilien auf Pelješac kaufen: Häuser & Grundstücke | Sottomonte",

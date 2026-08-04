@@ -5,8 +5,13 @@ import { AGENCY } from '@/lib/utils';
 import type { Locale } from '@/types';
 
 /**
- * Privacy policy — linked from every form's consent checkbox and the
- * cookie banner. Plain static content per locale.
+ * Privacy policy — linked from every form's consent checkbox.
+ *
+ * The analytics section describes Cloudflare Web Analytics, which is what the
+ * site actually runs. It is cookieless and stores no personal data, which is
+ * why there is no cookie banner: there is nothing to ask consent for. If a
+ * cookie-setting tool is ever added, this section and the banner both have to
+ * come back, together.
  */
 
 const CONTENT: Record<
@@ -15,7 +20,7 @@ const CONTENT: Record<
 > = {
   hr: {
     title: 'Pravila privatnosti',
-    updated: 'Zadnja izmjena: srpanj 2026.',
+    updated: 'Zadnja izmjena: kolovoz 2026.',
     sections: [
       {
         heading: 'Tko smo',
@@ -27,7 +32,7 @@ const CONTENT: Record<
       },
       {
         heading: 'Kolačići i analitika',
-        body: 'Google Analytics 4 učitava se samo uz vašu izričitu privolu putem bannera. IP adrese su anonimizirane. Privolu možete povući brisanjem kolačića u pregledniku.',
+        body: 'Ova stranica ne postavlja kolačiće za praćenje i ne koristi Google Analytics. Posjećenost mjerimo servisom Cloudflare Web Analytics, koji ne postavlja kolačiće, ne pohranjuje IP adrese i ne stvara profil o vama. Prikupljaju se samo skupni podaci: koje su stranice posjećene, s koje su veze posjetitelji došli i koliko se brzo stranica učitala. Zbog toga za analitiku ne tražimo privolu, jer se ne obrađuju osobni podaci.',
       },
       {
         heading: 'Vaša prava',
@@ -37,7 +42,7 @@ const CONTENT: Record<
   },
   en: {
     title: 'Privacy policy',
-    updated: 'Last updated: July 2026',
+    updated: 'Last updated: August 2026',
     sections: [
       {
         heading: 'Who we are',
@@ -49,7 +54,7 @@ const CONTENT: Record<
       },
       {
         heading: 'Cookies and analytics',
-        body: 'Google Analytics 4 loads only with your explicit consent via the banner. IP addresses are anonymized. You can withdraw consent by clearing your browser cookies.',
+        body: 'This site sets no tracking cookies and does not use Google Analytics. We measure traffic with Cloudflare Web Analytics, which sets no cookies, stores no IP addresses and builds no profile of you. Only aggregate data is collected: which pages were visited, which link visitors arrived from, and how quickly pages loaded. That is why we do not ask for analytics consent: no personal data is processed.',
       },
       {
         heading: 'Your rights',
@@ -59,7 +64,7 @@ const CONTENT: Record<
   },
   de: {
     title: 'Datenschutzerklärung',
-    updated: 'Zuletzt aktualisiert: Juli 2026',
+    updated: 'Zuletzt aktualisiert: August 2026',
     sections: [
       {
         heading: 'Wer wir sind',
@@ -71,7 +76,7 @@ const CONTENT: Record<
       },
       {
         heading: 'Cookies und Analyse',
-        body: 'Google Analytics 4 wird nur mit Ihrer ausdrücklichen Einwilligung über das Banner geladen. IP-Adressen werden anonymisiert. Sie können Ihre Einwilligung widerrufen, indem Sie die Cookies Ihres Browsers löschen.',
+        body: 'Diese Website setzt keine Tracking-Cookies und verwendet kein Google Analytics. Die Reichweite messen wir mit Cloudflare Web Analytics. Der Dienst setzt keine Cookies, speichert keine IP-Adressen und erstellt kein Profil von Ihnen. Erhoben werden ausschließlich aggregierte Daten: welche Seiten aufgerufen wurden, über welchen Link Besucher kamen und wie schnell die Seiten geladen haben. Deshalb holen wir für die Analyse keine Einwilligung ein, da keine personenbezogenen Daten verarbeitet werden.',
       },
       {
         heading: 'Ihre Rechte',

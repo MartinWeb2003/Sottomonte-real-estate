@@ -282,12 +282,6 @@
     "invalidEmail": "Please enter a valid email address",
     "consentRequired": "Consent is required"
   },
-  "consent": {
-    "text": "We use cookies for anonymous visitor analytics (Google Analytics). We never share personal data with third parties.",
-    "accept": "Accept",
-    "decline": "Decline",
-    "privacy": "Privacy policy"
-  },
   "meta": {
     "home": {
       "title": "Property for Sale Pelješac Croatia: Houses & Land | Sottomonte",

@@ -282,12 +282,6 @@
     "invalidEmail": "Unesite ispravnu e-mail adresu",
     "consentRequired": "Potrebna je privola"
   },
-  "consent": {
-    "text": "Koristimo kolačiće za anonimnu analitiku posjeta (Google Analytics). Osobne podatke ne dijelimo s trećima.",
-    "accept": "Prihvaćam",
-    "decline": "Odbijam",
-    "privacy": "Pravila privatnosti"
-  },
   "meta": {
     "home": {
       "title": "Nekretnine Pelješac: kuće, zemljišta i kamene kuće | Sottomonte",

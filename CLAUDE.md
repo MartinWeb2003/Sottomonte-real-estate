@@ -25,7 +25,7 @@ Every design and copy decision should build **trust** and **insider access**, no
 - **Forms:** Server Actions → Resend (email notifications to agency)
 - **Fonts:** self-hosted via `next/font/local` (no Google Fonts requests — GDPR-clean)
 - **Hosting:** Vercel (or Netlify), Sanity free tier
-- **Analytics:** GA4 + consent banner (required — EU/German audience)
+- **Analytics:** Cloudflare Web Analytics (cookieless, no consent banner needed)
 
 ---
 

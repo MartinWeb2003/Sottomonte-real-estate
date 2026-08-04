@@ -6,9 +6,9 @@ import { getMessages, setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
-import { ConsentBanner } from '@/components/layout/ConsentBanner';
 import { PrefetchOnIntent } from '@/components/layout/PrefetchOnIntent';
 import { DraftModeBanner } from '@/components/layout/DraftModeBanner';
+import { WebAnalytics } from '@/components/layout/WebAnalytics';
 import { getLocations } from '@sanity-config/lib/queries';
 import { JsonLd, siteJsonLd } from '@/lib/seo';
 import type { Locale } from '@/types';
@@ -71,7 +71,7 @@ export default async function LocaleLayout({
           <Navbar />
           <main>{children}</main>
           <Footer locations={locations} />
-          <ConsentBanner />
+          <WebAnalytics />
           <PrefetchOnIntent />
           {draftMode().isEnabled && <DraftModeBanner />}
         </NextIntlClientProvider>
