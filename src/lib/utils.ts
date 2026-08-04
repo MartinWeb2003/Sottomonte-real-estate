@@ -62,15 +62,19 @@ export const AGENCY = {
   city: 'Orebić',
   postalCode: '20250',
   /**
-   * Still blank: no public phone number has been supplied for the agency.
+   * Intentionally empty. The agency is email-and-form only, by decision, not
+   * by oversight.
    *
-   * This is not cosmetic. Name-address-phone has to be byte-identical across
-   * the site, the Google Business Profile and every directory listing, and
-   * `telephone` is a recommended property on the RealEstateAgent markup. Fill
-   * this in (E.164, e.g. "+385201234567") and it flows into the JSON-LD on its
-   * own. Until then every emission that would use it is skipped rather than
-   * shipping a placeholder, because a wrong number in structured data is worse
-   * than a missing one.
+   * Everything downstream already respects this: the RealEstateAgent JSON-LD
+   * omits `telephone` rather than emitting a placeholder, and the copy that
+   * used to promise phone and WhatsApp contact (including the contact page's
+   * meta description, which advertised it in Google's results) has been
+   * rewritten to promise email only.
+   *
+   * If a number is ever added, three things have to change with it: this
+   * field, the contact-channel copy in all three message files, and the
+   * Google Business Profile, which needs a phone to be completed properly and
+   * which is where NAP consistency starts.
    */
   phone: '',
   /** Office pin on the contact-page map. Exact, taken from the map listing,

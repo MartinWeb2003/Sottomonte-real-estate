@@ -297,7 +297,7 @@
     },
     "contact": {
       "title": "Contact Us: Real Estate Agency Pelješac Croatia | Sottomonte",
-      "description": "Get in touch with our Pelješac real estate agency by phone, email, or WhatsApp. We respond within 24 hours in English, German, and Croatian."
+      "description": "Get in touch with our Pelješac real estate agency by email or through the form. We respond within 24 hours in English, German and Croatian."
     },
     "buying": {
       "title": "Buying Property in Pelješac Croatia: Process & Costs | Sottomonte",
@@ -406,8 +406,7 @@
         "answer": "Yes, with a categorization permit. The procedure is standard and we help you start it after the purchase."
       }
     ],
-    "guidesTitle": "In-depth guides",
-    "guidesCta": "All guides"
+    "guidesTitle": "In-depth guides"
   },
   "locations": {
     "metaTitle": "{name}, property on Pelješac | Sottomonte",
@@ -441,6 +440,7 @@
     "ctaSelling": "Free valuation of your property",
     "emptyTitle": "The first guides are being written.",
     "emptyBody": "We write them ourselves, from sales we handled, which takes longer than copying them would. Until then, ask us directly. We reply within 24 hours.",
-    "emptyCta": "Ask a question"
+    "emptyCta": "Ask a question",
+    "viewAll": "All guides"
   }
 }

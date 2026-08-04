@@ -277,7 +277,7 @@
     "submit": "Pošaljite upit",
     "sending": "Šaljemo…",
     "success": "Hvala vam. Javit ćemo se u najkraćem mogućem roku.",
-    "error": "Nešto je pošlo po zlu. Pokušajte ponovno ili nas nazovite.",
+    "error": "Nešto je pošlo po zlu. Pokušajte ponovno ili nam pišite na e-mail.",
     "required": "Obavezno polje",
     "invalidEmail": "Unesite ispravnu e-mail adresu",
     "consentRequired": "Potrebna je privola"
@@ -297,7 +297,7 @@
     },
     "contact": {
       "title": "Kontakt: Agencija za nekretnine Pelješac | Sottomonte",
-      "description": "Kontaktirajte našu agenciju za nekretnine na Pelješcu putem telefona, e-maila ili WhatsAppa. Brz odgovor u roku od 24 sata na hrvatskom, engleskom i njemačkom."
+      "description": "Kontaktirajte našu agenciju za nekretnine na Pelješcu e-mailom ili putem obrasca. Odgovaramo u roku od 24 sata na hrvatskom, engleskom i njemačkom."
     },
     "buying": {
       "title": "Kupnja nekretnine na Pelješcu: vodič i troškovi | Sottomonte",
@@ -406,8 +406,7 @@
         "answer": "Da, uz rješenje o kategorizaciji. Postupak je standardan i pomažemo vam ga pokrenuti nakon kupnje."
       }
     ],
-    "guidesTitle": "Detaljni vodiči",
-    "guidesCta": "Svi vodiči"
+    "guidesTitle": "Detaljni vodiči"
   },
   "locations": {
     "metaTitle": "{name}, nekretnine na Pelješcu | Sottomonte",
@@ -441,6 +440,7 @@
     "ctaSelling": "Besplatna procjena vrijednosti",
     "emptyTitle": "Prvi vodiči su u pripremi.",
     "emptyBody": "Pišemo ih sami, na temelju prodaja koje smo vodili, pa traju dulje nego da smo ih prepisali. Do tada nas pitajte izravno, odgovaramo u roku od 24 sata.",
-    "emptyCta": "Postavite pitanje"
+    "emptyCta": "Postavite pitanje",
+    "viewAll": "Svi vodiči"
   }
 }

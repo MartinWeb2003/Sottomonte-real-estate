@@ -174,7 +174,7 @@ export default async function BuyingPage({
                 href="/guides"
                 className="mt-12 inline-block text-sm font-medium text-navy underline decoration-gold underline-offset-8 transition-colors hover:text-navy-soft"
               >
-                {t('guidesCta')} →
+                {tGuides('viewAll')} →
               </Link>
             </FadeUp>
           </div>

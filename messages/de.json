@@ -47,7 +47,7 @@
     "steps": [
       {
         "title": "Erstes Beratungsgespräch",
-        "body": "Wir besprechen Ihre Wünsche, Budget und Kriterien. Unverbindlich, per Anruf oder vor Ort auf Pelješac."
+        "body": "Wir besprechen Ihre Wünsche, Budget und Kriterien. Unverbindlich, per E-Mail oder vor Ort auf Pelješac."
       },
       {
         "title": "Kuratierte Auswahl",
@@ -297,7 +297,7 @@
     },
     "contact": {
       "title": "Kontakt: Immobilienagentur Pelješac | Sottomonte",
-      "description": "Kontaktieren Sie unsere Immobilienagentur auf Pelješac per Telefon, E-Mail oder WhatsApp. Schnelle Antwort innerhalb von 24 Stunden."
+      "description": "Kontaktieren Sie unsere Immobilienagentur auf Pelješac per E-Mail oder über das Formular. Antwort innerhalb von 24 Stunden."
     },
     "buying": {
       "title": "Immobilie auf Pelješac kaufen: Ablauf und Kosten | Sottomonte",
@@ -406,8 +406,7 @@
         "answer": "Ja, mit einem Kategorisierungsbescheid. Das Verfahren ist Standard, und wir helfen Ihnen, es nach dem Kauf einzuleiten."
       }
     ],
-    "guidesTitle": "Ausführliche Ratgeber",
-    "guidesCta": "Alle Ratgeber"
+    "guidesTitle": "Ausführliche Ratgeber"
   },
   "locations": {
     "metaTitle": "{name}, Immobilien auf Pelješac | Sottomonte",
@@ -441,6 +440,7 @@
     "ctaSelling": "Kostenlose Wertermittlung",
     "emptyTitle": "Die ersten Ratgeber entstehen gerade.",
     "emptyBody": "Wir schreiben sie selbst, auf Basis der Verkäufe, die wir begleitet haben. Das dauert länger als abschreiben. Fragen Sie uns bis dahin direkt, wir antworten innerhalb von 24 Stunden.",
-    "emptyCta": "Frage stellen"
+    "emptyCta": "Frage stellen",
+    "viewAll": "Alle Ratgeber"
   }
 }

@@ -292,6 +292,12 @@ export default async function GuidePage({
                 <GuideCard key={item._id} guide={item} locale={locale} />
               ))}
             </div>
+            <Link
+              href="/guides"
+              className="mt-10 inline-block text-sm font-medium text-navy underline decoration-gold underline-offset-8 transition-colors hover:text-navy-soft"
+            >
+              {t('viewAll')} →
+            </Link>
           </div>
         </section>
       )}

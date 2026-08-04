@@ -71,6 +71,7 @@ export default async function LocationPage({
 
   const t = await getTranslations('locations');
   const tProps = await getTranslations('properties');
+  const tGuides = await getTranslations('guides');
 
   const name = pickLocale(location.name, locale);
   const tagline = pickLocale(location.tagline, locale);
@@ -229,6 +230,17 @@ export default async function LocationPage({
                 </FadeUp>
               ))}
             </ul>
+            {/* The village list is capped at three by the query. Without this
+                there is no route from a village page to the rest of the
+                guides, which is how published articles end up unreachable. */}
+            <FadeUp delay={240}>
+              <Link
+                href="/guides"
+                className="mt-10 inline-block text-sm font-medium text-navy underline decoration-gold underline-offset-8 transition-colors hover:text-navy-soft"
+              >
+                {tGuides('viewAll')} →
+              </Link>
+            </FadeUp>
           </div>
         </section>
       )}
