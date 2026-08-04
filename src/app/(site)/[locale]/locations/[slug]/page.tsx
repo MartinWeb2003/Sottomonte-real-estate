@@ -12,6 +12,7 @@ import { HairlineDivider } from '@/components/ui/HairlineDivider';
 import { ButtonLink } from '@/components/ui/Button';
 import { PropertyGrid } from '@/components/property/PropertyGrid';
 import {
+  getGuidesForLocation,
   getLocationBySlug,
   getLocations,
   getProperties,
@@ -73,7 +74,10 @@ export default async function LocationPage({
   const tagline = pickLocale(location.tagline, locale);
   const description = pickLocaleBlocks(location.description, locale);
   const photos = location.photos ?? [];
-  const { items } = await getProperties({ location: [slug] });
+  const [{ items }, guides] = await Promise.all([
+    getProperties({ location: [slug] }),
+    getGuidesForLocation(location._id),
+  ]);
 
   // Split the village story down the middle so it reads as two blocks side by
   // side. A single-paragraph description stays in one column rather than
@@ -103,6 +107,7 @@ export default async function LocationPage({
             ? imageUrl(photos[0], VILLAGE_IMAGE.banner)
             : IMAGES.bannerProperties
         }
+        imageAlt={photos[0]?.alt || t('photoAlt', { name })}
         title={name}
         subtitle={tagline || undefined}
       />
@@ -143,7 +148,7 @@ export default async function LocationPage({
                     >
                       <Image
                         src={imageUrl(photo, { width: 900, height: 675 })}
-                        alt={photo.alt || name}
+                        alt={photo.alt || t('photoAlt', { name })}
                         fill
                         className="object-cover"
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -196,6 +201,42 @@ export default async function LocationPage({
           )}
         </div>
       </section>
+
+      {/* Village -> guides. A village page answers "what is for sale here";
+          the guides answer "how does buying here actually work". Linking them
+          keeps a visitor moving through the site instead of leaving to search
+          the process elsewhere, and it passes authority down to the guides. */}
+      {guides.length > 0 && (
+        <section className="section-pad bg-white pt-0">
+          <div className="container-site">
+            <FadeUp>
+              <div className="max-w-2xl">
+                <HairlineDivider width="w-[60px]" />
+                <h2 className="mt-8 font-display text-2xl leading-tight text-navy md:text-3xl">
+                  {t('guidesTitle', { name })}
+                </h2>
+                <p className="mt-5 text-base leading-relaxed text-muted md:text-lg">
+                  {t('guidesIntro')}
+                </p>
+              </div>
+            </FadeUp>
+            <ul className="mt-10 grid gap-x-10 gap-y-8 md:grid-cols-3">
+              {guides.map((guide, i) => (
+                <FadeUp key={guide._id} as="li" delay={i * 80}>
+                  <Link href={`/guides/${guide.slug}`} className="group block">
+                    <h3 className="font-display text-lg leading-snug text-navy transition-colors duration-300 group-hover:text-navy-soft">
+                      {pickLocale(guide.title, locale)}
+                    </h3>
+                    <p className="mt-3 text-sm leading-relaxed text-muted">
+                      {pickLocale(guide.excerpt, locale)}
+                    </p>
+                  </Link>
+                </FadeUp>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
 
       <FinalCTA />
     </>

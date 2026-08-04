@@ -2,21 +2,27 @@
 
 import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import { imageUrl } from '@sanity-config/lib/image';
+import { galleryImageAlt } from '@/lib/propertyText';
 import type { SanityImage } from '@/types';
 
 /** Fullscreen lightbox with keyboard (←/→/Esc) and swipe navigation. */
 export function Lightbox({
   images,
   title,
+  altBase,
   initialIndex,
   onClose,
 }: {
   images: SanityImage[];
   title: string;
+  /** Generated alt fallback, used for any image with no caption in the CMS. */
+  altBase: string;
   initialIndex: number;
   onClose: () => void;
 }) {
+  const tRoot = useTranslations();
   const [index, setIndex] = useState(initialIndex);
   const touchStartX = useRef<number | null>(null);
 
@@ -78,7 +84,7 @@ export function Lightbox({
         <Image
           key={index}
           src={imageUrl(images[index], { width: 1920 })}
-          alt={images[index].alt || title}
+          alt={galleryImageAlt(tRoot, images[index], index, altBase)}
           fill
           className="object-contain"
           sizes="100vw"

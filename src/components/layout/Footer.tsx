@@ -64,6 +64,18 @@ export async function Footer({ locations }: { locations: Location[] }) {
                 </Link>
               </li>
             ))}
+            {/* Guides live in the footer rather than the main nav: the header
+                keeps the five decision-stage links it was specified with, and
+                a sitewide footer link is what the guides hub actually needs to
+                be crawled and to receive link equity from every page. */}
+            <li>
+              <Link
+                href="/guides"
+                className="text-white/80 transition-colors hover:text-white"
+              >
+                {tNav('guides')}
+              </Link>
+            </li>
           </ul>
         </div>
 

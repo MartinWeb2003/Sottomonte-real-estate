@@ -4,7 +4,8 @@
     "properties": "Nekretnine",
     "selling": "Prodaja",
     "contact": "Kontakt",
-    "buying": "Kupnja"
+    "buying": "Kupnja",
+    "guides": "Vodiči"
   },
   "hero": {
     "titleLead": "Vaš pouzdani partner za nekretnine na",
@@ -126,6 +127,12 @@
       "lookingForPlaceholder": "npr. kamena kuća prvi red do mora, Viganj ili Orebić, budžet do 350.000 €",
       "budget": "Okvirni budžet (€)",
       "submit": "Pošaljite upit za nekretninu"
+    },
+    "typesShort": {
+      "house": "Kuća",
+      "apartment": "Stan",
+      "land": "Zemljište",
+      "stone-ruin": "Kamena kuća"
     }
   },
   "property": {
@@ -159,7 +166,10 @@
       "available": "Dostupno",
       "reserved": "Rezervirano",
       "sold": "Prodano"
-    }
+    },
+    "imageAlt": "{type} na prodaju, {location}, Pelješac",
+    "imageAltNumbered": "{base}, fotografija {n}",
+    "viewAllInLocation": "Pogledajte sve nekretnine u mjestu {name}"
   },
   "selling": {
     "title": "Prodajete na Pelješcu?",
@@ -233,8 +243,6 @@
     "email": "E-mail",
     "address": "Adresa",
     "addressValue": "Ul. Kralja Zvonimira 8, 20250 Orebić, Hrvatska",
-    "hours": "Radno vrijeme",
-    "hoursValue": "Pon do sub, 9:00 do 18:00",
     "languages": "Govorimo HR / EN / DE",
     "formTitle": "Pošaljite poruku",
     "interest": "Zanima me",
@@ -300,6 +308,24 @@
     "buying": {
       "title": "Kupnja nekretnine na Pelješcu: vodič i troškovi | Sottomonte",
       "description": "Kompletan vodič za kupnju nekretnina na Pelješcu za domaće i strane državljane. Saznajte sve o pravnom postupku, porezima i dodatnim troškovima."
+    },
+    "property": {
+      "title": "{type} na prodaju, {location} | Sottomonte",
+      "titleWithSize": "{type} na prodaju, {location}: {size} | Sottomonte",
+      "descriptionLead": "{type} na prodaju u mjestu {location} na Pelješcu: {facts}.",
+      "descriptionLeadNoLocation": "{type} na prodaju na Pelješcu: {facts}.",
+      "descriptionCta": "Provjereni papiri. Dogovorite obilazak.",
+      "factLand": "{area} zemljišta",
+      "factBedrooms": "{count, plural, one {# spavaća soba} few {# spavaće sobe} other {# spavaćih soba}}",
+      "factSea": "{distance} od mora"
+    },
+    "guides": {
+      "title": "Vodiči za kupnju nekretnina na Pelješcu | Sottomonte",
+      "description": "Vodiči kroz kupnju i prodaju nekretnina na Pelješcu: troškovi, porezi, dokumentacija i postupak za strane kupce. Piše agencija koja radi na terenu."
+    },
+    "guide": {
+      "title": "{title} | Sottomonte",
+      "descriptionFallback": "Vodič za kupce i prodavatelje nekretnina na Pelješcu. Konkretni troškovi, rokovi i dokumentacija, bez općenitih fraza."
     }
   },
   "trust": {
@@ -385,7 +411,9 @@
         "question": "Mogu li nekretninu iznajmljivati turistima?",
         "answer": "Da, uz rješenje o kategorizaciji. Postupak je standardan i pomažemo vam ga pokrenuti nakon kupnje."
       }
-    ]
+    ],
+    "guidesTitle": "Detaljni vodiči",
+    "guidesCta": "Svi vodiči"
   },
   "locations": {
     "metaTitle": "{name}, nekretnine na Pelješcu | Sottomonte",
@@ -395,6 +423,30 @@
     "viewFiltered": "Pretražite s filterima",
     "emptyTitle": "Za {name} pitajte nas izravno.",
     "emptyBody": "Da nemamo ništa javno oglašeno ne znači da nemamo ništa. Velik dio ponude na Pelješcu nikada ne izađe na internet, jer vlasnici tako žele. Recite nam što tražite i provjerit ćemo što je trenutno slobodno u mjestu {name}, uključujući i ono o čemu se još nije počelo govoriti.",
-    "emptyCta": "Recite nam što tražite"
+    "emptyCta": "Recite nam što tražite",
+    "photoAlt": "{name} na Pelješcu",
+    "guidesTitle": "Prije nego što kupite u mjestu {name}",
+    "guidesIntro": "Postupak, troškovi i papiri, objašnjeni prije nego što vas počnu iznenađivati.",
+    "linkLabel": "Nekretnine u mjestu {name}"
+  },
+  "guides": {
+    "title": "Vodiči za kupnju i prodaju na Pelješcu",
+    "subtitle": "Postupak, troškovi i dokumentacija, objašnjeni onako kako ih objašnjavamo klijentima uživo.",
+    "breadcrumb": "Vodiči",
+    "readMore": "Pročitajte vodič",
+    "published": "Objavljeno {date}",
+    "updated": "Ažurirano {date}",
+    "authorLabel": "Autor",
+    "aboutAuthor": "O autoru",
+    "relatedTitle": "Povezani vodiči",
+    "relatedLocationsTitle": "Mjesta iz ovog vodiča",
+    "faqTitle": "Česta pitanja",
+    "ctaTitle": "Pitanje na koje ovaj vodič ne odgovara?",
+    "ctaBody": "Svaka nekretnina ima svoju priču, a papiri rijetko izgledaju kao u udžbeniku. Recite nam na čemu ste zapeli i odgovorit ćemo konkretno, bez obveze.",
+    "ctaProperties": "Nekretnine u ponudi na Pelješcu",
+    "ctaSelling": "Besplatna procjena vrijednosti",
+    "emptyTitle": "Prvi vodiči su u pripremi.",
+    "emptyBody": "Pišemo ih sami, na temelju prodaja koje smo vodili, pa traju dulje nego da smo ih prepisali. Do tada nas pitajte izravno, odgovaramo u roku od 24 sata.",
+    "emptyCta": "Postavite pitanje"
   }
 }

@@ -4,7 +4,8 @@
     "properties": "Properties",
     "selling": "Selling",
     "contact": "Contact",
-    "buying": "Buying"
+    "buying": "Buying",
+    "guides": "Guides"
   },
   "hero": {
     "titleLead": "Your trusted real estate partner on",
@@ -126,6 +127,12 @@
       "lookingForPlaceholder": "e.g. stone house near the sea, Viganj or Orebić, budget up to €350,000",
       "budget": "Approximate budget (€)",
       "submit": "Submit property request"
+    },
+    "typesShort": {
+      "house": "House",
+      "apartment": "Apartment",
+      "land": "Land",
+      "stone-ruin": "Stone house"
     }
   },
   "property": {
@@ -159,7 +166,10 @@
       "available": "Available",
       "reserved": "Reserved",
       "sold": "Sold"
-    }
+    },
+    "imageAlt": "{type} for sale in {location}, Pelješac",
+    "imageAltNumbered": "{base}, photo {n}",
+    "viewAllInLocation": "See all properties in {name}"
   },
   "selling": {
     "title": "Selling on Pelješac?",
@@ -233,8 +243,6 @@
     "email": "Email",
     "address": "Address",
     "addressValue": "Ul. Kralja Zvonimira 8, 20250 Orebić, Croatia",
-    "hours": "Opening hours",
-    "hoursValue": "Mon to Sat, 9:00 to 18:00",
     "languages": "We speak HR / EN / DE",
     "formTitle": "Send a message",
     "interest": "I'm interested in",
@@ -300,6 +308,24 @@
     "buying": {
       "title": "Buying Property in Pelješac Croatia: Process & Costs | Sottomonte",
       "description": "Complete guide to buying real estate on Pelješac, Croatia. Learn about legal procedures, property transfer tax, notary steps, and buying costs."
+    },
+    "property": {
+      "title": "{type} for sale, {location} | Sottomonte",
+      "titleWithSize": "{type} for sale, {location}: {size} | Sottomonte",
+      "descriptionLead": "{type} for sale in {location} on the Pelješac peninsula: {facts}.",
+      "descriptionLeadNoLocation": "{type} for sale on the Pelješac peninsula: {facts}.",
+      "descriptionCta": "Papers verified. Arrange a viewing.",
+      "factLand": "{area} of land",
+      "factBedrooms": "{count, plural, one {# bedroom} other {# bedrooms}}",
+      "factSea": "{distance} from the sea"
+    },
+    "guides": {
+      "title": "Buying property on Pelješac: guides | Sottomonte",
+      "description": "Guides to buying and selling property on Pelješac: costs, taxes, paperwork and the process for foreign buyers. Written by the agency that works the ground."
+    },
+    "guide": {
+      "title": "{title} | Sottomonte",
+      "descriptionFallback": "A guide for buyers and sellers on the Pelješac peninsula. Real costs, real timelines, real paperwork, with none of the boilerplate."
     }
   },
   "trust": {
@@ -385,7 +411,9 @@
         "question": "Can I rent the property out to tourists?",
         "answer": "Yes, with a categorization permit. The procedure is standard and we help you start it after the purchase."
       }
-    ]
+    ],
+    "guidesTitle": "In-depth guides",
+    "guidesCta": "All guides"
   },
   "locations": {
     "metaTitle": "{name}, property on Pelješac | Sottomonte",
@@ -395,6 +423,30 @@
     "viewFiltered": "Browse with filters",
     "emptyTitle": "For {name}, ask us directly.",
     "emptyBody": "Nothing listed publicly does not mean nothing available. A large part of what sells on Pelješac never reaches the internet, because the owners prefer it that way. Tell us what you are looking for and we will check what is free in {name} right now, including what nobody has started talking about yet.",
-    "emptyCta": "Tell us what you are looking for"
+    "emptyCta": "Tell us what you are looking for",
+    "photoAlt": "{name} on the Pelješac peninsula",
+    "guidesTitle": "Before you buy in {name}",
+    "guidesIntro": "The process, the costs and the paperwork, explained before they start surprising you.",
+    "linkLabel": "Property in {name}"
+  },
+  "guides": {
+    "title": "Guides to buying and selling on Pelješac",
+    "subtitle": "The process, the costs and the paperwork, explained the way we explain them to clients in person.",
+    "breadcrumb": "Guides",
+    "readMore": "Read the guide",
+    "published": "Published {date}",
+    "updated": "Updated {date}",
+    "authorLabel": "Author",
+    "aboutAuthor": "About the author",
+    "relatedTitle": "Related guides",
+    "relatedLocationsTitle": "Villages covered in this guide",
+    "faqTitle": "Common questions",
+    "ctaTitle": "A question this guide does not answer?",
+    "ctaBody": "Every property has its own story, and the paperwork rarely looks like the textbook version. Tell us where you are stuck and we will answer specifically, with no obligation.",
+    "ctaProperties": "Properties for sale on Pelješac",
+    "ctaSelling": "Free valuation of your property",
+    "emptyTitle": "The first guides are being written.",
+    "emptyBody": "We write them ourselves, from sales we handled, which takes longer than copying them would. Until then, ask us directly. We reply within 24 hours.",
+    "emptyCta": "Ask a question"
   }
 }

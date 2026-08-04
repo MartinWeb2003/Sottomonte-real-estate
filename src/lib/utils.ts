@@ -61,9 +61,24 @@ export const AGENCY = {
   street: 'Ul. Kralja Zvonimira 8',
   city: 'Orebić',
   postalCode: '20250',
+  /**
+   * Still blank: no public phone number has been supplied for the agency.
+   *
+   * This is not cosmetic. Name-address-phone has to be byte-identical across
+   * the site, the Google Business Profile and every directory listing, and
+   * `telephone` is a recommended property on the RealEstateAgent markup. Fill
+   * this in (E.164, e.g. "+385201234567") and it flows into the JSON-LD on its
+   * own. Until then every emission that would use it is skipped rather than
+   * shipping a placeholder, because a wrong number in structured data is worse
+   * than a missing one.
+   */
+  phone: '',
   /** Office pin on the contact-page map. Exact, taken from the map listing,
       not geocoded from the street name. */
   coordinates: { lat: 42.976336, lng: 17.187399 },
   instagram: 'https://instagram.com/sottomonte.hr',
   facebook: 'https://facebook.com/sottomonte.hr',
+  /** Schema.org priceRange. Deliberately coarse: this is a bracket signal for
+      the profile, not a claim about any individual listing. */
+  priceRange: '€€€',
 };

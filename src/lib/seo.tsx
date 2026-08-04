@@ -1,11 +1,22 @@
 import type { Metadata } from 'next';
-import type { Locale, Property } from '@/types';
+import type { Guide, Locale, Location, Property } from '@/types';
 import { pickLocale, AGENCY } from './utils';
-import { IMAGES } from './images';
+import { IMAGES, LOGOS } from './images';
 import { routing } from '@/i18n/routing';
 
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+
+/**
+ * Stable @id anchors. Every graph node that talks about the agency or the site
+ * points at these instead of repeating the entity, which is what lets Google
+ * (and the AI crawlers) reconcile the homepage, a listing page and a guide as
+ * statements about one business rather than three unrelated ones.
+ */
+const AGENCY_ID = `${SITE_URL}/#agency`;
+const WEBSITE_ID = `${SITE_URL}/#website`;
+
+const abs = (path: string) => `${SITE_URL}${path}`;
 
 /**
  * Per-page metadata with hreflang alternates for hr/en/de.
@@ -52,13 +63,34 @@ export function buildMetadata({
 
 /* -------------------------------- JSON-LD -------------------------------- */
 
-export function realEstateAgentJsonLd() {
+/**
+ * The agency node, and the only place the business entity is described.
+ *
+ * `RealEstateAgent` already inherits from `LocalBusiness` and `Organization`,
+ * so this single node carries the Organization properties the SEO guide asks
+ * for (name, url, logo, contactPoint, sameAs) rather than emitting a second
+ * Organization node. Two nodes describing one business is a common way to
+ * confuse entity resolution, not a way to strengthen it.
+ *
+ * `areaServed` is built from the real village documents so it stays in step
+ * with the villages the site actually has pages for.
+ */
+function agencyNode(locations: Location[], locale: Locale) {
+  const villages = locations
+    .map((location) => pickLocale(location.name, locale))
+    .filter(Boolean);
+
   return {
-    '@context': 'https://schema.org',
     '@type': 'RealEstateAgent',
+    '@id': AGENCY_ID,
     name: AGENCY.name,
     url: SITE_URL,
+    logo: abs(LOGOS.full.src),
+    image: abs(IMAGES.ogImage),
     email: AGENCY.email,
+    // Only emitted once a real number exists — see AGENCY.phone.
+    ...(AGENCY.phone ? { telephone: AGENCY.phone } : {}),
+    priceRange: AGENCY.priceRange,
     address: {
       '@type': 'PostalAddress',
       streetAddress: AGENCY.street,
@@ -71,28 +103,219 @@ export function realEstateAgentJsonLd() {
       latitude: AGENCY.coordinates.lat,
       longitude: AGENCY.coordinates.lng,
     },
-    areaServed: 'Pelješac peninsula, Croatia',
+    areaServed: [
+      { '@type': 'Place', name: 'Pelješac' },
+      ...villages.map((name) => ({ '@type': 'Place', name })),
+    ],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'sales',
+      email: AGENCY.email,
+      ...(AGENCY.phone ? { telephone: AGENCY.phone } : {}),
+      availableLanguage: ['hr', 'en', 'de'],
+    },
+    sameAs: [AGENCY.instagram, AGENCY.facebook],
     knowsLanguage: ['hr', 'en', 'de'],
   };
 }
 
-export function realEstateListingJsonLd(property: Property, locale: Locale) {
-  const title = pickLocale(property.title, locale);
+/**
+ * Sitewide graph, rendered once in the locale layout: the agency plus the
+ * WebSite node that names it as publisher.
+ *
+ * No `potentialAction`/SearchAction here on purpose. It is only valid if the
+ * site exposes a URL template that runs a real text search, and the properties
+ * page filters on fixed params (location/type/price) with no free-text query.
+ * Declaring a search endpoint that ignores its own input is broken markup, so
+ * this waits for an actual search feature.
+ */
+export function siteJsonLd(locations: Location[], locale: Locale) {
   return {
     '@context': 'https://schema.org',
-    '@type': 'RealEstateListing',
-    name: title,
-    url: `${SITE_URL}/${locale}/properties/${property.slug}`,
-    ...(property.price && !property.priceOnRequest
-      ? {
-          offers: {
-            '@type': 'Offer',
-            price: property.price,
-            priceCurrency: 'EUR',
-          },
-        }
-      : {}),
-    ...(property.area ? { floorSize: { '@type': 'QuantitativeValue', value: property.area, unitCode: 'MTK' } } : {}),
+    '@graph': [
+      agencyNode(locations, locale),
+      {
+        '@type': 'WebSite',
+        '@id': WEBSITE_ID,
+        url: SITE_URL,
+        name: AGENCY.name,
+        inLanguage: locale,
+        publisher: { '@id': AGENCY_ID },
+      },
+    ],
+  };
+}
+
+/**
+ * Property page graph.
+ *
+ * `RealEstateListing` describes the page; the `Product` + `Offer` pair carries
+ * price and availability, which is the part that can actually earn a rich
+ * result. They are linked rather than duplicated: the listing's `mainEntity`
+ * points at the product's @id.
+ *
+ * A property with no price (or `priceOnRequest`) emits no Offer at all. An
+ * Offer needs a price to mean anything, and inventing one — 0, or the phrase
+ * "on request" in a numeric field — is an invalid-markup penalty waiting to
+ * happen.
+ */
+export function propertyJsonLd({
+  property,
+  locale,
+  title,
+  description,
+  images,
+}: {
+  property: Property;
+  locale: Locale;
+  title: string;
+  description: string;
+  images: string[];
+}) {
+  const url = `${SITE_URL}/${locale}/properties/${property.slug}`;
+  const productId = `${url}#product`;
+  const locationName = pickLocale(property.location?.name, locale);
+
+  const availability =
+    property.status === 'sold'
+      ? 'https://schema.org/SoldOut'
+      : property.status === 'reserved'
+        ? 'https://schema.org/LimitedAvailability'
+        : 'https://schema.org/InStock';
+
+  const hasPrice = Boolean(property.price) && !property.priceOnRequest;
+
+  /** Numeric specs, as machine-readable properties rather than prose. */
+  const specs: Array<{ name: string; value: number; unitCode?: string }> = [];
+  if (property.area) specs.push({ name: 'floorSize', value: property.area, unitCode: 'MTK' });
+  if (property.landArea) specs.push({ name: 'lotSize', value: property.landArea, unitCode: 'MTK' });
+  if (property.seaDistance != null)
+    specs.push({ name: 'distanceToSea', value: property.seaDistance, unitCode: 'MTR' });
+
+  const graph: object[] = [
+    {
+      '@type': 'Product',
+      '@id': productId,
+      name: title,
+      description,
+      ...(images.length ? { image: images } : {}),
+      category: property.type,
+      sku: property.slug,
+      ...(hasPrice
+        ? {
+            offers: {
+              '@type': 'Offer',
+              price: property.price,
+              priceCurrency: 'EUR',
+              availability,
+              url,
+              seller: { '@id': AGENCY_ID },
+            },
+          }
+        : {}),
+      additionalProperty: specs.map((spec) => ({
+        '@type': 'PropertyValue',
+        name: spec.name,
+        value: spec.value,
+        unitCode: spec.unitCode,
+      })),
+    },
+    {
+      '@type': 'RealEstateListing',
+      '@id': `${url}#listing`,
+      url,
+      name: title,
+      description,
+      inLanguage: locale,
+      datePosted: property._createdAt,
+      mainEntity: { '@id': productId },
+      provider: { '@id': AGENCY_ID },
+      ...(property.area
+        ? { floorSize: { '@type': 'QuantitativeValue', value: property.area, unitCode: 'MTK' } }
+        : {}),
+      ...(property.bedrooms ? { numberOfRooms: property.bedrooms } : {}),
+      ...(locationName
+        ? {
+            containedInPlace: {
+              '@type': 'Place',
+              name: locationName,
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: locationName,
+                addressRegion: 'Pelješac',
+                addressCountry: 'HR',
+              },
+            },
+          }
+        : {}),
+    },
+  ];
+
+  // Drone footage is a first-party "we were actually there" signal and opens
+  // video results, but only if it is declared. `uploadDate` is required.
+  if (property.droneVideoUrl) {
+    graph.push({
+      '@type': 'VideoObject',
+      name: title,
+      description,
+      contentUrl: property.droneVideoUrl,
+      ...(images[0] ? { thumbnailUrl: [images[0]] } : {}),
+      uploadDate: property._createdAt,
+    });
+  }
+
+  return { '@context': 'https://schema.org', '@graph': graph };
+}
+
+/**
+ * Article markup for a guide, with the author as a linked Person.
+ *
+ * `dateModified` matters as much as `datePublished` here: freshness is a
+ * ranking signal, and updating an existing guide beats publishing a second one
+ * on the same topic (which just cannibalises the first).
+ */
+export function guideJsonLd({
+  guide,
+  locale,
+  title,
+  description,
+  image,
+  authorName,
+  authorRole,
+}: {
+  guide: Guide;
+  locale: Locale;
+  title: string;
+  description: string;
+  image?: string;
+  authorName?: string;
+  authorRole?: string;
+}) {
+  const url = `${SITE_URL}/${locale}/guides/${guide.slug}`;
+
+  const author = authorName
+    ? {
+        '@type': 'Person',
+        '@id': `${SITE_URL}/#person-${encodeURIComponent(authorName.toLowerCase().replace(/\s+/g, '-'))}`,
+        name: authorName,
+        ...(authorRole ? { jobTitle: authorRole } : {}),
+        worksFor: { '@id': AGENCY_ID },
+      }
+    : { '@id': AGENCY_ID };
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    '@id': `${url}#article`,
+    headline: title,
+    description,
+    ...(image ? { image: [image] } : {}),
+    inLanguage: locale,
+    ...(guide.publishedAt ? { datePublished: guide.publishedAt } : {}),
+    dateModified: guide.updatedAt || guide.publishedAt,
+    author,
+    publisher: { '@id': AGENCY_ID },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
   };
 }
 

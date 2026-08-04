@@ -37,7 +37,7 @@ export async function TheDifference() {
                 <div className="flex h-7 items-center">
                   <span
                     aria-hidden
-                    className="block h-[14px] w-[14px] rounded-full border border-gold"
+                    className="block h-[14px] w-[14px] rounded-full bg-gold"
                   />
                 </div>
                 <h3 className="mt-4 font-display text-2xl text-navy">

@@ -1,17 +1,25 @@
 import type { MetadataRoute } from 'next';
 import { routing } from '@/i18n/routing';
-import { getLocations, getPropertySlugs } from '@sanity-config/lib/queries';
+import { getGuides, getLocations, getPropertySlugs } from '@sanity-config/lib/queries';
 import { SITE_URL } from '@/lib/seo';
 
-const STATIC_PATHS = ['', '/properties', '/buying', '/selling', '/contact'];
+const STATIC_PATHS = [
+  '',
+  '/properties',
+  '/buying',
+  '/selling',
+  '/guides',
+  '/contact',
+];
 
 /**
- * All pages × locales + all property slugs + village landing pages.
+ * All pages × locales + all property slugs + village landing pages + guides.
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [slugs, locations] = await Promise.all([
+  const [slugs, locations, guides] = await Promise.all([
     getPropertySlugs(),
     getLocations(),
+    getGuides(),
   ]);
 
   const entries: MetadataRoute.Sitemap = [];
@@ -52,6 +60,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       entries.push({
         url: `${SITE_URL}/${locale}${path}`,
         changeFrequency: 'weekly',
+        priority: 0.7,
+        alternates: alternatesFor(path),
+      });
+    }
+  }
+
+  // Guides carry a real lastModified: they are the one content type that is
+  // deliberately revised over time, and a truthful date is what makes a
+  // recrawl worth triggering.
+  for (const guide of guides) {
+    const path = `/guides/${guide.slug}`;
+    const lastModified = guide.updatedAt || guide.publishedAt;
+    for (const locale of routing.locales) {
+      entries.push({
+        url: `${SITE_URL}/${locale}${path}`,
+        ...(lastModified ? { lastModified: new Date(lastModified) } : {}),
+        changeFrequency: 'monthly',
         priority: 0.7,
         alternates: alternatesFor(path),
       });

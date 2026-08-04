@@ -4,6 +4,7 @@ import { Link } from '@/i18n/routing';
 import { imageUrl } from '@sanity-config/lib/image';
 import { formatArea, formatPrice, formatSeaDistance } from '@/lib/formatters';
 import { pickLocale } from '@/lib/utils';
+import { propertyImageAlt } from '@/lib/propertyText';
 import type { Locale, Property } from '@/types';
 import { IMAGES } from '@/lib/images';
 
@@ -15,6 +16,7 @@ import { IMAGES } from '@/lib/images';
 export function PropertyCard({ property }: { property: Property }) {
   const locale = useLocale() as Locale;
   const t = useTranslations('property');
+  const tRoot = useTranslations();
   const tTypes = useTranslations('properties.types');
 
   const title = pickLocale(property.title, locale);
@@ -42,7 +44,7 @@ export function PropertyCard({ property }: { property: Property }) {
               ? imageUrl(cover, { width: 720, height: 540 })
               : IMAGES.placeholderProperty
           }
-          alt={cover?.alt || title}
+          alt={cover?.alt || propertyImageAlt(tRoot, property, locale)}
           fill
           className="object-cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"

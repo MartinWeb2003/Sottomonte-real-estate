@@ -192,7 +192,7 @@ Conventions:
 
 | Field | Type | Notes |
 |---|---|---|
-| name | localized string | Orebić, Viganj, Kučište, Lovište, Trpanj, Ston… |
+| name | localized string | Orebić, Viganj, Kućište, Lovište, Trpanj, Ston… |
 | slug | slug | |
 | tagline | localized string | "wind, waves, and quiet luxury" |
 | description | localized portable text | village character: wind, seasonality, neighbors, konoba/shop/school proximity |

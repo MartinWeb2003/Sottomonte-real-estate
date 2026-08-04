@@ -1,6 +1,7 @@
 import { groq } from 'next-sanity';
 import { sanityFetch } from './client';
 import type {
+  Guide,
   Location,
   Property,
   PropertyFilters,
@@ -184,6 +185,98 @@ export function getSimilarProperties(
     { slug, locationSlug, type },
     []
   );
+}
+
+/* --------------------------------- guides -------------------------------- */
+
+const GUIDE_AUTHOR_PROJECTION = groq`{
+  _id,
+  name,
+  role,
+  photo,
+  bio,
+  languages
+}`;
+
+const GUIDE_CARD_PROJECTION = groq`{
+  _id,
+  title,
+  "slug": slug.current,
+  excerpt,
+  coverImage,
+  publishedAt,
+  updatedAt,
+  "author": author->${GUIDE_AUTHOR_PROJECTION}
+}`;
+
+const GUIDE_FULL_PROJECTION = groq`{
+  _id,
+  title,
+  "slug": slug.current,
+  excerpt,
+  coverImage,
+  publishedAt,
+  updatedAt,
+  body,
+  faq,
+  "author": author->${GUIDE_AUTHOR_PROJECTION},
+  "relatedLocations": relatedLocations[]->${LOCATION_PROJECTION}
+}`;
+
+/**
+ * Scheduled-in-the-future guides stay out of every listing and out of the
+ * sitemap, so an editor can prepare one without it leaking into search.
+ */
+const publishedGuideFilter = groq`_type == "guide" && defined(slug.current) && publishedAt <= now()`;
+
+const guidesQuery = groq`
+  *[${publishedGuideFilter}] | order(publishedAt desc) ${GUIDE_CARD_PROJECTION}
+`;
+
+export function getGuides() {
+  return sanityFetch<Guide[]>(guidesQuery, {}, []);
+}
+
+const guideBySlugQuery = groq`
+  *[${publishedGuideFilter} && slug.current == $slug][0] ${GUIDE_FULL_PROJECTION}
+`;
+
+export function getGuideBySlug(slug: string) {
+  return sanityFetch<Guide | null>(guideBySlugQuery, { slug }, null);
+}
+
+const guideSlugsQuery = groq`
+  *[${publishedGuideFilter}].slug.current
+`;
+
+export function getGuideSlugs() {
+  return sanityFetch<string[]>(guideSlugsQuery, {}, []);
+}
+
+/** Related: guides sharing a village with this one first, then the newest. */
+const relatedGuidesQuery = groq`
+  *[${publishedGuideFilter} && slug.current != $slug] {
+    ...,
+    "sharesLocation": count(relatedLocations[@._ref in $locationIds]) > 0
+  } | order(sharesLocation desc, publishedAt desc)[0...3] ${GUIDE_CARD_PROJECTION}
+`;
+
+export function getRelatedGuides(slug: string, locationIds: string[]) {
+  return sanityFetch<Guide[]>(
+    relatedGuidesQuery,
+    { slug, locationIds: locationIds.length ? locationIds : [''] },
+    []
+  );
+}
+
+/** Guides tagged with a village, for the links on that village's page. */
+const guidesForLocationQuery = groq`
+  *[${publishedGuideFilter} && $locationId in relatedLocations[]._ref]
+    | order(publishedAt desc)[0...3] ${GUIDE_CARD_PROJECTION}
+`;
+
+export function getGuidesForLocation(locationId: string) {
+  return sanityFetch<Guide[]>(guidesForLocationQuery, { locationId }, []);
 }
 
 /* --------------------------------- other --------------------------------- */

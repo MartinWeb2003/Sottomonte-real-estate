@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { PortableText } from 'next-sanity';
+import { Link } from '@/i18n/routing';
 import { Gallery } from '@/components/property/Gallery';
 import { StickyInquiryBar } from '@/components/property/StickyInquiryBar';
 import { SpecGrid } from '@/components/property/SpecGrid';
@@ -24,9 +25,14 @@ import {
   buildMetadata,
   breadcrumbJsonLd,
   JsonLd,
-  realEstateListingJsonLd,
+  propertyJsonLd,
   SITE_URL,
 } from '@/lib/seo';
+import {
+  propertyImageAlt,
+  propertyMetaDescription,
+  propertyMetaTitle,
+} from '@/lib/propertyText';
 import { routing } from '@/i18n/routing';
 import type { Locale } from '@/types';
 
@@ -46,13 +52,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const property = await getPropertyBySlug(slug);
   if (!property) return {};
-  const title = pickLocale(property.title, locale);
-  const locationName = pickLocale(property.location?.name, locale);
+  const t = await getTranslations({ locale });
   const cover = property.gallery?.[0];
   return buildMetadata({
     locale,
-    title: `${title} | Sottomonte`,
-    description: `${locationName} · Pelješac`,
+    title: propertyMetaTitle(t, property, locale),
+    description: propertyMetaDescription(t, property, locale),
     path: `/properties/${slug}`,
     image: cover ? imageUrl(cover, { width: 1200, height: 630 }) : undefined,
   });
@@ -70,6 +75,9 @@ export default async function PropertyDetailPage({
 
   const t = await getTranslations('property');
   const tProps = await getTranslations('properties');
+  // Root translator: the SEO/alt builders use fully qualified keys so the same
+  // helpers work here and inside components.
+  const tRoot = await getTranslations({ locale });
 
   const [agent, similar] = await Promise.all([
     getFirstTeamMember(),
@@ -102,9 +110,25 @@ export default async function PropertyDetailPage({
     .filter(Boolean)
     .join(' · ');
 
+  // Absolute image URLs for the structured data. `imageUrl` falls back to a
+  // site-relative placeholder when a document has no photo yet, and a relative
+  // URL is invalid in JSON-LD, so those are dropped rather than emitted.
+  const schemaImages = (property.gallery ?? [])
+    .slice(0, 6)
+    .map((image) => imageUrl(image, { width: 1200, height: 800 }))
+    .filter((url) => url.startsWith('http'));
+
   return (
     <>
-      <JsonLd data={realEstateListingJsonLd(property, locale)} />
+      <JsonLd
+        data={propertyJsonLd({
+          property,
+          locale,
+          title,
+          description: propertyMetaDescription(tRoot, property, locale),
+          images: schemaImages,
+        })}
+      />
       <JsonLd
         data={breadcrumbJsonLd(
           [
@@ -121,6 +145,7 @@ export default async function PropertyDetailPage({
       <Gallery
         images={property.gallery ?? []}
         title={title}
+        altBase={propertyImageAlt(tRoot, property, locale)}
         droneVideoUrl={property.droneVideoUrl}
       />
 
@@ -183,6 +208,20 @@ export default async function PropertyDetailPage({
               <div className="mt-4 space-y-4 text-sm leading-relaxed text-muted md:text-base">
                 <PortableText value={locationDescription} />
               </div>
+              {/*
+                Listing -> village page. This block described the village and
+                then dead-ended, which left the village pages with no inbound
+                links from the listings that give them their reason to exist.
+                The anchor names the destination ("all properties in Orebić")
+                rather than saying "read more", because the anchor text is a
+                large part of what the link is worth.
+              */}
+              <Link
+                href={`/locations/${property.location.slug}`}
+                className="mt-6 inline-block text-sm font-medium text-gold transition-colors hover:text-navy"
+              >
+                {t('viewAllInLocation', { name: locationName })} →
+              </Link>
             </div>
           )}
 

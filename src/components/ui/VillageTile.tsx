@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import { imageUrl, VILLAGE_IMAGE } from '@sanity-config/lib/image';
 import { cn, pickLocale } from '@/lib/utils';
@@ -20,6 +21,7 @@ export function VillageTile({
   location: Location;
   locale: Locale;
 }) {
+  const t = useTranslations('locations');
   const photo = location.photos?.[0];
   const name = pickLocale(location.name, locale);
   const tagline = pickLocale(location.tagline, locale);
@@ -36,7 +38,7 @@ export function VillageTile({
               ? imageUrl(photo, VILLAGE_IMAGE.card)
               : IMAGES.placeholderProperty
           }
-          alt={photo?.alt || name}
+          alt={photo?.alt || t('photoAlt', { name })}
           fill
           className={cn('object-cover', !photo && 'opacity-60')}
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"

@@ -22,6 +22,21 @@ export function formatSeaDistance(meters: number): string {
   return `${meters} m`;
 }
 
+/**
+ * Publish/update dates on guides. Localised, because unlike prices these do
+ * differ by market: "3. kolovoza 2026." vs "3 August 2026" vs "3. August 2026".
+ * Day precision only — the time of day is noise on an evergreen guide.
+ */
+export function formatGuideDate(iso: string, locale: string): string {
+  const date = new Date(iso);
+  if (Number.isNaN(date.getTime())) return '';
+  return new Intl.DateTimeFormat(locale, {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  }).format(date);
+}
+
 export function formatPricePerM2(price: number, area: number): string | null {
   if (!area || area <= 0) return null;
   return formatPrice(Math.round(price / area));

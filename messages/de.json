@@ -4,7 +4,8 @@
     "properties": "Immobilien",
     "selling": "Verkaufen",
     "contact": "Kontakt",
-    "buying": "Kaufen"
+    "buying": "Kaufen",
+    "guides": "Ratgeber"
   },
   "hero": {
     "titleLead": "Ihr verlässlicher Immobilienpartner auf",
@@ -126,6 +127,12 @@
       "lookingForPlaceholder": "z. B. Steinhaus am Meer, Viganj oder Orebić, Budget bis 350.000 €",
       "budget": "Ungefähres Budget (€)",
       "submit": "Anfrage absenden"
+    },
+    "typesShort": {
+      "house": "Haus",
+      "apartment": "Wohnung",
+      "land": "Grundstück",
+      "stone-ruin": "Steinhaus"
     }
   },
   "property": {
@@ -159,7 +166,10 @@
       "available": "Verfügbar",
       "reserved": "Reserviert",
       "sold": "Verkauft"
-    }
+    },
+    "imageAlt": "{type} zum Verkauf in {location}, Pelješac",
+    "imageAltNumbered": "{base}, Foto {n}",
+    "viewAllInLocation": "Alle Immobilien in {name} ansehen"
   },
   "selling": {
     "title": "Sie verkaufen auf Pelješac?",
@@ -233,8 +243,6 @@
     "email": "E-Mail",
     "address": "Adresse",
     "addressValue": "Ul. Kralja Zvonimira 8, 20250 Orebić, Kroatien",
-    "hours": "Öffnungszeiten",
-    "hoursValue": "Mo bis Sa, 9:00 bis 18:00 Uhr",
     "languages": "Wir sprechen HR / EN / DE",
     "formTitle": "Nachricht senden",
     "interest": "Ich interessiere mich für",
@@ -300,6 +308,24 @@
     "buying": {
       "title": "Immobilie auf Pelješac kaufen: Ablauf und Kosten | Sottomonte",
       "description": "Leitfaden zum Immobilienkauf auf Pelješac für ausländische Käufer. Erfahren Sie alles über Kaufablauf, Steuern, rechtliche Prüfung und Nebenkosten."
+    },
+    "property": {
+      "title": "{type} kaufen, {location} | Sottomonte",
+      "titleWithSize": "{type} kaufen, {location}: {size} | Sottomonte",
+      "descriptionLead": "{type} zum Verkauf in {location} auf der Halbinsel Pelješac: {facts}.",
+      "descriptionLeadNoLocation": "{type} zum Verkauf auf der Halbinsel Pelješac: {facts}.",
+      "descriptionCta": "Unterlagen geprüft. Besichtigung vereinbaren.",
+      "factLand": "{area} Grundstück",
+      "factBedrooms": "{count, plural, one {# Schlafzimmer} other {# Schlafzimmer}}",
+      "factSea": "{distance} zum Meer"
+    },
+    "guides": {
+      "title": "Immobilien auf Pelješac kaufen: Ratgeber | Sottomonte",
+      "description": "Ratgeber zum Kauf und Verkauf von Immobilien auf Pelješac: Kosten, Steuern, Unterlagen und Ablauf für ausländische Käufer. Von der Agentur vor Ort."
+    },
+    "guide": {
+      "title": "{title} | Sottomonte",
+      "descriptionFallback": "Ein Ratgeber für Käufer und Verkäufer auf der Halbinsel Pelješac. Konkrete Kosten, Fristen und Unterlagen, ohne Floskeln."
     }
   },
   "trust": {
@@ -385,7 +411,9 @@
         "question": "Darf ich die Immobilie an Touristen vermieten?",
         "answer": "Ja, mit einem Kategorisierungsbescheid. Das Verfahren ist Standard, und wir helfen Ihnen, es nach dem Kauf einzuleiten."
       }
-    ]
+    ],
+    "guidesTitle": "Ausführliche Ratgeber",
+    "guidesCta": "Alle Ratgeber"
   },
   "locations": {
     "metaTitle": "{name}, Immobilien auf Pelješac | Sottomonte",
@@ -395,6 +423,30 @@
     "viewFiltered": "Mit Filtern durchsuchen",
     "emptyTitle": "Für {name} fragen Sie uns direkt.",
     "emptyBody": "Nichts öffentlich inseriert heißt nicht nichts verfügbar. Ein großer Teil dessen, was auf Pelješac verkauft wird, erreicht das Internet nie, weil die Eigentümer es so wollen. Sagen Sie uns, was Sie suchen, und wir prüfen, was in {name} gerade frei ist, auch das, worüber noch niemand spricht.",
-    "emptyCta": "Sagen Sie uns, was Sie suchen"
+    "emptyCta": "Sagen Sie uns, was Sie suchen",
+    "photoAlt": "{name} auf der Halbinsel Pelješac",
+    "guidesTitle": "Bevor Sie in {name} kaufen",
+    "guidesIntro": "Ablauf, Kosten und Unterlagen, erklärt bevor sie Sie überraschen.",
+    "linkLabel": "Immobilien in {name}"
+  },
+  "guides": {
+    "title": "Ratgeber zum Kaufen und Verkaufen auf Pelješac",
+    "subtitle": "Ablauf, Kosten und Unterlagen, erklärt so wie wir sie unseren Kunden persönlich erklären.",
+    "breadcrumb": "Ratgeber",
+    "readMore": "Ratgeber lesen",
+    "published": "Veröffentlicht {date}",
+    "updated": "Aktualisiert {date}",
+    "authorLabel": "Autor",
+    "aboutAuthor": "Über den Autor",
+    "relatedTitle": "Verwandte Ratgeber",
+    "relatedLocationsTitle": "Orte in diesem Ratgeber",
+    "faqTitle": "Häufige Fragen",
+    "ctaTitle": "Eine Frage, die dieser Ratgeber nicht beantwortet?",
+    "ctaBody": "Jede Immobilie hat ihre eigene Geschichte, und die Unterlagen sehen selten aus wie im Lehrbuch. Sagen Sie uns, wo es hakt, und wir antworten konkret und unverbindlich.",
+    "ctaProperties": "Immobilien auf Pelješac im Angebot",
+    "ctaSelling": "Kostenlose Wertermittlung",
+    "emptyTitle": "Die ersten Ratgeber entstehen gerade.",
+    "emptyBody": "Wir schreiben sie selbst, auf Basis der Verkäufe, die wir begleitet haben. Das dauert länger als abschreiben. Fragen Sie uns bis dahin direkt, wir antworten innerhalb von 24 Stunden.",
+    "emptyCta": "Frage stellen"
   }
 }

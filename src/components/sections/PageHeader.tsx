@@ -10,11 +10,20 @@ export function PageHeader({
   title,
   subtitle,
   image = IMAGES.hero,
+  imageAlt,
   tall = false,
 }: {
   title: string;
   subtitle?: string;
   image?: string;
+  /**
+   * Only pass this where the banner carries information the H1 does not, which
+   * in practice means the village pages: that photo IS the village. The
+   * generic page banners stay decorative (empty alt), because describing a
+   * stock coastline above a heading that already says "Properties on Pelješac"
+   * gives a screen reader nothing and dilutes the page's real signals.
+   */
+  imageAlt?: string;
   tall?: boolean;
 }) {
   return (
@@ -25,7 +34,7 @@ export function PageHeader({
     >
       <Image
         src={image}
-        alt=""
+        alt={imageAlt ?? ''}
         fill
         priority
         className="photo-darken object-cover"

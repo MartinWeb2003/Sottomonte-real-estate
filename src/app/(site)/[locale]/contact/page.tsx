@@ -46,7 +46,6 @@ export default async function ContactPage({
       ),
     },
     { label: t('address'), value: t('addressValue') },
-    { label: t('hours'), value: t('hoursValue') },
   ];
 
   return (

@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { imageUrl } from '@sanity-config/lib/image';
 import { cn } from '@/lib/utils';
+import { galleryImageAlt } from '@/lib/propertyText';
 import type { SanityImage } from '@/types';
 import { Lightbox } from './Lightbox';
 import { IMAGES } from '@/lib/images';
@@ -16,13 +17,19 @@ import { IMAGES } from '@/lib/images';
 export function Gallery({
   images,
   title,
+  altBase,
   droneVideoUrl,
 }: {
   images: SanityImage[];
   title: string;
+  /** Generated alt fallback, used for any image with no caption in the CMS. */
+  altBase: string;
   droneVideoUrl?: string;
 }) {
   const t = useTranslations('property');
+  const tRoot = useTranslations();
+  const altFor = (image: SanityImage, index: number) =>
+    galleryImageAlt(tRoot, image, index, altBase);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [tab, setTab] = useState<'photos' | 'video'>('photos');
 
@@ -31,7 +38,7 @@ export function Gallery({
       <div className="relative aspect-[16/9] w-full bg-navy/5">
         <Image
           src={IMAGES.placeholderProperty}
-          alt={title}
+          alt={altBase}
           fill
           priority
           className="object-cover"
@@ -94,7 +101,7 @@ export function Gallery({
           >
             <Image
               src={imageUrl(images[0], { width: 1400, height: 1000 })}
-              alt={images[0].alt || title}
+              alt={altFor(images[0], 0)}
               fill
               priority
               className="object-cover"
@@ -111,7 +118,7 @@ export function Gallery({
               >
                 <Image
                   src={imageUrl(image, { width: 700, height: 500 })}
-                  alt={image.alt || title}
+                  alt={altFor(image, i + 1)}
                   fill
                   className="object-cover"
                   sizes="34vw"
@@ -133,6 +140,7 @@ export function Gallery({
         <Lightbox
           images={images}
           title={title}
+          altBase={altBase}
           initialIndex={lightboxIndex}
           onClose={() => setLightboxIndex(null)}
         />

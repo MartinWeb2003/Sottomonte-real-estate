@@ -64,6 +64,31 @@ export interface Property {
   exactLocationPublic?: boolean;
 }
 
+/**
+ * Long-form editorial guide. This is the E-E-A-T surface: every guide carries
+ * a named author, a publish date and a last-updated date, because anonymous
+ * undated content is exactly what the December 2025 core update devalued.
+ */
+export interface Guide {
+  _id: string;
+  title: LocalizedString;
+  slug: string;
+  excerpt?: LocalizedString;
+  /** Primary search query this guide owns. One guide = one primary query, so
+      two guides can never cannibalise each other. Editorial note only, never
+      rendered. */
+  primaryQuery?: string;
+  coverImage?: SanityImage;
+  author?: TeamMember;
+  publishedAt?: string;
+  updatedAt?: string;
+  body?: LocalizedPortableText;
+  /** Villages this guide is relevant to — drives the guide links shown on
+      those village pages, and the reverse links back from the guide. */
+  relatedLocations?: Location[];
+  faq?: Array<{ question: LocalizedString; answer: LocalizedString }>;
+}
+
 export interface Testimonial {
   _id: string;
   quote: LocalizedString;
