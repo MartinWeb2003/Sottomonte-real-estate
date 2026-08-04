@@ -7,6 +7,7 @@ import { PageHeader } from '@/components/sections/PageHeader';
 import { FinalCTA } from '@/components/sections/FinalCTA';
 import { FaqSection, type FaqItem } from '@/components/sections/FaqSection';
 import { Prose } from '@/components/ui/Prose';
+import { GuideCard } from '@/components/ui/GuideCard';
 import { ButtonLink } from '@/components/ui/Button';
 import { HairlineDivider } from '@/components/ui/HairlineDivider';
 import {
@@ -282,18 +283,9 @@ export default async function GuidePage({
                 {t('relatedTitle')}
               </h2>
             </div>
-            <div className="mt-10 grid gap-x-10 gap-y-12 md:grid-cols-3">
-              {related.map((item, i) => (
-                <div key={item._id}>
-                  <Link href={`/guides/${item.slug}`} className="group block">
-                    <h3 className="font-display text-lg leading-snug text-navy transition-colors duration-300 group-hover:text-navy-soft">
-                      {pickLocale(item.title, locale)}
-                    </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-muted">
-                      {pickLocale(item.excerpt, locale)}
-                    </p>
-                  </Link>
-                </div>
+            <div className="mt-10 grid gap-8 md:grid-cols-3">
+              {related.map((item) => (
+                <GuideCard key={item._id} guide={item} locale={locale} />
               ))}
             </div>
           </div>

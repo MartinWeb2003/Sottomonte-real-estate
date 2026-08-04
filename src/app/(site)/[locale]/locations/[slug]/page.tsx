@@ -11,6 +11,7 @@ import { SectionHeader } from '@/components/ui/SectionHeader';
 import { HairlineDivider } from '@/components/ui/HairlineDivider';
 import { ButtonLink } from '@/components/ui/Button';
 import { PropertyGrid } from '@/components/property/PropertyGrid';
+import { GuideCard } from '@/components/ui/GuideCard';
 import {
   getGuidesForLocation,
   getLocationBySlug,
@@ -220,17 +221,10 @@ export default async function LocationPage({
                 </p>
               </div>
             </FadeUp>
-            <ul className="mt-10 grid gap-x-10 gap-y-8 md:grid-cols-3">
+            <ul className="mt-10 grid gap-8 md:grid-cols-3">
               {guides.map((guide, i) => (
-                <FadeUp key={guide._id} as="li" delay={i * 80}>
-                  <Link href={`/guides/${guide.slug}`} className="group block">
-                    <h3 className="font-display text-lg leading-snug text-navy transition-colors duration-300 group-hover:text-navy-soft">
-                      {pickLocale(guide.title, locale)}
-                    </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-muted">
-                      {pickLocale(guide.excerpt, locale)}
-                    </p>
-                  </Link>
+                <FadeUp key={guide._id} as="li" delay={i * 80} className="h-full">
+                  <GuideCard guide={guide} locale={locale} />
                 </FadeUp>
               ))}
             </ul>

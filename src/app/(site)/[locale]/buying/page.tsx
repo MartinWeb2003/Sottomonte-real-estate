@@ -8,6 +8,7 @@ import { SectionHeader } from '@/components/ui/SectionHeader';
 import { FadeUp } from '@/components/ui/FadeUp';
 import { HairlineDivider } from '@/components/ui/HairlineDivider';
 import { FaqSection, type FaqItem } from '@/components/sections/FaqSection';
+import { GuideCard } from '@/components/ui/GuideCard';
 import { buildMetadata, faqJsonLd, JsonLd } from '@/lib/seo';
 import { getGuides } from '@sanity-config/lib/queries';
 import { pickLocale } from '@/lib/utils';
@@ -161,21 +162,10 @@ export default async function BuyingPage({
             <FadeUp>
               <SectionHeader title={t('guidesTitle')} />
             </FadeUp>
-            <ul className="mt-12 grid gap-x-10 gap-y-8 md:mt-16 md:grid-cols-3">
+            <ul className="mt-12 grid gap-8 md:mt-16 md:grid-cols-3">
               {guides.slice(0, 3).map((guide, i) => (
-                <FadeUp key={guide._id} as="li" delay={i * 80}>
-                  <Link href={`/guides/${guide.slug}`} className="group block">
-                    <HairlineDivider />
-                    <h3 className="mt-6 font-display text-lg leading-snug text-navy transition-colors duration-300 group-hover:text-navy-soft">
-                      {pickLocale(guide.title, locale)}
-                    </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-muted">
-                      {pickLocale(guide.excerpt, locale)}
-                    </p>
-                    <p className="mt-4 text-sm font-medium text-gold">
-                      {tGuides('readMore')} →
-                    </p>
-                  </Link>
+                <FadeUp key={guide._id} as="li" delay={i * 80} className="h-full">
+                  <GuideCard guide={guide} locale={locale} />
                 </FadeUp>
               ))}
             </ul>
