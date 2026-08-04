@@ -60,3 +60,8 @@ next-env.d.ts
 public/videos/drone-*.mp4
 public/videos/*-raw.*
 /raw-media/
+
+# Local project documentation and agent instructions. Kept out of the repo on
+# request. Note this file never reached the deployed site either way: it is not
+# a route and not in public/, so nothing under it was ever served.
+CLAUDE.md
