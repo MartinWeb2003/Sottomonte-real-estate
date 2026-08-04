@@ -26,7 +26,7 @@ const nextConfig = {
    */
   async redirects() {
     const gone = ['about', 'o-nama'];
-    return gone.flatMap((slug) => [
+    const removed = gone.flatMap((slug) => [
       // Locale-prefixed, e.g. /hr/about -> /hr
       {
         source: `/:locale(hr|en|de)/${slug}`,
@@ -40,6 +40,48 @@ const nextConfig = {
         permanent: true,
       },
     ]);
+
+    /**
+     * Croatian and German URL segments were localised (/hr/properties became
+     * /hr/nekretnine, /de/properties became /de/immobilien). Those old URLs are
+     * already indexed and linked, so every one of them gets a 301 rather than a
+     * 404. Changing URLs without redirects is the fastest way to lose positions
+     * built over months.
+     *
+     * English is absent on purpose: its segments did not change, so there is
+     * nothing to redirect and adding rules would only create loops.
+     */
+    const localised = [
+      ['hr', 'properties', 'nekretnine'],
+      ['hr', 'locations', 'lokacije'],
+      ['hr', 'guides', 'vodici'],
+      ['hr', 'buying', 'kupnja-nekretnine'],
+      ['hr', 'selling', 'prodaja-nekretnine'],
+      ['hr', 'contact', 'kontakt'],
+      ['hr', 'privacy', 'privatnost'],
+      ['de', 'properties', 'immobilien'],
+      ['de', 'locations', 'orte'],
+      ['de', 'guides', 'ratgeber'],
+      ['de', 'buying', 'immobilie-kaufen'],
+      ['de', 'selling', 'immobilie-verkaufen'],
+      ['de', 'privacy', 'datenschutz'],
+    ].flatMap(([locale, from, to]) => [
+      // The section index, e.g. /hr/properties -> /hr/nekretnine
+      {
+        source: `/${locale}/${from}`,
+        destination: `/${locale}/${to}`,
+        permanent: true,
+      },
+      // Anything beneath it, e.g. /de/guides/x -> /de/ratgeber/x. Harmless for
+      // sections that have no child routes.
+      {
+        source: `/${locale}/${from}/:path*`,
+        destination: `/${locale}/${to}/:path*`,
+        permanent: true,
+      },
+    ]);
+
+    return [...removed, ...localised];
   },
 };
 

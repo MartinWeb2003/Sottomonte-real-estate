@@ -32,7 +32,7 @@ export async function OffMarketTeaser() {
           </p>
           {/* Deep-link to the buyer-wishlist form: the teaser's promise and
               that form are the same ask, so land the visitor on it directly. */}
-          <ButtonLink href="/properties#wishlist" variant="ghost-navy" className="mt-9">
+          <ButtonLink href={{ pathname: '/properties', hash: 'wishlist' }} variant="ghost-navy" className="mt-9">
             {t('cta')}
           </ButtonLink>
         </FadeUp>

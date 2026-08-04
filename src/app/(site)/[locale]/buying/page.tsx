@@ -25,7 +25,7 @@ export async function generateMetadata({
     locale,
     title: t('title'),
     description: t('description'),
-    path: '/buying',
+    route: '/buying',
   });
 }
 

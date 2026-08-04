@@ -1,6 +1,7 @@
 import { getGuides, getLocations } from '@sanity-config/lib/queries';
 import { pickLocale, AGENCY } from '@/lib/utils';
 import { SITE_URL } from '@/lib/seo';
+import { localeUrl } from '@/i18n/routing';
 
 export const revalidate = 3600;
 
@@ -19,16 +20,21 @@ export const revalidate = 3600;
 export async function GET() {
   const [locations, guides] = await Promise.all([getLocations(), getGuides()]);
 
+  // Every URL through the same helper the pages use, so this file cannot drift
+  // from the real, localised paths.
+  const url = (route: Parameters<typeof localeUrl>[2], params?: Record<string, string>) =>
+    localeUrl(SITE_URL, 'hr', route, params);
+
   const villageLines = locations.map((location) => {
     const name = pickLocale(location.name, 'hr');
     const tagline = pickLocale(location.tagline, 'hr');
-    return `- [${name}](${SITE_URL}/hr/locations/${location.slug})${tagline ? `: ${tagline}` : ''}`;
+    return `- [${name}](${url('/locations/[slug]', { slug: location.slug })})${tagline ? `: ${tagline}` : ''}`;
   });
 
   const guideLines = guides.map((guide) => {
     const title = pickLocale(guide.title, 'hr');
     const excerpt = pickLocale(guide.excerpt, 'hr');
-    return `- [${title}](${SITE_URL}/hr/guides/${guide.slug})${excerpt ? `: ${excerpt}` : ''}`;
+    return `- [${title}](${url('/guides/[slug]', { slug: guide.slug })})${excerpt ? `: ${excerpt}` : ''}`;
   });
 
   const body = `# ${AGENCY.name}
@@ -44,11 +50,11 @@ jezične verzije.
 
 ## Glavne stranice
 
-- [Nekretnine u ponudi](${SITE_URL}/hr/properties): sve dostupne nekretnine, s filtrima po mjestu, tipu, cijeni i udaljenosti od mora.
-- [Kupnja nekretnine](${SITE_URL}/hr/buying): postupak kupnje, troškovi i porezi, uključujući pravila za strane državljane.
-- [Prodaja nekretnine](${SITE_URL}/hr/selling): procjena vrijednosti, priprema dokumentacije i prodajni postupak.
-- [Vodiči](${SITE_URL}/hr/guides): dubinski tekstovi o kupnji, prodaji i tržištu na Pelješcu.
-- [Kontakt](${SITE_URL}/hr/contact): kontakt podaci i upit.
+- [Nekretnine u ponudi](${url('/properties')}): sve dostupne nekretnine, s filtrima po mjestu, tipu, cijeni i udaljenosti od mora.
+- [Kupnja nekretnine](${url('/buying')}): postupak kupnje, troškovi i porezi, uključujući pravila za strane državljane.
+- [Prodaja nekretnine](${url('/selling')}): procjena vrijednosti, priprema dokumentacije i prodajni postupak.
+- [Vodiči](${url('/guides')}): dubinski tekstovi o kupnji, prodaji i tržištu na Pelješcu.
+- [Kontakt](${url('/contact')}): kontakt podaci i upit.
 
 ## Mjesta na Pelješcu
 

@@ -33,12 +33,27 @@ export async function TheDifference() {
               <div className="border-t border-gold pt-8">
                 {/* Replaces the 01/02/03 numerals. The h-7 wrapper keeps the
                     old line box, so the titles below sit exactly where the
-                    numbers used to put them. */}
+                    numbers used to put them.
+
+                    Outlined circle with a tick rather than a solid dot: the
+                    dot was decoration, the tick reads as "we actually do
+                    this", which is what these three columns are claiming.
+                    Drawn as an inline SVG so the stroke stays a true hairline
+                    at any size and inherits the gold via currentColor. */}
                 <div className="flex h-7 items-center">
-                  <span
+                  <svg
                     aria-hidden
-                    className="block h-[14px] w-[14px] rounded-full bg-gold"
-                  />
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.25"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-6 w-6 text-gold"
+                  >
+                    <circle cx="12" cy="12" r="10.5" />
+                    <path d="M7.5 12.4l3 3 6-6.4" />
+                  </svg>
                 </div>
                 <h3 className="mt-4 font-display text-2xl text-navy">
                   {t(`items.${i}.title`)}

@@ -26,7 +26,7 @@ export async function generateMetadata({
     locale,
     title: t('title'),
     description: t('description'),
-    path: '/properties',
+    route: '/properties',
   });
 }
 
@@ -86,14 +86,16 @@ export default async function PropertiesPage({
   const totalPages = Math.max(1, Math.ceil(total / PROPERTIES_PAGE_SIZE));
   const page = Math.min(filters.page ?? 1, totalPages);
 
+  // Returns a query object rather than a string: with localised pathnames the
+  // Link needs `{ pathname, query }` so next-intl can map '/properties' to
+  // '/nekretnine' or '/immobilien' per locale.
   const pageQuery = (p: number) => {
-    const params = new URLSearchParams();
+    const query: Record<string, string> = {};
     for (const [key, value] of Object.entries(searchParams)) {
-      if (value && key !== 'page') params.set(key, value);
+      if (value && key !== 'page') query[key] = value;
     }
-    if (p > 1) params.set('page', String(p));
-    const qs = params.toString();
-    return qs ? `?${qs}` : '';
+    if (p > 1) query.page = String(p);
+    return query;
   };
 
   return (
@@ -105,8 +107,8 @@ export default async function PropertiesPage({
       <JsonLd
         data={breadcrumbJsonLd(
           [
-            { name: t('breadcrumbHome'), path: '' },
-            { name: t('breadcrumb'), path: '/properties' },
+            { name: t('breadcrumbHome'), route: '/' },
+            { name: t('breadcrumb'), route: '/properties' },
           ],
           locale
         )}
@@ -129,7 +131,7 @@ export default async function PropertiesPage({
               >
                 {page > 1 && (
                   <Link
-                    href={`/properties${pageQuery(page - 1)}`}
+                    href={{ pathname: '/properties', query: pageQuery(page - 1) }}
                     className="border border-navy/20 px-4 py-2 text-sm text-navy transition-colors hover:border-navy"
                   >
                     ← {t('pagination.previous')}
@@ -140,7 +142,7 @@ export default async function PropertiesPage({
                 </span>
                 {page < totalPages && (
                   <Link
-                    href={`/properties${pageQuery(page + 1)}`}
+                    href={{ pathname: '/properties', query: pageQuery(page + 1) }}
                     className="border border-navy/20 px-4 py-2 text-sm text-navy transition-colors hover:border-navy"
                   >
                     {t('pagination.next')} →

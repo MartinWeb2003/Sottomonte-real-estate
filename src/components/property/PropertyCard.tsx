@@ -34,7 +34,7 @@ export function PropertyCard({ property }: { property: Property }) {
 
   return (
     <Link
-      href={`/properties/${property.slug}`}
+      href={{ pathname: '/properties/[slug]', params: { slug: property.slug } }}
       className="img-hover-zoom group block"
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-navy/5">

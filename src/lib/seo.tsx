@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import type { Guide, Locale, Location, Property } from '@/types';
 import { pickLocale, AGENCY } from './utils';
 import { IMAGES, LOGOS } from './images';
-import { routing } from '@/i18n/routing';
+import { routing, localeUrl, type AppPathname } from '@/i18n/routing';
 
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
@@ -26,19 +26,29 @@ export function buildMetadata({
   locale,
   title,
   description,
-  path,
+  route,
+  params,
   image,
 }: {
   locale: Locale;
   title: string;
   description: string;
-  path: string;
+  /** Internal route name, e.g. '/properties/[slug]'. Not a literal URL. */
+  route: AppPathname;
+  /** Dynamic segment values for routes that take them. */
+  params?: Record<string, string>;
   image?: string;
 }): Metadata {
+  // Each locale gets its own localised URL. Building these from one literal
+  // path, as this used to, would have pointed every hreflang at the Croatian
+  // URL shape and told Google the German page lives at /de/properties when it
+  // actually lives at /de/immobilien.
+  const url = (l: Locale) => localeUrl(SITE_URL, l, route, params);
+
   const languages = Object.fromEntries([
-    ...routing.locales.map((l) => [l, `${SITE_URL}/${l}${path}`]),
+    ...routing.locales.map((l) => [l, url(l)]),
     // x-default: search-engine fallback for users outside hr/en/de
-    ['x-default', `${SITE_URL}/${routing.defaultLocale}${path}`],
+    ['x-default', url(routing.defaultLocale)],
   ]);
 
   return {
@@ -46,13 +56,13 @@ export function buildMetadata({
     description,
     metadataBase: new URL(SITE_URL),
     alternates: {
-      canonical: `${SITE_URL}/${locale}${path}`,
+      canonical: url(locale),
       languages,
     },
     openGraph: {
       title,
       description,
-      url: `${SITE_URL}/${locale}${path}`,
+      url: url(locale),
       siteName: 'Sottomonte',
       locale,
       type: 'website',
@@ -172,7 +182,7 @@ export function propertyJsonLd({
   description: string;
   images: string[];
 }) {
-  const url = `${SITE_URL}/${locale}/properties/${property.slug}`;
+  const url = localeUrl(SITE_URL, locale, '/properties/[slug]', { slug: property.slug });
   const productId = `${url}#product`;
   const locationName = pickLocale(property.location?.name, locale);
 
@@ -291,7 +301,7 @@ export function guideJsonLd({
   authorName?: string;
   authorRole?: string;
 }) {
-  const url = `${SITE_URL}/${locale}/guides/${guide.slug}`;
+  const url = localeUrl(SITE_URL, locale, '/guides/[slug]', { slug: guide.slug });
 
   const author = authorName
     ? {
@@ -320,7 +330,7 @@ export function guideJsonLd({
 }
 
 export function breadcrumbJsonLd(
-  items: Array<{ name: string; path: string }>,
+  items: Array<{ name: string; route: AppPathname; params?: Record<string, string> }>,
   locale: Locale
 ) {
   return {
@@ -330,7 +340,7 @@ export function breadcrumbJsonLd(
       '@type': 'ListItem',
       position: i + 1,
       name: item.name,
-      item: `${SITE_URL}/${locale}${item.path}`,
+      item: localeUrl(SITE_URL, locale, item.route, item.params),
     })),
   };
 }

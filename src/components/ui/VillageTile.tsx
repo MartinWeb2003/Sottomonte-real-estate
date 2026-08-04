@@ -28,7 +28,7 @@ export function VillageTile({
 
   return (
     <Link
-      href={`/locations/${location.slug}`}
+      href={{ pathname: '/locations/[slug]', params: { slug: location.slug } }}
       className="img-hover-zoom group block"
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-navy/5">

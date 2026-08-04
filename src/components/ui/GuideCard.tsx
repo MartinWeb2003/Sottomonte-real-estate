@@ -49,7 +49,7 @@ export function GuideCard({
 
   return (
     <Link
-      href={`/guides/${guide.slug}`}
+      href={{ pathname: '/guides/[slug]', params: { slug: guide.slug } }}
       className="img-hover-zoom card-lift group flex h-full flex-col border border-navy/10 bg-white hover:border-gold focus-visible:border-gold focus-visible:outline-none"
     >
       {withImage && (

@@ -48,7 +48,8 @@ export async function generateMetadata({
     locale,
     title: t('metaTitle', { name }),
     description: t('metaDescription', { name }),
-    path: `/locations/${slug}`,
+    route: '/locations/[slug]',
+    params: { slug },
     image: photo ? imageUrl(photo, { width: 1200, height: 630 }) : undefined,
   });
 }
@@ -95,8 +96,8 @@ export default async function LocationPage({
       <JsonLd
         data={breadcrumbJsonLd(
           [
-            { name: tProps('breadcrumbHome'), path: '' },
-            { name, path: `/locations/${slug}` },
+            { name: tProps('breadcrumbHome'), route: '/' },
+            { name, route: '/locations/[slug]', params: { slug } },
           ],
           locale
         )}

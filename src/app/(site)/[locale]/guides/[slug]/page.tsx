@@ -54,7 +54,8 @@ export async function generateMetadata({
     // The excerpt is written to meta-description length in Studio; the
     // fallback only covers a guide published before anyone filled it in.
     description: pickLocale(guide.excerpt, locale) || t('descriptionFallback'),
-    path: `/guides/${slug}`,
+    route: '/guides/[slug]',
+    params: { slug },
     image: cover ? imageUrl(cover, { width: 1200, height: 630 }) : undefined,
   });
 }
@@ -126,9 +127,9 @@ export default async function GuidePage({
       <JsonLd
         data={breadcrumbJsonLd(
           [
-            { name: tProps('breadcrumbHome'), path: '' },
-            { name: t('breadcrumb'), path: '/guides' },
-            { name: title, path: `/guides/${slug}` },
+            { name: tProps('breadcrumbHome'), route: '/' },
+            { name: t('breadcrumb'), route: '/guides' },
+            { name: title, route: '/guides/[slug]', params: { slug } },
           ],
           locale
         )}
@@ -197,7 +198,10 @@ export default async function GuidePage({
                     return (
                       <li key={location._id}>
                         <Link
-                          href={`/locations/${location.slug}`}
+                          href={{
+                            pathname: '/locations/[slug]',
+                            params: { slug: location.slug },
+                          }}
                           className="font-medium text-gold transition-colors hover:text-navy"
                         >
                           {tLoc('linkLabel', { name })} →

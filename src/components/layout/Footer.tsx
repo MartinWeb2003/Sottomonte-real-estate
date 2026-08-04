@@ -87,7 +87,7 @@ export async function Footer({ locations }: { locations: Location[] }) {
             {locations.slice(0, 8).map((loc) => (
               <li key={loc._id}>
                 <Link
-                  href={`/locations/${loc.slug}`}
+                  href={{ pathname: '/locations/[slug]', params: { slug: loc.slug } }}
                   className="text-white/80 transition-colors hover:text-white"
                 >
                   {pickLocale(loc.name, locale)}

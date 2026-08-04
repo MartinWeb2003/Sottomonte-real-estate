@@ -22,7 +22,7 @@ export async function generateMetadata({
     locale,
     title: t('title'),
     description: t('description'),
-    path: '/guides',
+    route: '/guides',
   });
 }
 
@@ -49,8 +49,8 @@ export default async function GuidesPage({
       <JsonLd
         data={breadcrumbJsonLd(
           [
-            { name: tProps('breadcrumbHome'), path: '' },
-            { name: t('breadcrumb'), path: '/guides' },
+            { name: tProps('breadcrumbHome'), route: '/' },
+            { name: t('breadcrumb'), route: '/guides' },
           ],
           locale
         )}

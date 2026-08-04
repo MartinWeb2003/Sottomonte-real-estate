@@ -58,7 +58,8 @@ export async function generateMetadata({
     locale,
     title: propertyMetaTitle(t, property, locale),
     description: propertyMetaDescription(t, property, locale),
-    path: `/properties/${slug}`,
+    route: '/properties/[slug]',
+    params: { slug },
     image: cover ? imageUrl(cover, { width: 1200, height: 630 }) : undefined,
   });
 }
@@ -132,9 +133,9 @@ export default async function PropertyDetailPage({
       <JsonLd
         data={breadcrumbJsonLd(
           [
-            { name: tProps('breadcrumbHome'), path: '' },
-            { name: tProps('breadcrumb'), path: '/properties' },
-            { name: title, path: `/properties/${slug}` },
+            { name: tProps('breadcrumbHome'), route: '/' },
+            { name: tProps('breadcrumb'), route: '/properties' },
+            { name: title, route: '/properties/[slug]', params: { slug } },
           ],
           locale
         )}
@@ -217,7 +218,10 @@ export default async function PropertyDetailPage({
                 large part of what the link is worth.
               */}
               <Link
-                href={`/locations/${property.location.slug}`}
+                href={{
+                  pathname: '/locations/[slug]',
+                  params: { slug: property.location.slug },
+                }}
                 className="mt-6 inline-block text-sm font-medium text-gold transition-colors hover:text-navy"
               >
                 {t('viewAllInLocation', { name: locationName })} →
