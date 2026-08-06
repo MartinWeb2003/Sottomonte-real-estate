@@ -70,7 +70,7 @@ export function PrefetchOnIntent() {
         const url = new URL(link.href, window.location.origin);
         if (url.origin !== window.location.origin) return;
         // Strip the /hr | /en | /de prefix to get the bare route.
-        path = url.pathname.replace(/^\/(hr|en|de)(?=\/|$)/, '') || '/';
+        path = url.pathname.replace(/^\/(hr|en|de|pl)(?=\/|$)/, '') || '/';
       } catch {
         return;
       }

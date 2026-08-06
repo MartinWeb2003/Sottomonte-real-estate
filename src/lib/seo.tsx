@@ -122,10 +122,10 @@ function agencyNode(locations: Location[], locale: Locale) {
       contactType: 'sales',
       email: AGENCY.email,
       ...(AGENCY.phone ? { telephone: AGENCY.phone } : {}),
-      availableLanguage: ['hr', 'en', 'de'],
+      availableLanguage: ['hr', 'en', 'de', 'pl'],
     },
     sameAs: [AGENCY.instagram, AGENCY.facebook],
-    knowsLanguage: ['hr', 'en', 'de'],
+    knowsLanguage: ['hr', 'en', 'de', 'pl'],
   };
 }
 

@@ -7,9 +7,12 @@ import type { Locale, LocalizedString, LocalizedPortableText } from '@/types';
  * for a field that has at least one translation.
  */
 const FALLBACK_CHAIN: Record<Locale, Locale[]> = {
-  hr: ['hr', 'en', 'de'],
-  en: ['en', 'hr', 'de'],
-  de: ['de', 'en', 'hr'],
+  hr: ['hr', 'en', 'de', 'pl'],
+  en: ['en', 'hr', 'de', 'pl'],
+  de: ['de', 'en', 'hr', 'pl'],
+  // Polish falls back to English before Croatian: a Polish buyer is far more
+  // likely to read English than Croatian.
+  pl: ['pl', 'en', 'hr', 'de'],
 };
 
 export function pickLocale(

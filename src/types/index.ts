@@ -1,8 +1,8 @@
 import type { PortableTextBlock } from 'next-sanity';
 
-export type Locale = 'hr' | 'en' | 'de';
+export type Locale = 'hr' | 'en' | 'de' | 'pl';
 
-/** Localized string field from Sanity: { hr, en, de } */
+/** Localized string field from Sanity: { hr, en, de, pl } */
 export type LocalizedString = Partial<Record<Locale, string>>;
 
 /** Localized portable text field from Sanity */

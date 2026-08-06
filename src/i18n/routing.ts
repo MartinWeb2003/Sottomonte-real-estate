@@ -22,26 +22,31 @@ export const pathnames = {
     hr: '/nekretnine',
     en: '/properties',
     de: '/immobilien',
+    pl: '/nieruchomosci',
   },
   '/properties/[slug]': {
     hr: '/nekretnine/[slug]',
     en: '/properties/[slug]',
     de: '/immobilien/[slug]',
+    pl: '/nieruchomosci/[slug]',
   },
   '/locations/[slug]': {
     hr: '/lokacije/[slug]',
     en: '/locations/[slug]',
     de: '/orte/[slug]',
+    pl: '/miejscowosci/[slug]',
   },
   '/guides': {
     hr: '/vodici',
     en: '/guides',
     de: '/ratgeber',
+    pl: '/poradniki',
   },
   '/guides/[slug]': {
     hr: '/vodici/[slug]',
     en: '/guides/[slug]',
     de: '/ratgeber/[slug]',
+    pl: '/poradniki/[slug]',
   },
   // The buying and selling pages carry the money keywords, so these segments
   // are the phrase rather than the single word: "kupnja nekretnine", not
@@ -50,26 +55,30 @@ export const pathnames = {
     hr: '/kupnja-nekretnine',
     en: '/buying',
     de: '/immobilie-kaufen',
+    pl: '/kupno-nieruchomosci',
   },
   '/selling': {
     hr: '/prodaja-nekretnine',
     en: '/selling',
     de: '/immobilie-verkaufen',
+    pl: '/sprzedaz-nieruchomosci',
   },
   '/contact': {
     hr: '/kontakt',
     en: '/contact',
     de: '/kontakt',
+    pl: '/kontakt',
   },
   '/privacy': {
     hr: '/privatnost',
     en: '/privacy',
     de: '/datenschutz',
+    pl: '/prywatnosc',
   },
 } as const;
 
 export const routing = defineRouting({
-  locales: ['hr', 'en', 'de'],
+  locales: ['hr', 'en', 'de', 'pl'],
   defaultLocale: 'hr',
   localePrefix: 'always',
   /**

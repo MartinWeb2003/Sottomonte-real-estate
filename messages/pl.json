@@ -1,0 +1,446 @@
+{
+  "nav": {
+    "home": "Strona główna",
+    "properties": "Nieruchomości",
+    "selling": "Sprzedaż",
+    "contact": "Kontakt",
+    "buying": "Kupno",
+    "guides": "Poradniki"
+  },
+  "hero": {
+    "titleLead": "Twój zaufany partner na rynku nieruchomości na",
+    "titleItalic": "Pelješcu",
+    "subline": "Nie publikujemy tylko ogłoszeń. Znamy osobiście każdą lokalizację, każdą działkę i każdego właściciela.",
+    "ctaProperties": "Zobacz nieruchomości",
+    "ctaContact": "Skontaktuj się"
+  },
+  "intro": {
+    "statement": "Kupno nieruchomości na półwyspie, gdzie wszyscy się znają, wymaga partnera, który ten region naprawdę zna.",
+    "body": "Sottomonte to licencjonowane biuro nieruchomości z Pelješca. Za każdą nieruchomością, którą prezentujemy, stoi historia, którą znamy z pierwszej ręki: kto jest właścicielem, jaka jest lokalizacja, jak wygląda życie we wsi i w jakim stanie są dokumenty."
+  },
+  "difference": {
+    "items": [
+      {
+        "title": "Osobiście obchodzimy każdą działkę",
+        "body": "Każdy dom i każdą działkę z naszej oferty obejrzeliśmy osobiście. Wiemy, gdzie po południu pada cień, skąd wieje bura i jaki jest widok z tarasu o zmierzchu."
+      },
+      {
+        "title": "Bezpośredni kontakt z właścicielami",
+        "body": "Na Pelješcu najlepsze nieruchomości często sprzedaje się przez zaufanie, a nie przez portale. Budowane latami relacje przynoszą nam oferty, które nigdy nie trafiają na otwarty rynek."
+      },
+      {
+        "title": "Przejrzyste doradztwo",
+        "body": "Jeśli nieruchomość nie odpowiada Państwa oczekiwaniom lub budżetowi, powiemy to wprost, zanim stracicie czas i pieniądze. Jedna szczera rada znaczy dla nas więcej niż szybka sprzedaż."
+      }
+    ]
+  },
+  "featured": {
+    "title": "Wybrane nieruchomości na Pelješcu",
+    "viewAll": "Zobacz wszystkie nieruchomości"
+  },
+  "peninsula": {
+    "title": "Jeden półwysep. Wyjątkowe miejscowości.",
+    "subtitle": "Każda miejscowość na Pelješcu ma własny charakter, historię i rytm życia. Pomożemy znaleźć tę, która pasuje właśnie Państwu."
+  },
+  "howWeWork": {
+    "title": "Jak przebiega zakup",
+    "steps": [
+      {
+        "title": "Pierwsza rozmowa",
+        "body": "Poznajemy Państwa oczekiwania, budżet i kryteria. Całkowicie niezobowiązująco, mailowo lub na miejscu na Pelješcu."
+      },
+      {
+        "title": "Starannie dobrana oferta",
+        "body": "Proponujemy wyłącznie nieruchomości odpowiadające Państwa kryteriom, w tym dyskretne oferty spoza rynku."
+      },
+      {
+        "title": "Wspólne oglądanie",
+        "body": "Oglądamy nieruchomości razem i bez pośpiechu, wskazując zarówno zalety, jak i możliwe wady."
+      },
+      {
+        "title": "Procedura prawna i finalizacja",
+        "body": "Prowadzimy cały proces prawny we współpracy ze sprawdzonymi prawnikami i notariuszami, aż do wpisu do księgi wieczystej."
+      }
+    ]
+  },
+  "offMarket": {
+    "title": "Część najlepszych nieruchomości nigdy nie trafia na otwarty rynek.",
+    "body": "Wielu właścicieli na Pelješcu woli sprzedawać dyskretnie, bez publicznych ogłoszeń. Proszę napisać, czego Państwo szukają, a damy znać jako pierwszym.",
+    "cta": "Napiszcie, czego szukacie"
+  },
+  "finalCta": {
+    "title": "Znajdźmy Państwa miejsce na Pelješcu.",
+    "subtitle": "Proszę się odezwać. Krótka rozmowa nic nie kosztuje, a oszczędza miesiące poszukiwań.",
+    "button": "Kontakt"
+  },
+  "footer": {
+    "tagline": "Butikowe biuro nieruchomości na Pelješcu w Chorwacji. Znamy osobiście każdą lokalizację i każdego właściciela.",
+    "pages": "Strony",
+    "locations": "Miejscowości",
+    "contact": "Kontakt",
+    "privacy": "Prywatność",
+    "rights": "Wszelkie prawa zastrzeżone."
+  },
+  "properties": {
+    "title": "Nieruchomości na sprzedaż na Pelješcu",
+    "breadcrumbHome": "Strona główna",
+    "breadcrumb": "Nieruchomości",
+    "results": "{count, plural, one {# nieruchomość} few {# nieruchomości} many {# nieruchomości} other {# nieruchomości}}",
+    "reserved": "Zarezerwowane",
+    "filters": {
+      "title": "Szukaj nieruchomości",
+      "button": "Filtry",
+      "type": "Rodzaj nieruchomości",
+      "allTypes": "Wszystkie rodzaje",
+      "price": "Cena (€)",
+      "anyPrice": "Dowolna cena",
+      "priceUpTo": "do {price}",
+      "priceFrom": "od {price}",
+      "seaDistance": "Odległość od morza",
+      "anyDistance": "Dowolna odległość",
+      "under100": "< 100 m",
+      "under500": "< 500 m",
+      "under1km": "< 1 km",
+      "sort": "Sortuj według",
+      "sortNewest": "Najnowsze",
+      "sortPriceAsc": "Cena: od najniższej",
+      "sortPriceDesc": "Cena: od najwyższej",
+      "clearAll": "Wyczyść filtry",
+      "apply": "Zastosuj filtry",
+      "selected": "wybrano: {count}"
+    },
+    "types": {
+      "house": "Dom / Willa",
+      "apartment": "Mieszkanie / Apartament",
+      "land": "Działka budowlana",
+      "stone-ruin": "Kamienny dom do remontu"
+    },
+    "pagination": {
+      "previous": "Poprzednia",
+      "next": "Następna",
+      "page": "Strona {page} z {total}"
+    },
+    "bottomCta": {
+      "title": "Nie znaleźli Państwo tego, czego szukacie? Część oferty jest poza ogłoszeniami.",
+      "body": "Proszę opisać, jakiej nieruchomości na Pelješcu Państwo szukają, a poinformujemy o nowych możliwościach.",
+      "lookingFor": "Jakiej nieruchomości Państwo szukają?",
+      "lookingForPlaceholder": "np. kamienny dom blisko morza, Viganj lub Orebić, budżet do 350.000 €",
+      "budget": "Orientacyjny budżet (€)",
+      "submit": "Wyślij zapytanie"
+    },
+    "typesShort": {
+      "house": "Dom",
+      "apartment": "Mieszkanie",
+      "land": "Działka",
+      "stone-ruin": "Kamienny dom"
+    }
+  },
+  "property": {
+    "viewAllPhotos": "Wszystkie zdjęcia ({count})",
+    "droneVideo": "Film z drona",
+    "photos": "Galeria zdjęć",
+    "inquire": "Wyślij zapytanie o tę nieruchomość",
+    "aboutProperty": "O nieruchomości",
+    "aboutLocation": "O lokalizacji",
+    "papersTitle": "Stan prawny i dokumentacja",
+    "priceOnRequest": "Cena na zapytanie",
+    "perM2": "≈ {price}/m²",
+    "approximateLocation": "Pokazano orientacyjną lokalizację. Dokładny adres i numer działki przekazujemy po zapytaniu.",
+    "similar": "Podobne nieruchomości na Pelješcu",
+    "weSpeak": "Mówimy po chorwacku, angielsku, niemiecku i polsku",
+    "yourAgent": "Państwa agent nieruchomości",
+    "inquiryPlaceholder": "Interesuje mnie nieruchomość: {title}",
+    "specs": {
+      "area": "Powierzchnia użytkowa",
+      "landArea": "Powierzchnia działki",
+      "bedrooms": "Sypialnie",
+      "bathrooms": "Łazienki",
+      "floors": "Liczba kondygnacji",
+      "condition": "Stan nieruchomości",
+      "seaDistance": "Odległość od morza",
+      "parking": "Miejsce parkingowe",
+      "parkingYes": "Tak",
+      "parkingNo": "Nie"
+    },
+    "status": {
+      "available": "Dostępne",
+      "reserved": "Zarezerwowane",
+      "sold": "Sprzedane"
+    },
+    "imageAlt": "{type} na sprzedaż, {location}, Pelješac",
+    "imageAltNumbered": "{base}, zdjęcie {n}",
+    "viewAllInLocation": "Zobacz wszystkie nieruchomości w miejscowości {name}"
+  },
+  "selling": {
+    "title": "Sprzedaż na Pelješcu?",
+    "subtitle": "Prawdopodobnie znamy już kupca na Państwa nieruchomość.",
+    "pitchTitle": "Poważni kupcy, bez traconego czasu",
+    "pitchItems": [
+      {
+        "title": "Zasięg międzynarodowy",
+        "body": "Nasi kupujący pochodzą z Niemiec, Austrii i Szwajcarii, Wielkiej Brytanii, Skandynawii i Polski. Są sprawdzeni i mają jasno określony budżet."
+      },
+      {
+        "title": "Prezentacja, która sprzedaje",
+        "body": "Profesjonalne zdjęcia, ujęcia z drona i uczciwa prezentacja. Bez upiększeń, które mszczą się przy oglądaniu."
+      },
+      {
+        "title": "Możliwa dyskrecja",
+        "body": "Nie chcą Państwo publicznego ogłoszenia? Oferujemy nieruchomość po cichu, wyłącznie sprawdzonym kupcom z naszej bazy."
+      }
+    ],
+    "processTitle": "Pięć kroków do sprzedaży",
+    "processSteps": [
+      {
+        "title": "Bezpłatna wycena i wizyta",
+        "body": "Przyjeżdżamy na miejsce, oglądamy nieruchomość i podajemy realną wycenę jej wartości."
+      },
+      {
+        "title": "Sprawdzenie dokumentacji",
+        "body": "Wskazujemy problemy w dokumentach, zanim zrobi to kupujący, i pomagamy je rozwiązać."
+      },
+      {
+        "title": "Prezentacja i marketing",
+        "body": "Zdjęcia, dron, opisy w kilku językach i dotarcie do właściwych kupujących."
+      },
+      {
+        "title": "Prezentacje i negocjacje",
+        "body": "Prowadzimy oglądanie i negocjujemy w Państwa interesie, bez presji."
+      },
+      {
+        "title": "Finalizacja",
+        "body": "Prawnicy, notariusz, podatki. Prowadzimy Państwa aż do płatności i przekazania kluczy."
+      }
+    ],
+    "formTitle": "Proszę opisać swoją nieruchomość",
+    "formLocation": "Lokalizacja",
+    "formType": "Rodzaj nieruchomości",
+    "formSize": "Orientacyjna powierzchnia (m²)",
+    "formMessage": "Wiadomość",
+    "faqTitle": "Częste pytania o sprzedaż",
+    "faq": [
+      {
+        "question": "Ile wynosi prowizja i kto ją płaci?",
+        "answer": "Prowizję ustalamy w umowie pośrednictwa przed rozpoczęciem współpracy, przejrzyście i bez ukrytych kosztów. Płaci ją strona, która nas zaangażowała, zgodnie z ustaleniami."
+      },
+      {
+        "question": "Jak długo trwa sprzedaż?",
+        "answer": "Realnie wycenione nieruchomości na Pelješcu sprzedają się zwykle w ciągu sześciu do dwunastu miesięcy. Przewartościowane stoją latami, dlatego zaczynamy od uczciwej wyceny."
+      },
+      {
+        "question": "Co, jeśli dokumenty nie są uporządkowane?",
+        "answer": "Rozwiązujemy to przed publikacją ogłoszenia. Sprawdzamy własność, obciążenia i pozwolenia oraz porządkujemy braki z prawnikiem, zanim zapyta o to kupujący."
+      },
+      {
+        "question": "Czy mogę sprzedać dyskretnie, bez publicznego ogłoszenia?",
+        "answer": "Tak. Część oferty przedstawiamy wyłącznie sprawdzonym kupcom z naszej bazy, bez zdjęć na portalach i bez ciekawskich sąsiadów."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Porozmawiajmy.",
+    "detailsTitle": "Dane kontaktowe",
+    "email": "E-mail",
+    "address": "Adres",
+    "addressValue": "Ul. Kralja Zvonimira 8, 20250 Orebić, Chorwacja",
+    "languages": "Mówimy po chorwacku, angielsku, niemiecku i polsku",
+    "formTitle": "Wyślij wiadomość",
+    "interest": "Interesuje mnie",
+    "interestBuying": "Kupno",
+    "interestSelling": "Sprzedaż",
+    "interestOther": "Inne",
+    "success": "Dziękujemy za wiadomość. Odpowiemy najszybciej, jak to możliwe.",
+    "budget": "Orientacyjny budżet",
+    "budgetOptions": [
+      "do 200.000 €",
+      "200.000 € do 500.000 €",
+      "500.000 € do 1.000.000 €",
+      "powyżej 1.000.000 €"
+    ],
+    "timeline": "Ramy czasowe",
+    "timelineOptions": [
+      "Jak najszybciej",
+      "W ciągu 6 miesięcy",
+      "W ciągu roku",
+      "Na razie tylko się rozglądam"
+    ],
+    "optional": "Nieobowiązkowe"
+  },
+  "forms": {
+    "name": "Imię i nazwisko",
+    "email": "Adres e-mail",
+    "phone": "Telefon (nieobowiązkowo)",
+    "message": "Wiadomość",
+    "note": "Uwagi (nieobowiązkowo)",
+    "notePlaceholder": "Czy chcą Państwo coś dodać? Preferowana lokalizacja na Pelješcu, budżet, finansowanie, szczególne wymagania…",
+    "consent": "Zgadzam się, aby Sottomonte przechowywało moje dane w celu odpowiedzi na zapytanie, zgodnie z <link>polityką prywatności</link>.",
+    "submit": "Wyślij zapytanie",
+    "sending": "Wysyłanie…",
+    "success": "Dziękujemy. Odpowiemy najszybciej, jak to możliwe.",
+    "error": "Coś poszło nie tak. Proszę spróbować ponownie lub napisać do nas e-mail.",
+    "required": "To pole jest wymagane",
+    "invalidEmail": "Proszę podać prawidłowy adres e-mail",
+    "consentRequired": "Zgoda jest wymagana"
+  },
+  "meta": {
+    "home": {
+      "title": "Nieruchomości Pelješac: domy i działki w Chorwacji | Sottomonte",
+      "description": "Szukają Państwo nieruchomości na półwyspie Pelješac w Chorwacji? Domy, działki budowlane i kamienne domy przy morzu. Sprawdzona dokumentacja."
+    },
+    "properties": {
+      "title": "Nieruchomości na sprzedaż na Pelješcu, Chorwacja | Sottomonte",
+      "description": "Aktualna oferta nieruchomości na półwyspie Pelješac. Domy z widokiem na morze, działki budowlane i kamienne domy do remontu. Sprawdźcie ofertę."
+    },
+    "selling": {
+      "title": "Sprzedaż nieruchomości na Pelješcu: bezpłatna wycena | Sottomonte",
+      "description": "Sprzedają Państwo dom lub działkę na Pelješcu? Łączymy sprzedających ze sprawdzonymi kupcami, oferując wycenę, marketing i pełną dyskrecję."
+    },
+    "contact": {
+      "title": "Kontakt: biuro nieruchomości Pelješac | Sottomonte",
+      "description": "Proszę skontaktować się z naszym biurem nieruchomości na Pelješcu mailem lub przez formularz. Odpowiadamy w ciągu 24 godzin, także po polsku."
+    },
+    "buying": {
+      "title": "Kupno nieruchomości na Pelješcu: przebieg i koszty | Sottomonte",
+      "description": "Kompletny przewodnik po zakupie nieruchomości na Pelješcu w Chorwacji. Procedura prawna, podatek, notariusz i koszty dodatkowe."
+    },
+    "property": {
+      "title": "{type} na sprzedaż, {location} | Sottomonte",
+      "titleWithSize": "{type} na sprzedaż, {location}: {size} | Sottomonte",
+      "descriptionLead": "{type} na sprzedaż w miejscowości {location} na Pelješcu: {facts}.",
+      "descriptionLeadNoLocation": "{type} na sprzedaż na Pelješcu: {facts}.",
+      "descriptionCta": "Dokumenty sprawdzone. Umówcie oglądanie.",
+      "factLand": "{area} działki",
+      "factBedrooms": "{count, plural, one {# sypialnia} few {# sypialnie} many {# sypialni} other {# sypialni}}",
+      "factSea": "{distance} od morza"
+    },
+    "guides": {
+      "title": "Poradniki o zakupie nieruchomości na Pelješcu | Sottomonte",
+      "description": "Poradniki o kupnie i sprzedaży nieruchomości na Pelješcu: koszty, podatki, dokumentacja i procedura dla obcokrajowców. Pisane przez biuro działające na miejscu."
+    },
+    "guide": {
+      "title": "{title} | Sottomonte",
+      "descriptionFallback": "Poradnik dla kupujących i sprzedających nieruchomości na półwyspie Pelješac. Konkretne koszty, terminy i dokumenty, bez ogólników."
+    }
+  },
+  "trust": {
+    "reply": "Odpowiadamy najszybciej, jak to możliwe",
+    "licensed": "Licencjonowane biuro nieruchomości, HGK",
+    "languages": "Mówimy po chorwacku, angielsku, niemiecku i polsku"
+  },
+  "buying": {
+    "title": "Kupno nieruchomości na Pelješcu",
+    "subtitle": "Przewodnik po zakupie, sprawdzeniu dokumentów, podatkach i kosztach dodatkowych.",
+    "introStatement": "Obywatele Unii Europejskiej kupują nieruchomości w Chorwacji na dokładnie tych samych zasadach co obywatele chorwaccy.",
+    "introBody": "Częstą obawą zagranicznych kupujących jest zakup w nieznanym otoczeniu prawnym. Sottomonte zapewnia pełną przejrzystość: sprawdzenie księgi wieczystej i pozwoleń oraz prowadzenie procedury z uprawnionym prawnikiem i notariuszem.",
+    "processTitle": "Zakup krok po kroku",
+    "processSteps": [
+      {
+        "title": "Rozmowa i ustalenie kryteriów",
+        "body": "Analizujemy Państwa potrzeby i proponujemy odpowiednie nieruchomości na Pelješcu, w tym oferty spoza publicznych ogłoszeń."
+      },
+      {
+        "title": "Organizacja oglądania",
+        "body": "Oglądamy nieruchomości bez presji. Wyjaśniamy szczegóły dotyczące lokalizacji, infrastruktury i potencjału inwestycyjnego."
+      },
+      {
+        "title": "Prawne sprawdzenie dokumentacji",
+        "body": "Przed sporządzeniem umowy szczegółowo sprawdzamy księgi wieczyste, kataster, obciążenia i pozwolenia na użytkowanie."
+      },
+      {
+        "title": "Umowa i poświadczenie podpisów",
+        "body": "Prawnik sporządza dwujęzyczną umowę sprzedaży. Podpisy poświadcza notariusz, a procedura jest możliwa również przez pełnomocnika."
+      },
+      {
+        "title": "Podatek, wpis własności i przekazanie",
+        "body": "Zgłaszamy podatek od przeniesienia własności, składamy wniosek o wpis do księgi wieczystej i organizujemy przekazanie nieruchomości."
+      }
+    ],
+    "costsTitle": "Przegląd kosztów zakupu",
+    "costsIntro": "Poza uzgodnioną ceną nieruchomości należy liczyć się w Chorwacji z kosztami dodatkowymi rzędu 4 do 5 procent:",
+    "costs": [
+      {
+        "label": "Podatek od przeniesienia własności",
+        "value": "3%",
+        "note": "Płatny jednorazowo po zakupie. Przy nowych budynkach z naliczonym VAT ten podatek nie występuje."
+      },
+      {
+        "label": "Notariusz i wpis do księgi wieczystej",
+        "value": "200 do 500 €",
+        "note": "Koszty poświadczenia podpisów i opłaty za wpis prawa własności do księgi wieczystej."
+      },
+      {
+        "label": "Prawnik",
+        "value": "około 1%",
+        "note": "Nie jest obowiązkowy, ale go zalecamy. Współpracujemy ze sprawdzonymi prawnikami mówiącymi w Państwa języku."
+      },
+      {
+        "label": "Prowizja biura",
+        "value": "zgodnie z umową",
+        "note": "Ustalana przejrzyście i z góry, przed pierwszym oglądaniem."
+      }
+    ],
+    "faqTitle": "Częste pytania o zakup",
+    "faq": [
+      {
+        "question": "Czy jako obcokrajowiec mogę kupić nieruchomość w Chorwacji?",
+        "answer": "Obywatele Unii Europejskiej, w tym Polski, kupują bez żadnych ograniczeń, tak samo jak obywatele chorwaccy. Obywatele państw spoza Unii potrzebują zgody Ministerstwa Sprawiedliwości na zasadzie wzajemności albo kupują przez chorwacką spółkę. Prowadzimy Państwa przez obie ścieżki."
+      },
+      {
+        "question": "Jakie są łączne koszty poza ceną nieruchomości?",
+        "answer": "Orientacyjnie 4 do 5 procent ponad cenę: podatek od przeniesienia własności w wysokości 3 procent, notariusz i wpis do księgi wieczystej oraz prawnik. Prowizja biura ustalana jest z góry, przed pierwszym oglądaniem."
+      },
+      {
+        "question": "Jak długo trwa zakup?",
+        "answer": "Od uzgodnienia do podpisania umowy mijają zwykle dwa do czterech tygodni, a wraz z podatkiem i wpisem cała procedura trwa od czterech do ośmiu tygodni. Klucze odbiera się zwykle zaraz po zapłacie."
+      },
+      {
+        "question": "Czy muszę być w Chorwacji, aby kupić nieruchomość?",
+        "answer": "Nie. Z pełnomocnictwem poświadczonym u notariusza lub w konsulacie chorwackim całą procedurę możemy przeprowadzić bez Państwa przyjazdu."
+      },
+      {
+        "question": "Co sprawdzacie przed zakupem?",
+        "answer": "Własność 1/1, obciążenia i hipoteki, zgodność katastru z księgą wieczystą oraz pozwolenie na budowę i użytkowanie. Jeśli coś nie jest w porządku, dowiedzą się Państwo tego od nas, przed złożeniem oferty."
+      },
+      {
+        "question": "Czy mogę wynajmować nieruchomość turystom?",
+        "answer": "Tak, po uzyskaniu decyzji o kategoryzacji. Procedura jest standardowa i pomagamy ją uruchomić po zakupie."
+      }
+    ],
+    "guidesTitle": "Szczegółowe poradniki"
+  },
+  "locations": {
+    "metaTitle": "{name}, nieruchomości na Pelješcu | Sottomonte",
+    "metaDescription": "Domy, działki i mieszkania w miejscowości {name} na Pelješcu. Znamy osobiście każdą ulicę i każdego właściciela.",
+    "aboutTitle": "O miejscowości",
+    "propertiesTitle": "Aktualna oferta",
+    "viewFiltered": "Przeglądaj z filtrami",
+    "emptyTitle": "O {name} proszę zapytać nas bezpośrednio.",
+    "emptyBody": "Brak publicznych ogłoszeń nie oznacza, że nic nie jest dostępne. Duża część oferty na Pelješcu nigdy nie trafia do internetu, bo właściciele tak wolą. Proszę napisać, czego Państwo szukają, a sprawdzimy, co jest obecnie wolne w miejscowości {name}, także to, o czym jeszcze się nie mówi.",
+    "emptyCta": "Napiszcie, czego szukacie",
+    "photoAlt": "{name} na półwyspie Pelješac",
+    "guidesTitle": "Zanim kupią Państwo w miejscowości {name}",
+    "guidesIntro": "Procedura, koszty i dokumenty, wyjaśnione, zanim zaczną zaskakiwać.",
+    "linkLabel": "Nieruchomości w miejscowości {name}"
+  },
+  "guides": {
+    "title": "Poradniki o kupnie i sprzedaży na Pelješcu",
+    "subtitle": "Procedura, koszty i dokumentacja, wyjaśnione tak, jak tłumaczymy je klientom na miejscu.",
+    "breadcrumb": "Poradniki",
+    "readMore": "Przeczytaj poradnik",
+    "published": "Opublikowano {date}",
+    "updated": "Zaktualizowano {date}",
+    "authorLabel": "Autor",
+    "aboutAuthor": "O autorze",
+    "relatedTitle": "Powiązane poradniki",
+    "relatedLocationsTitle": "Miejscowości opisane w tym poradniku",
+    "faqTitle": "Częste pytania",
+    "ctaTitle": "Pytanie, na które ten poradnik nie odpowiada?",
+    "ctaBody": "Każda nieruchomość ma swoją historię, a dokumenty rzadko wyglądają jak w podręczniku. Proszę napisać, na czym Państwo utknęli, a odpowiemy konkretnie i bez zobowiązań.",
+    "ctaProperties": "Nieruchomości na sprzedaż na Pelješcu",
+    "ctaSelling": "Bezpłatna wycena nieruchomości",
+    "emptyTitle": "Pierwsze poradniki powstają.",
+    "emptyBody": "Piszemy je sami, na podstawie transakcji, które prowadziliśmy, więc trwa to dłużej niż przepisanie ich skądinąd. Do tego czasu proszę pytać nas bezpośrednio. Odpowiadamy w ciągu 24 godzin.",
+    "emptyCta": "Zadaj pytanie",
+    "viewAll": "Wszystkie poradniki"
+  }
+}

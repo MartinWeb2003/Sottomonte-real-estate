@@ -65,3 +65,7 @@ public/videos/*-raw.*
 # request. Note this file never reached the deployed site either way: it is not
 # a route and not in public/, so nothing under it was ever served.
 CLAUDE.md
+
+# Client-facing PDFs generated from the schema. Regenerated on demand and not
+# source, so they stay out of the repo.
+*.pdf

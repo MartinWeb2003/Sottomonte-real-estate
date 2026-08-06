@@ -29,7 +29,7 @@ const nextConfig = {
     const removed = gone.flatMap((slug) => [
       // Locale-prefixed, e.g. /hr/about -> /hr
       {
-        source: `/:locale(hr|en|de)/${slug}`,
+        source: `/:locale(hr|en|de|pl)/${slug}`,
         destination: '/:locale',
         permanent: true,
       },
@@ -65,6 +65,15 @@ const nextConfig = {
       ['de', 'buying', 'immobilie-kaufen'],
       ['de', 'selling', 'immobilie-verkaufen'],
       ['de', 'privacy', 'datenschutz'],
+      // Polish is new and has no indexed URLs, so these are not strictly
+      // redirects of anything. They are here so a hand-typed English-shaped
+      // Polish URL still resolves instead of 404ing.
+      ['pl', 'properties', 'nieruchomosci'],
+      ['pl', 'locations', 'miejscowosci'],
+      ['pl', 'guides', 'poradniki'],
+      ['pl', 'buying', 'kupno-nieruchomosci'],
+      ['pl', 'selling', 'sprzedaz-nieruchomosci'],
+      ['pl', 'privacy', 'prywatnosc'],
     ].flatMap(([locale, from, to]) => [
       // The section index, e.g. /hr/properties -> /hr/nekretnine
       {

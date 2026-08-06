@@ -62,6 +62,28 @@ const CONTENT: Record<
       },
     ],
   },
+  pl: {
+    title: 'Polityka prywatności',
+    updated: 'Ostatnia aktualizacja: sierpień 2026',
+    sections: [
+      {
+        heading: 'Kim jesteśmy',
+        body: `Sottomonte, biuro pośrednictwa w obrocie nieruchomościami, ${AGENCY.address}, Chorwacja. W sprawach dotyczących danych osobowych prosimy o kontakt na ${AGENCY.email}.`,
+      },
+      {
+        heading: 'Jakie dane zbieramy',
+        body: 'Dane, które przesyłają nam Państwo przez formularze (imię i nazwisko, e-mail, telefon, treść wiadomości), wykorzystujemy wyłącznie w celu odpowiedzi na zapytanie. Nie sprzedajemy ich ani nie udostępniamy osobom trzecim.',
+      },
+      {
+        heading: 'Pliki cookie i analityka',
+        body: 'Ta strona nie ustawia plików cookie służących śledzeniu i nie korzysta z Google Analytics. Ruch mierzymy usługą Cloudflare Web Analytics, która nie ustawia plików cookie, nie przechowuje adresów IP i nie tworzy Państwa profilu. Zbierane są wyłącznie dane zbiorcze: które strony odwiedzono, z jakiego odnośnika przyszli odwiedzający i jak szybko ładowały się strony. Dlatego nie prosimy o zgodę na analitykę, ponieważ nie przetwarzamy danych osobowych.',
+      },
+      {
+        heading: 'Państwa prawa',
+        body: 'Zgodnie z RODO mają Państwo prawo dostępu do swoich danych, ich sprostowania i usunięcia. Wystarczy jeden e-mail, a dane usuwamy bez zbędnej zwłoki.',
+      },
+    ],
+  },
   de: {
     title: 'Datenschutzerklärung',
     updated: 'Zuletzt aktualisiert: August 2026',

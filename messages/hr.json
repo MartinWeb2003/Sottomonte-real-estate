@@ -147,7 +147,7 @@
     "perM2": "≈ {price}/m²",
     "approximateLocation": "Prikazana je približna mikrolokacija. Točnu adresu i parcelu dijelimo nakon upita.",
     "similar": "Slične nekretnine na Pelješcu",
-    "weSpeak": "Govorimo HR / EN / DE",
+    "weSpeak": "Govorimo hrvatski, engleski, njemački i poljski",
     "yourAgent": "Vaš agent za nekretnine",
     "inquiryPlaceholder": "Zanima me nekretnina: {title}",
     "specs": {
@@ -243,7 +243,7 @@
     "email": "E-mail",
     "address": "Adresa",
     "addressValue": "Ul. Kralja Zvonimira 8, 20250 Orebić, Hrvatska",
-    "languages": "Govorimo HR / EN / DE",
+    "languages": "Govorimo hrvatski, engleski, njemački i poljski",
     "formTitle": "Pošaljite poruku",
     "interest": "Zanima me",
     "interestBuying": "Kupnja",
@@ -325,7 +325,7 @@
   "trust": {
     "reply": "Odgovaramo u najkraćem mogućem roku",
     "licensed": "Licencirana agencija za nekretnine, HGK",
-    "languages": "Govorimo HR / EN / DE"
+    "languages": "Govorimo hrvatski, engleski, njemački i poljski"
   },
   "buying": {
     "title": "Kupnja nekretnine na Pelješcu",

@@ -147,7 +147,7 @@
     "perM2": "≈ {price}/m²",
     "approximateLocation": "Ungefähre Lage dargestellt. Genaue Adresse und Flurstück auf Anfrage.",
     "similar": "Ähnliche Immobilien auf Pelješac",
-    "weSpeak": "Wir sprechen HR / EN / DE",
+    "weSpeak": "Wir sprechen HR / EN / DE / PL",
     "yourAgent": "Ihr Ansprechpartner",
     "inquiryPlaceholder": "Ich interessiere mich für die Immobilie: {title}",
     "specs": {
@@ -243,7 +243,7 @@
     "email": "E-Mail",
     "address": "Adresse",
     "addressValue": "Ul. Kralja Zvonimira 8, 20250 Orebić, Kroatien",
-    "languages": "Wir sprechen HR / EN / DE",
+    "languages": "Wir sprechen HR / EN / DE / PL",
     "formTitle": "Nachricht senden",
     "interest": "Ich interessiere mich für",
     "interestBuying": "Kauf",
@@ -325,7 +325,7 @@
   "trust": {
     "reply": "Antwort so schnell wie möglich",
     "licensed": "Lizenzierte Immobilienagentur, HGK",
-    "languages": "Wir sprechen DE / EN / HR"
+    "languages": "Wir sprechen HR / EN / DE / PL"
   },
   "buying": {
     "title": "Immobilienkauf auf Pelješac, Kroatien",

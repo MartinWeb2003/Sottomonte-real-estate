@@ -4,6 +4,7 @@ const LOCALES = [
   { id: 'hr', title: 'Hrvatski' },
   { id: 'en', title: 'English' },
   { id: 'de', title: 'Deutsch' },
+  { id: 'pl', title: 'Polski' },
 ];
 
 /** { hr, en, de } string — HR is the source of truth */
