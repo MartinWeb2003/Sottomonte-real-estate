@@ -1,11 +1,18 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { imageUrl } from '@sanity-config/lib/image';
 import { cn } from '@/lib/utils';
 import { galleryImageAlt } from '@/lib/propertyText';
+import {
+  nextImageUrl,
+  onIdle,
+  shouldPreload,
+  viewportImageWidth,
+  warmImages,
+} from '@/lib/imagePreload';
 import type { SanityImage } from '@/types';
 import { Lightbox } from './Lightbox';
 import { IMAGES } from '@/lib/images';
@@ -32,6 +39,51 @@ export function Gallery({
     galleryImageAlt(tRoot, image, index, altBase);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [tab, setTab] = useState<'photos' | 'video'>('photos');
+
+  /*
+   * The lightbox requests these photos at full-screen width, a size the card
+   * thumbnails never fetch, so without this the first "view all photos" click
+   * waits on a cold download. Warming them here means the lightbox opens from
+   * cache instead.
+   */
+  const warmedRef = useRef(false);
+  const cancelRef = useRef<(() => void) | null>(null);
+
+  const lightboxUrls = useCallback(
+    (count: number) => {
+      const width = viewportImageWidth();
+      return images
+        .slice(0, count)
+        .map((image) => nextImageUrl(imageUrl(image, { width: 1920 }), width));
+    },
+    [images]
+  );
+
+  /** Everything, triggered the moment the visitor shows intent to open it. */
+  const warmAll = useCallback(() => {
+    if (warmedRef.current || !shouldPreload()) return;
+    warmedRef.current = true;
+    cancelRef.current?.();
+    cancelRef.current = warmImages(lightboxUrls(images.length), 3);
+  }, [images.length, lightboxUrls]);
+
+  useEffect(() => {
+    if (images.length === 0 || !shouldPreload()) return;
+
+    /*
+     * Only the first few on load. A gallery can run to dozens of photos and
+     * pulling all of them unprompted would cost the visitor bandwidth they
+     * may never use; the rest are fetched on hover or on open.
+     */
+    const cancelIdle = onIdle(() => {
+      cancelRef.current = warmImages(lightboxUrls(Math.min(images.length, 4)));
+    });
+
+    return () => {
+      cancelIdle();
+      cancelRef.current?.();
+    };
+  }, [images.length, lightboxUrls]);
 
   if (images.length === 0) {
     return (
@@ -97,6 +149,8 @@ export function Gallery({
           <button
             type="button"
             onClick={() => setLightboxIndex(0)}
+            onPointerEnter={warmAll}
+            onFocus={warmAll}
             className="img-hover-zoom relative col-span-2 aspect-[4/3] overflow-hidden bg-navy/5 md:aspect-auto md:h-[520px]"
           >
             <Image
@@ -114,6 +168,8 @@ export function Gallery({
                 key={i}
                 type="button"
                 onClick={() => setLightboxIndex(i + 1)}
+                onPointerEnter={warmAll}
+                onFocus={warmAll}
                 className="img-hover-zoom relative flex-1 overflow-hidden bg-navy/5"
               >
                 <Image
@@ -129,6 +185,8 @@ export function Gallery({
           <button
             type="button"
             onClick={() => setLightboxIndex(0)}
+            onPointerEnter={warmAll}
+            onFocus={warmAll}
             className="absolute bottom-4 right-4 bg-white/95 px-4 py-2 text-xs font-medium tracking-wide text-navy transition-colors hover:bg-white"
           >
             {t('viewAllPhotos', { count: images.length })}

@@ -5,6 +5,12 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { imageUrl } from '@sanity-config/lib/image';
 import { galleryImageAlt } from '@/lib/propertyText';
+import {
+  nextImageUrl,
+  shouldPreload,
+  viewportImageWidth,
+  warmImages,
+} from '@/lib/imagePreload';
 import type { SanityImage } from '@/types';
 
 /** Fullscreen lightbox with keyboard (←/→/Esc) and swipe navigation. */
@@ -34,6 +40,24 @@ export function Lightbox({
     () => setIndex((i) => (i - 1 + images.length) % images.length),
     [images.length]
   );
+
+  /*
+   * Fetch the photos either side of the current one. The gallery has already
+   * warmed the opening images, but stepping deep into a long set would
+   * otherwise hit a cold image on every arrow press.
+   */
+  useEffect(() => {
+    if (images.length < 2 || !shouldPreload()) return;
+    const width = viewportImageWidth();
+    const neighbours = [
+      (index + 1) % images.length,
+      (index - 1 + images.length) % images.length,
+    ]
+      .filter((i) => i !== index)
+      .map((i) => nextImageUrl(imageUrl(images[i], { width: 1920 }), width));
+
+    return warmImages(neighbours);
+  }, [index, images]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
