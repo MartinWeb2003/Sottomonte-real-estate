@@ -171,7 +171,7 @@ export default async function LocationPage({
           {items.length > 0 ? (
             <>
               <FadeUp>
-                <div className="flex items-end justify-between gap-6">
+                <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
                   <h2 className="font-display text-3xl text-navy md:text-[40px]">
                     {t('propertiesTitle')}
                   </h2>
