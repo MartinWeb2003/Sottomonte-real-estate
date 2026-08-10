@@ -121,16 +121,24 @@ export default async function BuyingPage({
                 </FadeUp>
               ))}
             </ol>
-
-            {/* Placed here on purpose: the reader has just gone through the
-                viewings step, so accommodation is the next practical question
-                rather than an advert. Ownership is stated in the copy. */}
-            <FadeUp delay={200}>
-              <p className="mt-10 max-w-2xl text-sm leading-relaxed text-muted">
-                {t.rich('stayNote', { link: apartmentLink })}
-              </p>
-            </FadeUp>
           </div>
+
+          {/*
+            Placed here on purpose: the reader has just gone through the
+            viewings step, so accommodation is the next practical question
+            rather than an advert. Ownership is stated in the copy.
+
+            It sits OUTSIDE the timeline wrapper above, and must stay there.
+            That wrapper owns the gold connector line, sized at
+            `calc(100% - 16px)` of its own height, so anything nested inside it
+            stretches the line down alongside the new content instead of ending
+            it at the last step.
+          */}
+          <FadeUp delay={200}>
+            <p className="mt-16 max-w-2xl text-sm leading-relaxed text-muted md:mt-20">
+              {t.rich('stayNote', { link: apartmentLink })}
+            </p>
+          </FadeUp>
         </div>
       </section>
 
