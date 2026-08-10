@@ -79,7 +79,8 @@
     "locations": "Locations",
     "contact": "Contact",
     "privacy": "Privacy",
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "credit": "Website by"
   },
   "properties": {
     "title": "Real Estate for Sale on Pelješac",
@@ -264,7 +265,9 @@
       "Within a year",
       "Just looking"
     ],
-    "optional": "Optional"
+    "optional": "Optional",
+    "stayLabel": "Coming for viewings?",
+    "stayValue": "We also run our own apartment in Kućište, <link>Eva Apartman</link>."
   },
   "forms": {
     "name": "Full name",
@@ -406,7 +409,8 @@
         "answer": "Yes, with a categorization permit. The procedure is standard and we help you start it after the purchase."
       }
     ],
-    "guidesTitle": "In-depth guides"
+    "guidesTitle": "In-depth guides",
+    "stayNote": "Coming for viewings? We can arrange where you stay. We also run our own apartment in Kućište, <link>Eva Apartman</link>."
   },
   "locations": {
     "metaTitle": "{name}, property on Pelješac | Sottomonte",

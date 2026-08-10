@@ -9,6 +9,7 @@ import { FadeUp } from '@/components/ui/FadeUp';
 import { HairlineDivider } from '@/components/ui/HairlineDivider';
 import { FaqSection, type FaqItem } from '@/components/sections/FaqSection';
 import { GuideCard } from '@/components/ui/GuideCard';
+import { apartmentLink } from '@/components/ui/apartmentLink';
 import { buildMetadata, faqJsonLd, JsonLd } from '@/lib/seo';
 import { getGuides } from '@sanity-config/lib/queries';
 import { pickLocale } from '@/lib/utils';
@@ -120,6 +121,15 @@ export default async function BuyingPage({
                 </FadeUp>
               ))}
             </ol>
+
+            {/* Placed here on purpose: the reader has just gone through the
+                viewings step, so accommodation is the next practical question
+                rather than an advert. Ownership is stated in the copy. */}
+            <FadeUp delay={200}>
+              <p className="mt-10 max-w-2xl text-sm leading-relaxed text-muted">
+                {t.rich('stayNote', { link: apartmentLink })}
+              </p>
+            </FadeUp>
           </div>
         </div>
       </section>

@@ -79,7 +79,8 @@
     "locations": "Miejscowości",
     "contact": "Kontakt",
     "privacy": "Prywatność",
-    "rights": "Wszelkie prawa zastrzeżone."
+    "rights": "Wszelkie prawa zastrzeżone.",
+    "credit": "Realizacja"
   },
   "properties": {
     "title": "Nieruchomości na sprzedaż na Pelješcu",
@@ -264,7 +265,9 @@
       "W ciągu roku",
       "Na razie tylko się rozglądam"
     ],
-    "optional": "Nieobowiązkowe"
+    "optional": "Nieobowiązkowe",
+    "stayLabel": "Przyjeżdżają Państwo na oglądanie?",
+    "stayValue": "W Kućište prowadzimy też własny apartament, <link>Eva Apartman</link>."
   },
   "forms": {
     "name": "Imię i nazwisko",
@@ -406,7 +409,8 @@
         "answer": "Tak, po uzyskaniu decyzji o kategoryzacji. Procedura jest standardowa i pomagamy ją uruchomić po zakupie."
       }
     ],
-    "guidesTitle": "Szczegółowe poradniki"
+    "guidesTitle": "Szczegółowe poradniki",
+    "stayNote": "Przyjeżdżają Państwo na oglądanie? Nocleg możemy zorganizować. W Kućište prowadzimy też własny apartament, <link>Eva Apartman</link>."
   },
   "locations": {
     "metaTitle": "{name}, nieruchomości na Pelješcu | Sottomonte",

@@ -83,9 +83,36 @@ export const AGENCY = {
   /** Office pin on the contact-page map. Exact, taken from the map listing,
       not geocoded from the street name. */
   coordinates: { lat: 42.976336, lng: 17.187399 },
+  /**
+   * Holiday apartment run by the same people, in Kućište. Linked only from
+   * the two places a visitor is actually planning a trip: the viewings step on
+   * the buying page and the contact details. Deliberately not in the footer,
+   * not on listings and not in the guides, where a rental link next to a
+   * seven-figure villa reads as a side business rather than a service.
+   *
+   * Ownership is always disclosed in the copy. That is what makes it a
+   * recommendation rather than something a buyer discovers later.
+   */
+  apartmentUrl: 'https://www.visit-eva-orebic.com',
+  apartmentName: 'Eva Apartman',
   instagram: 'https://instagram.com/sottomonte.hr',
   facebook: 'https://facebook.com/sottomonte.hr',
   /** Schema.org priceRange. Deliberately coarse: this is a bracket signal for
       the profile, not a claim about any individual listing. */
   priceRange: '€€€',
+};
+
+/**
+ * Developer credit shown in the footer bottom row.
+ *
+ * Rendered with rel="nofollow" on purpose, and note the contrast with
+ * AGENCY.apartmentUrl, which is deliberately followed. This is a sitewide
+ * footer link to an unrelated domain on every page of the site, which is the
+ * classic footprint of a link scheme. Nobody is being deceived, but a followed
+ * sitewide credit gains the linked site very little and puts needless risk on
+ * Sottomonte, so the link is marked as not an endorsement.
+ */
+export const SITE_CREDIT = {
+  name: 'bogojemartin.com',
+  url: 'https://bogojemartin.com',
 };

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { getTranslations, getLocale } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
-import { AGENCY, pickLocale } from '@/lib/utils';
+import { AGENCY, SITE_CREDIT, pickLocale } from '@/lib/utils';
 import type { Locale, Location } from '@/types';
 import { NAV_ITEMS } from './navItems';
 import { LOGOS } from '@/lib/images';
@@ -121,7 +121,22 @@ export async function Footer({ locations }: { locations: Location[] }) {
               placeholder, and a fabricated registration number is worse than
               none. Restore this with the real HGK registry number once the
               agency provides it; the `footer.license` strings were deleted
-              from the message files along with it. */}
+              from the message files along with it.
+
+              The developer credit sits in that slot for now. Footer bottom row
+              is the one place a visitor expects to find one, which is why it
+              reads as convention rather than as an advert. */}
+          <p>
+            {t('credit')}:{' '}
+            <a
+              href={SITE_CREDIT.url}
+              target="_blank"
+              rel="nofollow noopener noreferrer"
+              className="transition-colors hover:text-white/80"
+            >
+              {SITE_CREDIT.name}
+            </a>
+          </p>
         </div>
       </div>
     </footer>

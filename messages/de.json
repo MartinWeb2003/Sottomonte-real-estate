@@ -79,7 +79,8 @@
     "locations": "Orte",
     "contact": "Kontakt",
     "privacy": "Datenschutz",
-    "rights": "Alle Rechte vorbehalten."
+    "rights": "Alle Rechte vorbehalten.",
+    "credit": "Umsetzung"
   },
   "properties": {
     "title": "Immobilienangebot auf Pelješac",
@@ -264,7 +265,9 @@
       "Innerhalb eines Jahres",
       "Ich schaue mich nur um"
     ],
-    "optional": "Optional"
+    "optional": "Optional",
+    "stayLabel": "Kommen Sie zur Besichtigung?",
+    "stayValue": "In Kućište führen wir auch ein eigenes Apartment, <link>Eva Apartman</link>."
   },
   "forms": {
     "name": "Vor- und Nachname",
@@ -406,7 +409,8 @@
         "answer": "Ja, mit einem Kategorisierungsbescheid. Das Verfahren ist Standard, und wir helfen Ihnen, es nach dem Kauf einzuleiten."
       }
     ],
-    "guidesTitle": "Ausführliche Ratgeber"
+    "guidesTitle": "Ausführliche Ratgeber",
+    "stayNote": "Kommen Sie zur Besichtigung? Die Unterkunft können wir organisieren. In Kućište führen wir auch ein eigenes Apartment, <link>Eva Apartman</link>."
   },
   "locations": {
     "metaTitle": "{name}, Immobilien auf Pelješac | Sottomonte",

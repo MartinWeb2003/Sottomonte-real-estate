@@ -6,6 +6,7 @@ import { PeninsulaMap } from '@/components/map/PeninsulaMap';
 import { FadeUp } from '@/components/ui/FadeUp';
 import { buildMetadata } from '@/lib/seo';
 import { AGENCY } from '@/lib/utils';
+import { apartmentLink } from '@/components/ui/apartmentLink';
 import type { Locale } from '@/types';
 import { IMAGES } from '@/lib/images';
 
@@ -46,6 +47,9 @@ export default async function ContactPage({
       ),
     },
     { label: t('address'), value: t('addressValue') },
+    // Someone about to write to us is often about to plan a trip, which is
+    // the only reason this belongs on the page at all.
+    { label: t('stayLabel'), value: t.rich('stayValue', { link: apartmentLink }) },
   ];
 
   return (

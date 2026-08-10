@@ -79,7 +79,8 @@
     "locations": "Lokacije",
     "contact": "Kontakt",
     "privacy": "Privatnost",
-    "rights": "Sva prava pridržana."
+    "rights": "Sva prava pridržana.",
+    "credit": "Izrada"
   },
   "properties": {
     "title": "Ponuda nekretnina na Pelješcu",
@@ -264,7 +265,9 @@
       "Unutar godine dana",
       "Tek razgledavam"
     ],
-    "optional": "Nije obavezno"
+    "optional": "Nije obavezno",
+    "stayLabel": "Dolazite u obilazak?",
+    "stayValue": "U Kućištu vodimo i vlastiti apartman, <link>Eva Apartman</link>."
   },
   "forms": {
     "name": "Ime i prezime",
@@ -406,7 +409,8 @@
         "answer": "Da, uz rješenje o kategorizaciji. Postupak je standardan i pomažemo vam ga pokrenuti nakon kupnje."
       }
     ],
-    "guidesTitle": "Detaljni vodiči"
+    "guidesTitle": "Detaljni vodiči",
+    "stayNote": "Dolazite u obilazak? Smještaj vam možemo organizirati. U Kućištu vodimo i vlastiti apartman, <link>Eva Apartman</link>."
   },
   "locations": {
     "metaTitle": "{name}, nekretnine na Pelješcu | Sottomonte",
