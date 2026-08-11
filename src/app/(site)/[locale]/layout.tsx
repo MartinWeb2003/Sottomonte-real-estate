@@ -9,6 +9,7 @@ import { Footer } from '@/components/layout/Footer';
 import { PrefetchOnIntent } from '@/components/layout/PrefetchOnIntent';
 import { DraftModeBanner } from '@/components/layout/DraftModeBanner';
 import { WebAnalytics } from '@/components/layout/WebAnalytics';
+import { Analytics } from '@vercel/analytics/next';
 import { getLocations } from '@sanity-config/lib/queries';
 import { JsonLd, siteJsonLd } from '@/lib/seo';
 import type { Locale } from '@/types';
@@ -72,6 +73,16 @@ export default async function LocaleLayout({
           <main>{children}</main>
           <Footer locations={locations} />
           <WebAnalytics />
+          {/*
+            Vercel Web Analytics, alongside the Cloudflare beacon above rather
+            than instead of it: this one reports against the deployment, so
+            page views line up with the builds and Speed Insights in the same
+            dashboard. Both are cookieless and store no personal data, so
+            neither triggers the consent banner the site deliberately does not
+            have. It self-disables outside a Vercel deployment, so local dev
+            and any other host stay silent.
+          */}
+          <Analytics />
           <PrefetchOnIntent />
           {draftMode().isEnabled && <DraftModeBanner />}
         </NextIntlClientProvider>
