@@ -24,6 +24,45 @@ const nextConfig = {
    * is not fully known from the search snippet. Redirecting a path that never
    * existed is harmless.
    */
+  /**
+   * Keep every host that is not the real domain out of the index.
+   *
+   * Vercel serves each deployment on a *.vercel.app hostname as well as on the
+   * custom domain, so sottomonte-real-estate.vercel.app currently answers 200
+   * for the entire site. That is a complete second copy of every page. The
+   * canonical tags on it already point back at www.sottomonte.hr, because
+   * lib/seo.tsx builds them from NEXT_PUBLIC_SITE_URL rather than from the
+   * request host, but a canonical is a hint and Google is free to ignore it.
+   * The header is a directive, so it settles the question.
+   *
+   * Scoped by host rather than by "not the canonical host": the apex
+   * sottomonte.hr 308s to www before serving HTML, and tagging a redirect
+   * response as noindex is a needless risk.
+   */
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: '.*\\.vercel\\.app' }],
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
+      },
+      /**
+       * The Studio is disallowed in robots.txt, which stops crawling but not
+       * indexing: a disallowed URL can still be listed from links alone. A
+       * meta tag would never be read, since the crawl is what is blocked, so
+       * the directive has to travel in the response header.
+       */
+      {
+        source: '/studio/:path*',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
+      },
+      {
+        source: '/studio',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
+      },
+    ];
+  },
+
   async redirects() {
     const gone = ['about', 'o-nama'];
     const removed = gone.flatMap((slug) => [
