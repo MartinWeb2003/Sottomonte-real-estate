@@ -212,6 +212,7 @@ const GUIDE_CARD_PROJECTION = groq`{
 const GUIDE_FULL_PROJECTION = groq`{
   _id,
   title,
+  metaTitle,
   "slug": slug.current,
   excerpt,
   coverImage,
@@ -269,10 +270,21 @@ export function getRelatedGuides(slug: string, locationIds: string[]) {
   );
 }
 
-/** Guides tagged with a village, for the links on that village's page. */
+/**
+ * Guides tagged with a village, for the links on that village's page.
+ *
+ * Ordered by how specific a guide is before how new it is. Only three fit, and
+ * sorting by date alone let generic peninsula-wide guides take every slot: the
+ * Orebić page was linking the Viganj guide and not the Orebić one, leaving the
+ * guide about Orebić with a single inbound link from the guides index.
+ *
+ * Specificity is read off the tag count, which is the honest signal already in
+ * the data: a guide tagged to one village is about that village, one tagged to
+ * all six is background reading that happens to apply there.
+ */
 const guidesForLocationQuery = groq`
   *[${publishedGuideFilter} && $locationId in relatedLocations[]._ref]
-    | order(publishedAt desc)[0...3] ${GUIDE_CARD_PROJECTION}
+    | order(count(relatedLocations) asc, publishedAt desc)[0...3] ${GUIDE_CARD_PROJECTION}
 `;
 
 export function getGuidesForLocation(locationId: string) {

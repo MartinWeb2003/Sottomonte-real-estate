@@ -5,6 +5,7 @@ import { TheDifference } from '@/components/sections/TheDifference';
 import { FeaturedProperties } from '@/components/sections/FeaturedProperties';
 import { PeninsulaSection } from '@/components/sections/PeninsulaSection';
 import { HowWeWork } from '@/components/sections/HowWeWork';
+import { GuidesTeaser } from '@/components/sections/GuidesTeaser';
 import { Testimonials } from '@/components/sections/Testimonials';
 import { OffMarketTeaser } from '@/components/sections/OffMarketTeaser';
 import { FinalCTA } from '@/components/sections/FinalCTA';
@@ -52,6 +53,10 @@ export default async function HomePage({
       <TheDifference />
       <PeninsulaSection locations={locations} />
       <HowWeWork />
+      {/* Process, then the depth behind it, then the social proof. Also the
+          homepage's only link into the guides, which is why it is here at all
+          and not left to the footer. */}
+      <GuidesTeaser locale={locale} />
       <Testimonials testimonials={testimonials} />
       <OffMarketTeaser />
       <FinalCTA />

@@ -122,6 +122,14 @@ export const guide = defineType({
       of: [defineArrayMember({ type: 'reference', to: [{ type: 'location' }] })],
     }),
     defineField({
+      name: 'metaTitle',
+      title: 'Search result title',
+      type: 'localizedString',
+      group: 'seo',
+      description:
+        'Optional. Used as the browser tab and Google result title instead of the headline above. Google cuts the result at roughly 60 characters, and " | Sottomonte" takes 13 of them, so keep this under 47. Leave it empty and the headline is used as-is. The headline on the page itself never changes.',
+    }),
+    defineField({
       name: 'primaryQuery',
       title: 'Primary search query',
       type: 'string',

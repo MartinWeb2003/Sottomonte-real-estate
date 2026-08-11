@@ -1,18 +1,15 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import { Link } from '@/i18n/routing';
 import { PageHeader } from '@/components/sections/PageHeader';
 import { FinalCTA } from '@/components/sections/FinalCTA';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { FadeUp } from '@/components/ui/FadeUp';
 import { HairlineDivider } from '@/components/ui/HairlineDivider';
 import { FaqSection, type FaqItem } from '@/components/sections/FaqSection';
-import { GuideCard } from '@/components/ui/GuideCard';
+import { GuidesTeaser } from '@/components/sections/GuidesTeaser';
 import { apartmentLink } from '@/components/ui/apartmentLink';
 import { buildMetadata, faqJsonLd, JsonLd } from '@/lib/seo';
-import { getGuides } from '@sanity-config/lib/queries';
-import { pickLocale } from '@/lib/utils';
 import type { Locale } from '@/types';
 import { IMAGES } from '@/lib/images';
 
@@ -41,8 +38,6 @@ export default async function BuyingPage({
 }) {
   setRequestLocale(locale);
   const t = await getTranslations('buying');
-  const tGuides = await getTranslations('guides');
-  const guides = await getGuides();
 
   const faqItems = t.raw('faq') as FaqItem[];
   const costs = t.raw('costs') as Array<{
@@ -172,32 +167,9 @@ export default async function BuyingPage({
       </section>
 
       {/* Buying page -> guides. This page is the summary; the guides are the
-          detail behind each step. Without this link the deepest content on the
-          site would sit one footer link from the homepage and nowhere else. */}
-      {guides.length > 0 && (
-        <section className="section-pad bg-white">
-          <div className="container-site">
-            <FadeUp>
-              <SectionHeader title={t('guidesTitle')} />
-            </FadeUp>
-            <ul className="mt-12 grid gap-8 md:mt-16 md:grid-cols-3">
-              {guides.slice(0, 3).map((guide, i) => (
-                <FadeUp key={guide._id} as="li" delay={i * 80} className="h-full">
-                  <GuideCard guide={guide} locale={locale} />
-                </FadeUp>
-              ))}
-            </ul>
-            <FadeUp delay={240}>
-              <Link
-                href="/guides"
-                className="mt-12 inline-block text-sm font-medium text-navy underline decoration-gold underline-offset-8 transition-colors hover:text-navy-soft"
-              >
-                {tGuides('viewAll')} →
-              </Link>
-            </FadeUp>
-          </div>
-        </section>
-      )}
+          detail behind each step. Keeps its own heading, since here they are
+          "the detail" rather than a general reading list. */}
+      <GuidesTeaser locale={locale} title={t('guidesTitle')} />
 
       <FaqSection title={t('faqTitle')} items={faqItems} centered />
       <FinalCTA />

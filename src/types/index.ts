@@ -74,6 +74,10 @@ export interface Guide {
   title: LocalizedString;
   slug: string;
   excerpt?: LocalizedString;
+  /** Short SERP title. Headlines that read well on the page routinely run past
+      the ~60 characters Google shows, so this carries the trimmed version and
+      the headline stays untouched. Optional: falls back to `title`. */
+  metaTitle?: LocalizedString;
   /** Primary search query this guide owns. One guide = one primary query, so
       two guides can never cannibalise each other. Editorial note only, never
       rendered. */

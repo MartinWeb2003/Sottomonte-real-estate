@@ -5,6 +5,7 @@ import { PageHeader } from '@/components/sections/PageHeader';
 import { FilterBar } from '@/components/property/FilterBar';
 import { PropertyGrid } from '@/components/property/PropertyGrid';
 import { BuyerWishlistForm } from '@/components/forms/BuyerWishlistForm';
+import { GuidesTeaser } from '@/components/sections/GuidesTeaser';
 import { FadeUp } from '@/components/ui/FadeUp';
 import {
   getLocations,
@@ -172,6 +173,11 @@ export default async function PropertiesPage({
           </div>
         </FadeUp>
       </section>
+
+      {/* After the wishlist, not before it: the form stays the first thing a
+          visitor who scrolled the whole grid meets, and anyone who did not fill
+          it in gets somewhere to go instead of the footer. */}
+      <GuidesTeaser locale={locale} />
     </>
   );
 }

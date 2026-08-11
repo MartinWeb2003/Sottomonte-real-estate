@@ -46,7 +46,15 @@ export async function generateMetadata({
   const guide = await getGuideBySlug(slug);
   if (!guide) return {};
   const t = await getTranslations({ locale, namespace: 'meta.guide' });
-  const title = pickLocale(guide.title, locale);
+  // The SERP title, not the headline. A headline that reads well above the
+  // article usually runs past what Google shows, and truncating it costs the
+  // closing hook, so `metaTitle` carries a short version where one is needed.
+  //
+  // Read for this locale exactly, rather than through pickLocale: the fallback
+  // chain would answer a missing German metaTitle with the Croatian one, which
+  // is a worse result than simply using the German headline.
+  const title =
+    guide.metaTitle?.[locale]?.trim() || pickLocale(guide.title, locale);
   const cover = guide.coverImage;
   return buildMetadata({
     locale,
