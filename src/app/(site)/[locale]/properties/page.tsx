@@ -12,7 +12,12 @@ import {
   getProperties,
   PROPERTIES_PAGE_SIZE,
 } from '@sanity-config/lib/queries';
-import { buildMetadata, JsonLd, breadcrumbJsonLd } from '@/lib/seo';
+import {
+  buildMetadata,
+  JsonLd,
+  breadcrumbJsonLd,
+  propertyListJsonLd,
+} from '@/lib/seo';
 import { cn } from '@/lib/utils';
 import type { Locale, PropertyFilters, PropertyType } from '@/types';
 import { IMAGES } from '@/lib/images';
@@ -114,6 +119,12 @@ export default async function PropertiesPage({
           locale
         )}
       />
+      {/* Tells a crawler this page is a collection and what is on it. Built
+          from `items`, the properties actually rendered, so a filtered or
+          paginated view describes itself rather than the whole portfolio. */}
+      {items.length > 0 && (
+        <JsonLd data={propertyListJsonLd(items, locale, t('title'))} />
+      )}
 
       <FilterBar locations={locations} resultsCount={total} />
 

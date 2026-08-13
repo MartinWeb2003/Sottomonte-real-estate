@@ -7,6 +7,10 @@
     "buying": "Kupno",
     "guides": "Poradniki"
   },
+  "notFound": {
+    "title": "Nie znaleziono strony",
+    "body": "Otwarty adres nie istnieje albo został zmieniony. Proszę skorzystać z jednej ze stron poniżej."
+  },
   "hero": {
     "titleLead": "Twój zaufany partner na rynku nieruchomości na",
     "titleItalic": "Pelješcu",

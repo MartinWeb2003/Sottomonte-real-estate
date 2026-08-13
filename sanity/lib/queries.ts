@@ -166,6 +166,49 @@ export function getPropertySlugs() {
   return sanityFetch<string[]>(propertySlugsQuery, {}, []);
 }
 
+/**
+ * Slugs plus their last edit, for the sitemap.
+ *
+ * Separate from `getPropertySlugs`, which feeds `generateStaticParams` and
+ * wants nothing but strings. Without a `lastmod` on listings and villages, the
+ * sitemap gave Google no recrawl signal when a price changed or a property
+ * sold, so those URLs were rechecked on Google's own schedule rather than ours.
+ */
+const propertySitemapQuery = groq`
+  *[_type == "property" && status != "sold"] | order(_updatedAt desc) {
+    "slug": slug.current,
+    _updatedAt
+  }
+`;
+
+export function getPropertySitemapEntries() {
+  return sanityFetch<Array<{ slug: string; _updatedAt: string }>>(
+    propertySitemapQuery,
+    {},
+    []
+  );
+}
+
+const locationSitemapQuery = groq`
+  *[_type == "location" && defined(slug.current)] {
+    "slug": slug.current,
+    _updatedAt,
+    "propertiesUpdatedAt": *[_type == "property" && status != "sold" && references(^._id)]
+      | order(_updatedAt desc)[0]._updatedAt
+  }
+`;
+
+/**
+ * A village page shows its own copy and the listings in that village, so it
+ * changes when either does. The later of the two dates is the honest answer,
+ * and a truthful lastmod is the only kind worth sending.
+ */
+export function getLocationSitemapEntries() {
+  return sanityFetch<
+    Array<{ slug: string; _updatedAt: string; propertiesUpdatedAt?: string }>
+  >(locationSitemapQuery, {}, []);
+}
+
 /** Similar: same village first, then same type in a similar price range. */
 const similarPropertiesQuery = groq`
   *[_type == "property" && status != "sold" && slug.current != $slug] {

@@ -346,6 +346,39 @@ export function breadcrumbJsonLd(
 }
 
 /**
+ * ItemList for a collection page: the properties grid, and the village pages
+ * that show a subset of it.
+ *
+ * The grid previously emitted only a BreadcrumbList and the sitewide agency
+ * graph, so nothing told a crawler the page was a list or what was on it,
+ * while every individual listing underneath it was richly described. Each
+ * entry is a `url` rather than an inlined Product: the detail page already
+ * carries the full description, and repeating it here would state the same
+ * facts twice in two places that can drift apart.
+ *
+ * Positions are 1-based and follow the rendered order, which is what the
+ * property expects. Paginated pages therefore describe the page being viewed,
+ * not the whole collection.
+ */
+export function propertyListJsonLd(
+  properties: Property[],
+  locale: Locale,
+  name: string
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name,
+    numberOfItems: properties.length,
+    itemListElement: properties.map((property, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: localeUrl(SITE_URL, locale, '/properties/[slug]', { slug: property.slug }),
+    })),
+  };
+}
+
+/**
  * FAQPage rich-result markup. Google requires the structured data to match
  * the visible questions, so always build this from the same translated
  * array the FaqSection renders.

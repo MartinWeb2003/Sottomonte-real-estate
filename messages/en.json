@@ -7,6 +7,10 @@
     "buying": "Buying",
     "guides": "Guides"
   },
+  "notFound": {
+    "title": "Page not found",
+    "body": "The address you opened does not exist or has changed. Continue from one of the pages below."
+  },
   "hero": {
     "titleLead": "Your trusted real estate partner on",
     "titleItalic": "Pelješac",

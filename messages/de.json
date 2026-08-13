@@ -7,6 +7,10 @@
     "buying": "Kaufen",
     "guides": "Ratgeber"
   },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "body": "Die aufgerufene Adresse existiert nicht oder wurde geändert. Nutzen Sie eine der Seiten unten."
+  },
   "hero": {
     "titleLead": "Ihr verlässlicher Immobilienpartner auf",
     "titleItalic": "Pelješac",

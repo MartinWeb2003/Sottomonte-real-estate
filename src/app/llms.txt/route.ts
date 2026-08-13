@@ -1,7 +1,8 @@
 import { getGuides, getLocations } from '@sanity-config/lib/queries';
 import { pickLocale, AGENCY } from '@/lib/utils';
 import { SITE_URL } from '@/lib/seo';
-import { localeUrl } from '@/i18n/routing';
+import { localeUrl, routing } from '@/i18n/routing';
+import type { Locale } from '@/types';
 
 export const revalidate = 3600;
 
@@ -15,8 +16,15 @@ export const revalidate = 3600;
  * convert at a far higher rate than search traffic does.
  *
  * Croatian is listed as the canonical path because it is the default locale;
- * the /en and /de mirrors are named once rather than duplicating every entry.
+ * the other locales are named once rather than duplicating every entry.
  */
+const LOCALE_NAMES_HR: Record<Locale, string> = {
+  hr: 'hrvatskom',
+  en: 'engleskom',
+  de: 'njemačkom',
+  pl: 'poljskom',
+};
+
 export async function GET() {
   const [locations, guides] = await Promise.all([getLocations(), getGuides()]);
 
@@ -37,6 +45,18 @@ export async function GET() {
     return `- [${title}](${url('/guides/[slug]', { slug: guide.slug })})${excerpt ? `: ${excerpt}` : ''}`;
   });
 
+  // Typed as Record<Locale, string>, so adding a locale to `routing` without
+  // naming it here is a compile error rather than a quietly wrong sentence.
+  const languageSentence = routing.locales
+    .map((l) => `${LOCALE_NAMES_HR[l as Locale]} (/${l})`)
+    .join(', ')
+    .replace(/, ([^,]*)$/, ' i $1');
+  const otherPrefixes = routing.locales
+    .filter((l) => l !== routing.defaultLocale)
+    .map((l) => `/${l}`)
+    .join(', ')
+    .replace(/, ([^,]*)$/, ' ili $1');
+
   const body = `# ${AGENCY.name}
 
 > Agencija za nekretnine na poluotoku Pelješcu u Hrvatskoj. Kuće, građevinska
@@ -44,9 +64,9 @@ export async function GET() {
 > parcelu i vlasnika osobno, pa uz svaku nekretninu ide i pravi kontekst:
 > stanje dokumentacije, karakter mjesta i razlog prodaje.
 
-Sadržaj je dostupan na hrvatskom (/hr), engleskom (/en) i njemačkom (/de).
-Putanje ispod navedene su na hrvatskom; zamijenite /hr s /en ili /de za ostale
-jezične verzije.
+Sadržaj je dostupan na ${languageSentence}.
+Putanje ispod navedene su na hrvatskom; zamijenite /hr s ${otherPrefixes} za
+ostale jezične verzije.
 
 ## Glavne stranice
 

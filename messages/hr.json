@@ -7,6 +7,10 @@
     "buying": "Kupnja",
     "guides": "Vodiči"
   },
+  "notFound": {
+    "title": "Stranica nije pronađena",
+    "body": "Adresa koju ste otvorili ne postoji ili je promijenjena. Nastavite s jedne od stranica ispod."
+  },
   "hero": {
     "titleLead": "Vaš pouzdani partner za nekretnine na",
     "titleItalic": "Pelješcu",

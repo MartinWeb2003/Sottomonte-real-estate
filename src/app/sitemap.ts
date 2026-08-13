@@ -1,6 +1,10 @@
 import type { MetadataRoute } from 'next';
 import { routing, localeUrl, type AppPathname, type Locale } from '@/i18n/routing';
-import { getGuides, getLocations, getPropertySlugs } from '@sanity-config/lib/queries';
+import {
+  getGuides,
+  getLocationSitemapEntries,
+  getPropertySitemapEntries,
+} from '@sanity-config/lib/queries';
 import { SITE_URL } from '@/lib/seo';
 
 const STATIC_ROUTES: AppPathname[] = [
@@ -22,9 +26,9 @@ const STATIC_ROUTES: AppPathname[] = [
  * Google crawls.
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [slugs, locations, guides] = await Promise.all([
-    getPropertySlugs(),
-    getLocations(),
+  const [properties, locations, guides] = await Promise.all([
+    getPropertySitemapEntries(),
+    getLocationSitemapEntries(),
     getGuides(),
   ]);
 
@@ -63,20 +67,31 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   }
 
-  for (const slug of slugs) {
+  // Listings and villages carry a real lastModified for the same reason guides
+  // do: it is the only field here Google actually acts on, and without it a
+  // price change or a sale went unnoticed until the next scheduled crawl.
+  for (const property of properties) {
     push('/properties/[slug]', {
-      params: { slug },
+      params: { slug: property.slug },
       changeFrequency: 'weekly',
       priority: 0.9,
+      lastModified: property._updatedAt,
     });
   }
 
-  // Village landing pages — the per-village SEO surface
+  // Village landing pages — the per-village SEO surface. A village page shows
+  // its own copy and the listings in it, so the later of the two dates is the
+  // truthful one.
   for (const location of locations) {
+    const dates = [location._updatedAt, location.propertiesUpdatedAt].filter(
+      Boolean
+    ) as string[];
+    const lastModified = dates.sort().at(-1);
     push('/locations/[slug]', {
       params: { slug: location.slug },
       changeFrequency: 'weekly',
       priority: 0.7,
+      lastModified,
     });
   }
 
