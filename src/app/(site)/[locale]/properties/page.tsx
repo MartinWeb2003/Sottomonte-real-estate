@@ -133,7 +133,9 @@ export default async function PropertiesPage({
       {items.length > 0 && (
         <section className="bg-white py-16 md:py-24">
           <div className="container-site">
-            <PropertyGrid properties={items} />
+            {/* No fade-up here: this grid is why the page was opened, so it
+                ships visible in the server HTML rather than waiting on hydration. */}
+            <PropertyGrid properties={items} animate={false} />
 
             {/* Pagination, no infinite scroll (kills footer + SEO) */}
             {totalPages > 1 && (

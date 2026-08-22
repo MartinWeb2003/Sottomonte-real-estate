@@ -19,7 +19,8 @@ const LOCATION_PROJECTION = groq`{
   tagline,
   description,
   photos,
-  coordinates
+  coordinates,
+  showOnHomepage
 }`;
 
 const PROPERTY_CARD_PROJECTION = groq`{

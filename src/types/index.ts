@@ -35,6 +35,9 @@ export interface Location {
   description?: LocalizedPortableText;
   photos?: SanityImage[];
   coordinates?: Geopoint;
+  /** Whether the homepage village grid includes this one. Undefined counts as
+      true, so the six original villages need no migration. */
+  showOnHomepage?: boolean;
 }
 
 export interface Property {

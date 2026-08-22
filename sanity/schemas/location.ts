@@ -55,6 +55,14 @@ export const location = defineType({
       title: 'Coordinates',
       type: 'geopoint',
     }),
+    defineField({
+      name: 'showOnHomepage',
+      title: 'Show on the homepage',
+      type: 'boolean',
+      initialValue: true,
+      description:
+        'On by default. Turn it off for a locality that has its own page and listings but is not one of the villages the homepage grid presents, e.g. Postup, which is a vineyard position rather than a settlement. Turning it off changes nothing else: the page, the footer link and the sitemap entry all stay.',
+    }),
   ],
   preview: {
     select: { title: 'name.hr', media: 'photos.0' },
