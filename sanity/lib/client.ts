@@ -52,6 +52,13 @@ export const previewClient = createClient({
  * copy. Draft mode is a per-request cookie, so this affects only the person
  * previewing: every other visitor still gets cached, published content.
  */
+/**
+ * One tag on every CMS read. Coarse on purpose: a publish of any document
+ * refreshes all CMS-derived data, which at this size costs one extra query and
+ * removes a whole class of "I published it and it is not there" confusion.
+ */
+export const SANITY_CACHE_TAG = 'sanity';
+
 export async function sanityFetch<T>(
   query: string,
   params: QueryParams = {},
@@ -74,7 +81,18 @@ export async function sanityFetch<T>(
 
   try {
     return await (preview ? previewClient : client).fetch<T>(query, params, {
-      ...(preview ? { cache: 'no-store' } : { next: { revalidate: 3600 } }),
+      ...(preview
+        ? { cache: 'no-store' }
+        : // The tag is what makes on-demand revalidation actually work.
+          // `revalidatePath` throws away the rendered page, but the re-render
+          // then reads this fetch straight back out of the Data Cache, which
+          // has its own hour-long life and is untouched. The page is rebuilt
+          // from the same stale data and nothing appears to change. That is
+          // how a freshly uploaded gallery went missing from a property card
+          // while its detail page, a different cache entry, showed it fine.
+          // `revalidateTag` clears the fetch entries themselves and breaks
+          // that loop.
+          { next: { revalidate: 3600, tags: [SANITY_CACHE_TAG] } }),
     });
   } catch (error) {
     console.error('[sanity] fetch failed:', error);

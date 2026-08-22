@@ -1,6 +1,7 @@
-import { revalidatePath } from 'next/cache';
+import { revalidatePath, revalidateTag } from 'next/cache';
 import { type NextRequest, NextResponse } from 'next/server';
 import { parseBody } from 'next-sanity/webhook';
+import { SANITY_CACHE_TAG } from '@sanity-config/lib/client';
 
 /**
  * On-demand revalidation, called by a Sanity webhook whenever a document is
@@ -93,6 +94,11 @@ export async function POST(req: NextRequest) {
       message: 'No routes are affected by this document type',
     });
   }
+
+  // Tag first: this is the one that clears the cached Sanity responses
+  // themselves. revalidatePath below only clears rendered pages, which misses
+  // any route that renders dynamically, and the properties grid does.
+  revalidateTag(SANITY_CACHE_TAG);
 
   for (const route of routes) {
     revalidatePath(route, 'page');
