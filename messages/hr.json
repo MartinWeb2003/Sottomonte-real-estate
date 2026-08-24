@@ -138,7 +138,22 @@
       "apartment": "Stan",
       "land": "Zemljište",
       "stone-ruin": "Kamena kuća"
-    }
+    },
+    "subtitle": "Kuće, stanovi, građevinska zemljišta i kamene kuće za obnovu, od Stona do Lovišta.",
+    "about": [
+      {
+        "title": "Što se ovdje prodaje",
+        "body": "Ponuda na Pelješcu dijeli se na četiri skupine. Novogradnja, uglavnom vile s bazenom na padinama iznad mora, gdje se kupuje pogled i gotov proizvod. Stanovi u manjim zgradama uz obalu, najčešće s terasom, vrtom i zajedničkim sadržajima. Građevinsko zemljište, kojega je malo jer se građevinska područja brzo dižu u padinu. I kamene kuće za obnovu, kojih ima najviše, ali kod kojih papiri i pristup odlučuju je li kupnja uopće moguća."
+      },
+      {
+        "title": "Mjesta se bitno razlikuju",
+        "body": "Orebić je jedino mjesto koje živi cijele godine, s trgovinama, školom i trajektom za Korčulu. Sjeverna obala, Kućište i Viganj, gleda na kanal i Korčulu, more je mirno, a poslijepodnevno sunce odlazi ranije. Južna strana, Postup i Dingač, okrenuta je otvorenom moru i drži svjetlo do kasno, ali je strmija i bez infrastrukture. Ston ima zidine i kamenice i cjelogodišnji dolazak gostiju, ali uglavnom jednodnevni. Lovište i Trpanj su najmirniji i zimi gotovo prazni."
+      },
+      {
+        "title": "Što provjeravamo prije nego što nešto objavimo",
+        "body": "Uz svaku nekretninu navodimo stanje dokumentacije onako kako jest, uključujući ono što još nije riješeno. Provjeravamo vlasništvo i terete, uporabnu dozvolu ili uvjerenje za starije zgrade, upisani pristup, i po kojoj je osnovici iskazana površina. Ako nešto nije potvrđeno, u oglasu piše da nije, a ne izostaje."
+      }
+    ]
   },
   "property": {
     "viewAllPhotos": "Sve fotografije ({count})",

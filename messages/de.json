@@ -138,7 +138,22 @@
       "apartment": "Wohnung",
       "land": "Grundstück",
       "stone-ruin": "Steinhaus"
-    }
+    },
+    "subtitle": "Häuser, Wohnungen, Baugrundstücke und Steinhäuser zum Sanieren, von Ston bis Lovište.",
+    "about": [
+      {
+        "title": "Was hier zum Verkauf steht",
+        "body": "Der Markt auf Pelješac teilt sich in vier Gruppen. Neubau, meist Villen mit Pool an den Hängen über dem Meer, wo man Aussicht und ein fertiges Produkt kauft. Wohnungen in kleinen Gebäuden am Ufer, meist mit Terrasse, Garten und Gemeinschaftsanlagen. Bauland, von dem es wenig gibt, weil die Baugebiete rasch den Hang hinaufziehen. Und Steinhäuser zum Sanieren, die zahlreichsten, bei denen aber Unterlagen und Zufahrt entscheiden, ob ein Kauf überhaupt möglich ist."
+      },
+      {
+        "title": "Die Orte unterscheiden sich deutlich",
+        "body": "Orebić ist der einzige Ort, der ganzjährig lebt, mit Geschäften, Schule und Fähre nach Korčula. Die Nordküste, Kućište und Viganj, blickt über den Kanal nach Korčula, das Meer ist ruhig und die Nachmittagssonne verschwindet früh. Die Südseite, Postup und Dingač, liegt zum offenen Meer und hält das Licht lange, ist aber steiler und ohne Infrastruktur. Ston hat Mauern, Austern und ganzjährige Gäste, überwiegend als Tagesbesucher. Lovište und Trpanj sind am stillsten und im Winter beinahe leer."
+      },
+      {
+        "title": "Was wir prüfen, bevor wir etwas inserieren",
+        "body": "Zu jeder Immobilie nennen wir den Stand der Unterlagen so, wie er ist, einschließlich dessen, was noch offen ist. Wir prüfen Eigentum und Lasten, die Nutzungsgenehmigung oder die Bescheinigung bei älteren Gebäuden, die eingetragene Zufahrt und auf welcher Grundlage die Fläche angegeben wurde. Ist etwas unbestätigt, steht das im Inserat, statt wegzufallen."
+      }
+    ]
   },
   "property": {
     "viewAllPhotos": "Alle Fotos ansehen ({count})",

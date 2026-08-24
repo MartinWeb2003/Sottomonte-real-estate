@@ -82,6 +82,7 @@ export default async function PropertiesPage({
 }) {
   setRequestLocale(locale);
   const t = await getTranslations('properties');
+  const about = t.raw('about') as Array<{ title: string; body: string }>;
 
   const filters = parseFilters(searchParams);
   const [{ items, total }, locations] = await Promise.all([
@@ -109,6 +110,7 @@ export default async function PropertiesPage({
       <PageHeader
         image={IMAGES.bannerProperties}
         title={t('title')}
+        subtitle={t('subtitle')}
       />
       <JsonLd
         data={breadcrumbJsonLd(
@@ -185,6 +187,28 @@ export default async function PropertiesPage({
             </div>
           </div>
         </FadeUp>
+      </section>
+
+      {/* Standing copy about the peninsula's market, below the grid rather than
+          above it. This page ranked for nothing at 455 words with a single
+          heading, while the guides rank at 1.200+ with fifteen; the difference
+          was substance, not luck. It sits under the listings because the grid
+          is what a visitor came for. */}
+      <section className="section-pad bg-white">
+        <div className="container-site">
+          <div className="mx-auto max-w-3xl">
+            {about.map((section, i) => (
+              <FadeUp key={section.title} delay={i * 80} className={i > 0 ? 'mt-10' : undefined}>
+                <h2 className="font-display text-xl text-navy md:text-2xl">
+                  {section.title}
+                </h2>
+                <p className="mt-3 text-base leading-relaxed text-muted">
+                  {section.body}
+                </p>
+              </FadeUp>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* After the wishlist, not before it: the form stays the first thing a

@@ -138,7 +138,22 @@
       "apartment": "Mieszkanie",
       "land": "Działka",
       "stone-ruin": "Kamienny dom"
-    }
+    },
+    "subtitle": "Domy, mieszkania, działki budowlane i kamienne domy do remontu, od Stonu po Lovište.",
+    "about": [
+      {
+        "title": "Co się tu sprzedaje",
+        "body": "Rynek na Pelješacu dzieli się na cztery grupy. Nowe budownictwo, głównie wille z basenem na zboczach nad morzem, gdzie kupuje się widok i gotowy produkt. Mieszkania w małych budynkach przy brzegu, zwykle z tarasem, ogrodem i częścią wspólną. Działki budowlane, których jest mało, bo tereny budowlane szybko wspinają się po zboczu. Oraz kamienne domy do remontu, najliczniejsze, przy których jednak dokumenty i dojazd decydują, czy zakup jest w ogóle możliwy."
+      },
+      {
+        "title": "Miejscowości bardzo się różnią",
+        "body": "Orebić to jedyna miejscowość żyjąca cały rok, ze sklepami, szkołą i promem na Korčulę. Wybrzeże północne, Kućište i Viganj, patrzy przez kanał na Korčulę, morze jest spokojne, a popołudniowe słońce znika wcześnie. Strona południowa, Postup i Dingač, zwrócona jest ku otwartemu morzu i długo trzyma światło, ale jest bardziej stroma i pozbawiona infrastruktury. Ston ma mury, ostrygi i gości przez cały rok, choć głównie jednodniowych. Lovište i Trpanj są najspokojniejsze i zimą niemal puste."
+      },
+      {
+        "title": "Co sprawdzamy przed publikacją",
+        "body": "Przy każdej nieruchomości podajemy stan dokumentów taki, jaki jest, łącznie z tym, co nie zostało jeszcze uregulowane. Sprawdzamy własność i obciążenia, pozwolenie na użytkowanie lub zaświadczenie przy starszych budynkach, wpisany dojazd oraz podstawę, na jakiej podano powierzchnię. Jeśli coś nie jest potwierdzone, ogłoszenie to mówi, zamiast pomijać."
+      }
+    ]
   },
   "property": {
     "viewAllPhotos": "Wszystkie zdjęcia ({count})",

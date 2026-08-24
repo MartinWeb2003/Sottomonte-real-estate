@@ -138,7 +138,22 @@
       "apartment": "Apartment",
       "land": "Land",
       "stone-ruin": "Stone house"
-    }
+    },
+    "subtitle": "Houses, apartments, building land and stone houses for renovation, from Ston to Lovište.",
+    "about": [
+      {
+        "title": "What comes up for sale here",
+        "body": "The market on Pelješac falls into four groups. New build, mostly villas with a pool on the slopes above the sea, where you are buying the view and a finished product. Apartments in small buildings along the shore, usually with a terrace, a garden and shared facilities. Building land, of which there is little because the building zones climb the slope quickly. And stone houses for renovation, the most numerous, but where the paperwork and the access decide whether a purchase is possible at all."
+      },
+      {
+        "title": "The villages differ sharply",
+        "body": "Orebić is the only place that lives all year, with shops, a school and the ferry to Korčula. The north coast, Kućište and Viganj, looks across the channel to Korčula, the sea is calm and the afternoon sun leaves early. The south side, Postup and Dingač, faces the open sea and holds the light late, but is steeper and has no infrastructure. Ston has the walls and the oysters and year-round visitors, though mostly on day trips. Lovište and Trpanj are the quietest and close to empty in winter."
+      },
+      {
+        "title": "What we check before publishing anything",
+        "body": "On every property we state the documentation as it stands, including what is not yet resolved. We check ownership and encumbrances, the occupancy permit or the certificate for older buildings, registered access, and which basis the floor area was stated on. If something is unconfirmed, the listing says so rather than leaving it out."
+      }
+    ]
   },
   "property": {
     "viewAllPhotos": "View all photos ({count})",
