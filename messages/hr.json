@@ -212,7 +212,7 @@
     "processTitle": "Pet koraka do prodaje",
     "processSteps": [
       {
-        "title": "Besplatna procjena i obilazak",
+        "title": "Procjena i obilazak",
         "body": "Dolazimo na lokaciju, gledamo nekretninu i dajemo realnu procjenu vrijednosti."
       },
       {
@@ -315,7 +315,7 @@
     },
     "selling": {
       "title": "Prodaja nekretnine na Pelješcu: procjena | Sottomonte",
-      "description": "Prodajete kuću ili zemljište na Pelješcu? Spajamo vas s provjerenim kupcima uz profesionalnu prezentaciju, besplatnu procjenu i potpunu diskreciju."
+      "description": "Prodajete kuću ili zemljište na Pelješcu? Spajamo vas s provjerenim kupcima uz profesionalnu prezentaciju, procjenu vrijednosti i potpunu diskreciju."
     },
     "contact": {
       "title": "Kontakt: Agencija za nekretnine Pelješac | Sottomonte",
@@ -460,7 +460,7 @@
     "ctaTitle": "Pitanje na koje ovaj vodič ne odgovara?",
     "ctaBody": "Svaka nekretnina ima svoju priču, a papiri rijetko izgledaju kao u udžbeniku. Recite nam na čemu ste zapeli i odgovorit ćemo konkretno, bez obveze.",
     "ctaProperties": "Nekretnine u ponudi na Pelješcu",
-    "ctaSelling": "Besplatna procjena vrijednosti",
+    "ctaSelling": "Procjena vrijednosti nekretnine",
     "emptyTitle": "Prvi vodiči su u pripremi.",
     "emptyBody": "Pišemo ih sami, na temelju prodaja koje smo vodili, pa traju dulje nego da smo ih prepisali. Do tada nas pitajte izravno, odgovaramo u roku od 24 sata.",
     "emptyCta": "Postavite pitanje",

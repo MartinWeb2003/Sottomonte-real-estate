@@ -298,15 +298,15 @@ Generirano iz `messages/hr.json`, `en.json`, `de.json`, jedinog izvora teksta na
 
 **KLJUČ: `meta.selling.title`**
 
-- HR: Prodaja nekretnine na Pelješcu: besplatna procjena | Sottomonte
+- HR: Prodaja nekretnine na Pelješcu: procjena | Sottomonte
 - EN: Sell Your Property on Pelješac Croatia | Sottomonte
 - DE: Immobilie auf Pelješac verkaufen: Agentur | Sottomonte
 
 **KLJUČ: `meta.selling.description`**
 
-- HR: Prodajete kuću ili zemljište na Pelješcu? Spajamo vas s provjerenim kupcima uz profesionalnu prezentaciju, besplatnu procjenu i potpunu diskreciju.
+- HR: Prodajete kuću ili zemljište na Pelješcu? Spajamo vas s provjerenim kupcima uz profesionalnu prezentaciju, procjenu vrijednosti i potpunu diskreciju.
 - EN: Selling a house or land on Pelješac? We connect sellers with qualified buyers, offering expert valuation, marketing, and full discretion.
-- DE: Möchten Sie ein Haus oder Grundstück auf Pelješac verkaufen? Wir verbinden Sie mit internationalen Käufern. Kostenlose Bewertung und Diskretion.
+- DE: Möchten Sie ein Haus oder Grundstück auf Pelješac verkaufen? Wir verbinden Sie mit internationalen Käufern. Wertermittlung und Diskretion.
 
 **KLJUČ: `meta.contact.title`**
 
@@ -1245,9 +1245,9 @@ Generirano iz `messages/hr.json`, `en.json`, `de.json`, jedinog izvora teksta na
 
 **KLJUČ: `selling.processSteps.0.title`**
 
-- HR: Besplatna procjena i obilazak
-- EN: Free valuation & visit
-- DE: Kostenlose Bewertung & Besichtigung
+- HR: Procjena i obilazak
+- EN: Valuation & visit
+- DE: Bewertung & Besichtigung
 
 **KLJUČ: `selling.processSteps.0.body`**
 

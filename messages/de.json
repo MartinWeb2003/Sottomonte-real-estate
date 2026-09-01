@@ -212,7 +212,7 @@
     "processTitle": "Fünf Schritte zum Verkauf",
     "processSteps": [
       {
-        "title": "Kostenlose Bewertung & Besichtigung",
+        "title": "Bewertung & Besichtigung",
         "body": "Wir kommen vor Ort, sehen uns die Immobilie an und geben Ihnen eine realistische Werteinschätzung."
       },
       {
@@ -315,7 +315,7 @@
     },
     "selling": {
       "title": "Immobilie auf Pelješac verkaufen: Agentur | Sottomonte",
-      "description": "Möchten Sie ein Haus oder Grundstück auf Pelješac verkaufen? Wir verbinden Sie mit internationalen Käufern. Kostenlose Bewertung und Diskretion."
+      "description": "Möchten Sie ein Haus oder Grundstück auf Pelješac verkaufen? Wir verbinden Sie mit internationalen Käufern. Wertermittlung und Diskretion."
     },
     "contact": {
       "title": "Kontakt: Immobilienagentur Pelješac | Sottomonte",
@@ -460,7 +460,7 @@
     "ctaTitle": "Eine Frage, die dieser Ratgeber nicht beantwortet?",
     "ctaBody": "Jede Immobilie hat ihre eigene Geschichte, und die Unterlagen sehen selten aus wie im Lehrbuch. Sagen Sie uns, wo es hakt, und wir antworten konkret und unverbindlich.",
     "ctaProperties": "Immobilien auf Pelješac im Angebot",
-    "ctaSelling": "Kostenlose Wertermittlung",
+    "ctaSelling": "Wertermittlung Ihrer Immobilie",
     "emptyTitle": "Die ersten Ratgeber entstehen gerade.",
     "emptyBody": "Wir schreiben sie selbst, auf Basis der Verkäufe, die wir begleitet haben. Das dauert länger als abschreiben. Fragen Sie uns bis dahin direkt, wir antworten innerhalb von 24 Stunden.",
     "emptyCta": "Frage stellen",
