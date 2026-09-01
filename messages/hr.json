@@ -221,7 +221,7 @@
       },
       {
         "title": "Prezentacija i marketing",
-        "body": "Fotografija, dron, tekstovi na tri jezika i plasman prema pravim kupcima."
+        "body": "Fotografija, dron, tekstovi na četiri jezika i plasman prema pravim kupcima."
       },
       {
         "title": "Razgledavanja i pregovori",
@@ -319,7 +319,7 @@
     },
     "contact": {
       "title": "Kontakt: Agencija za nekretnine Pelješac | Sottomonte",
-      "description": "Kontaktirajte našu agenciju za nekretnine na Pelješcu e-mailom ili putem obrasca. Odgovaramo u roku od 24 sata na hrvatskom, engleskom i njemačkom."
+      "description": "Kontaktirajte našu agenciju za nekretnine na Pelješcu e-mailom ili obrascem. Odgovaramo u roku od 24 sata na hrvatskom, engleskom, njemačkom i poljskom."
     },
     "buying": {
       "title": "Kupnja nekretnine na Pelješcu: vodič i troškovi | Sottomonte",
@@ -343,6 +343,11 @@
       "title": "{title} | Sottomonte",
       "descriptionFallback": "Vodič za kupce i prodavatelje nekretnina na Pelješcu. Konkretni troškovi, rokovi i dokumentacija, bez općenitih fraza."
     }
+  },
+  "draftMode": {
+    "status": "Način pregleda: prikazuju se neobjavljene izmjene.",
+    "note": "Ovo vidite samo vi, posjetitelji vide objavljenu verziju.",
+    "exit": "Izađi iz pregleda"
   },
   "trust": {
     "reply": "Odgovaramo u najkraćem mogućem roku",

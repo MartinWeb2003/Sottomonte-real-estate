@@ -14,6 +14,7 @@ const STATIC_ROUTES: AppPathname[] = [
   '/selling',
   '/guides',
   '/contact',
+  '/privacy',
 ];
 
 /**
@@ -62,8 +63,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   for (const route of STATIC_ROUTES) {
     push(route, {
-      changeFrequency: route === '/properties' ? 'daily' : 'weekly',
-      priority: route === '/' ? 1 : 0.8,
+      // Privacy is a legal page rather than a ranking target: indexed, but
+      // at the lowest priority of the static set.
+      changeFrequency:
+        route === '/properties'
+          ? 'daily'
+          : route === '/privacy'
+            ? 'yearly'
+            : 'weekly',
+      priority: route === '/' ? 1 : route === '/privacy' ? 0.2 : 0.8,
     });
   }
 

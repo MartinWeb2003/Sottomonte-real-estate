@@ -19,7 +19,7 @@ const WEBSITE_ID = `${SITE_URL}/#website`;
 const abs = (path: string) => `${SITE_URL}${path}`;
 
 /**
- * Per-page metadata with hreflang alternates for hr/en/de.
+ * Per-page metadata with hreflang alternates for hr/en/de/pl.
  * `path` is the locale-less pathname, e.g. "/properties".
  */
 export function buildMetadata({
@@ -47,7 +47,7 @@ export function buildMetadata({
 
   const languages = Object.fromEntries([
     ...routing.locales.map((l) => [l, url(l)]),
-    // x-default: search-engine fallback for users outside hr/en/de
+    // x-default: search-engine fallback for users outside hr/en/de/pl
     ['x-default', url(routing.defaultLocale)],
   ]);
 

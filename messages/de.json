@@ -221,7 +221,7 @@
       },
       {
         "title": "Präsentation & Marketing",
-        "body": "Fotografie, Drohne, Texte in drei Sprachen und Platzierung bei den richtigen Käufern."
+        "body": "Fotografie, Drohne, Texte in vier Sprachen und Platzierung bei den richtigen Käufern."
       },
       {
         "title": "Besichtigungen & Verhandlung",
@@ -343,6 +343,11 @@
       "title": "{title} | Sottomonte",
       "descriptionFallback": "Ein Ratgeber für Käufer und Verkäufer auf der Halbinsel Pelješac. Konkrete Kosten, Fristen und Unterlagen, ohne Floskeln."
     }
+  },
+  "draftMode": {
+    "status": "Vorschaumodus: unveröffentlichte Änderungen werden angezeigt.",
+    "note": "Das sehen nur Sie. Besucher sehen die veröffentlichte Fassung.",
+    "exit": "Vorschau verlassen"
   },
   "trust": {
     "reply": "Antwort so schnell wie möglich",

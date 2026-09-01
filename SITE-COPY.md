@@ -316,9 +316,9 @@ Generirano iz `messages/hr.json`, `en.json`, `de.json`, jedinog izvora teksta na
 
 **KLJUČ: `meta.contact.description`**
 
-- HR: Kontaktirajte našu agenciju za nekretnine na Pelješcu putem telefona, e-maila ili WhatsAppa. Brz odgovor u roku od 24 sata na hrvatskom, engleskom i njemačkom.
-- EN: Get in touch with our Pelješac real estate agency by phone, email, or WhatsApp. We respond within 24 hours in English, German, and Croatian.
-- DE: Kontaktieren Sie unsere Immobilienagentur auf Pelješac per Telefon, E-Mail oder WhatsApp. Schnelle Antwort innerhalb von 24 Stunden.
+- HR: Kontaktirajte našu agenciju za nekretnine na Pelješcu e-mailom ili obrascem. Odgovaramo u roku od 24 sata na hrvatskom, engleskom, njemačkom i poljskom.
+- EN: Get in touch with our Pelješac real estate agency by email or through the form. We respond within 24 hours in English, German, Croatian and Polish.
+- DE: Kontaktieren Sie unsere Immobilienagentur auf Pelješac per E-Mail oder über das Formular. Antwort innerhalb von 24 Stunden.
 
 **KLJUČ: `meta.buying.title`**
 
@@ -1275,9 +1275,9 @@ Generirano iz `messages/hr.json`, `en.json`, `de.json`, jedinog izvora teksta na
 
 **KLJUČ: `selling.processSteps.2.body`**
 
-- HR: Fotografija, dron, tekstovi na tri jezika i plasman prema pravim kupcima.
-- EN: Photography, drone, copy in three languages, and placement with the right buyers.
-- DE: Fotografie, Drohne, Texte in drei Sprachen und Platzierung bei den richtigen Käufern.
+- HR: Fotografija, dron, tekstovi na četiri jezika i plasman prema pravim kupcima.
+- EN: Photography, drone, copy in four languages, and placement with the right buyers.
+- DE: Fotografie, Drohne, Texte in vier Sprachen und Platzierung bei den richtigen Käufern.
 
 **KLJUČ: `selling.processSteps.3.title`**
 
@@ -1590,7 +1590,7 @@ Generirano iz `messages/hr.json`, `en.json`, `de.json`, jedinog izvora teksta na
 **KLJUČ: `locations.emptyBody`**
 
 - HR: Da nemamo ništa javno oglašeno ne znači da nemamo ništa. Velik dio ponude na Pelješcu nikada ne izađe na internet, jer vlasnici tako žele. Recite nam što tražite i provjerit ćemo što je trenutno slobodno u mjestu {name}, uključujući i ono o čemu se još nije počelo govoriti.
-- EN: Nothing listed publicly does not mean nothing available. A large part of what sells on Pelješac never reaches the internet, because the owners prefer it that way. Tell us what you are looking for and we will check what is free in {name} right now, including what nobody has started talking about yet.
+- EN: Nothing listed publicly does not mean nothing available. A large part of what sells on Pelješac never reaches the internet, because the owners prefer it that way. Tell us what you are looking for and we will check what is for sale in {name} right now, including what nobody has started talking about yet.
 - DE: Nichts öffentlich inseriert heißt nicht nichts verfügbar. Ein großer Teil dessen, was auf Pelješac verkauft wird, erreicht das Internet nie, weil die Eigentümer es so wollen. Sagen Sie uns, was Sie suchen, und wir prüfen, was in {name} gerade frei ist, auch das, worüber noch niemand spricht.
 
 **KLJUČ: `locations.emptyCta`**

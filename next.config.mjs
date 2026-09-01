@@ -97,6 +97,7 @@ const nextConfig = {
       ['hr', 'buying', 'kupnja-nekretnine'],
       ['hr', 'selling', 'prodaja-nekretnine'],
       ['hr', 'contact', 'kontakt'],
+      ['de', 'contact', 'kontakt'],
       ['hr', 'privacy', 'privatnost'],
       ['de', 'properties', 'immobilien'],
       ['de', 'locations', 'orte'],
@@ -109,6 +110,7 @@ const nextConfig = {
       // Polish URL still resolves instead of 404ing.
       ['pl', 'properties', 'nieruchomosci'],
       ['pl', 'locations', 'miejscowosci'],
+      ['pl', 'contact', 'kontakt'],
       ['pl', 'guides', 'poradniki'],
       ['pl', 'buying', 'kupno-nieruchomosci'],
       ['pl', 'selling', 'sprzedaz-nieruchomosci'],

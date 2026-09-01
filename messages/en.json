@@ -221,7 +221,7 @@
       },
       {
         "title": "Presentation & marketing",
-        "body": "Photography, drone, copy in three languages, and placement with the right buyers."
+        "body": "Photography, drone, copy in four languages, and placement with the right buyers."
       },
       {
         "title": "Viewings & negotiation",
@@ -319,7 +319,7 @@
     },
     "contact": {
       "title": "Contact Us: Real Estate Agency Pelješac Croatia | Sottomonte",
-      "description": "Get in touch with our Pelješac real estate agency by email or through the form. We respond within 24 hours in English, German and Croatian."
+      "description": "Get in touch with our Pelješac real estate agency by email or through the form. We respond within 24 hours in English, German, Croatian and Polish."
     },
     "buying": {
       "title": "Buying Property on Pelješac: Costs & Process | Sottomonte",
@@ -343,6 +343,11 @@
       "title": "{title} | Sottomonte",
       "descriptionFallback": "A guide for buyers and sellers on the Pelješac peninsula. Real costs, real timelines, real paperwork, with none of the boilerplate."
     }
+  },
+  "draftMode": {
+    "status": "Preview mode: unpublished changes are being shown.",
+    "note": "Only you see this. Visitors see the published version.",
+    "exit": "Leave preview"
   },
   "trust": {
     "reply": "We reply as soon as possible",
@@ -438,7 +443,7 @@
     "propertiesTitle": "Currently available",
     "viewFiltered": "Browse with filters",
     "emptyTitle": "For {name}, ask us directly.",
-    "emptyBody": "Nothing listed publicly does not mean nothing available. A large part of what sells on Pelješac never reaches the internet, because the owners prefer it that way. Tell us what you are looking for and we will check what is free in {name} right now, including what nobody has started talking about yet.",
+    "emptyBody": "Nothing listed publicly does not mean nothing available. A large part of what sells on Pelješac never reaches the internet, because the owners prefer it that way. Tell us what you are looking for and we will check what is for sale in {name} right now, including what nobody has started talking about yet.",
     "emptyCta": "Tell us what you are looking for",
     "photoAlt": "{name} on the Pelješac peninsula",
     "guidesTitle": "Before you buy in {name}",

@@ -1,3 +1,5 @@
+import { useTranslations } from 'next-intl';
+
 /**
  * Fixed bar shown only while draft mode is on.
  *
@@ -11,6 +13,8 @@
  * and of the sticky inquiry bar on property pages.
  */
 export function DraftModeBanner() {
+  const t = useTranslations('draftMode');
+
   return (
     <div className="fixed inset-x-0 bottom-0 z-[60] border-t border-gold bg-navy text-white">
       <div className="container-site flex flex-wrap items-center justify-between gap-x-6 gap-y-2 py-3 text-sm">
@@ -20,17 +24,15 @@ export function DraftModeBanner() {
             className="inline-block h-[7px] w-[7px] shrink-0 rounded-full bg-gold"
           />
           <span>
-            Način pregleda: prikazuju se neobjavljene izmjene.
-            <span className="ml-2 text-white/60">
-              Ovo vidite samo vi, posjetitelji vide objavljenu verziju.
-            </span>
+            {t('status')}
+            <span className="ml-2 text-white/60">{t('note')}</span>
           </span>
         </p>
         <a
           href="/api/draft-mode/disable"
           className="shrink-0 border-b border-gold pb-0.5 font-medium transition-colors hover:border-white"
         >
-          Izađi iz pregleda
+          {t('exit')}
         </a>
       </div>
     </div>

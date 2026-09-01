@@ -221,7 +221,7 @@
       },
       {
         "title": "Prezentacja i marketing",
-        "body": "Zdjęcia, dron, opisy w kilku językach i dotarcie do właściwych kupujących."
+        "body": "Zdjęcia, dron, opisy w czterech językach i dotarcie do właściwych kupujących."
       },
       {
         "title": "Prezentacje i negocjacje",
@@ -343,6 +343,11 @@
       "title": "{title} | Sottomonte",
       "descriptionFallback": "Poradnik dla kupujących i sprzedających nieruchomości na półwyspie Pelješac. Konkretne koszty, terminy i dokumenty, bez ogólników."
     }
+  },
+  "draftMode": {
+    "status": "Tryb podglądu: wyświetlane są nieopublikowane zmiany.",
+    "note": "Widzą to tylko Państwo. Odwiedzający widzą wersję opublikowaną.",
+    "exit": "Zamknij podgląd"
   },
   "trust": {
     "reply": "Odpowiadamy najszybciej, jak to możliwe",
