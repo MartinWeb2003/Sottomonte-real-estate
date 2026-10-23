@@ -64,18 +64,26 @@ export async function Footer({ locations }: { locations: Location[] }) {
                 </Link>
               </li>
             ))}
-            {/* Guides live in the footer rather than the main nav: the header
-                keeps the five decision-stage links it was specified with, and
-                a sitewide footer link is what the guides hub actually needs to
-                be crawled and to receive link equity from every page. */}
-            <li>
-              <Link
-                href="/guides"
-                className="text-white/80 transition-colors hover:text-white"
-              >
-                {tNav('guides')}
-              </Link>
-            </li>
+            {/* Guides, the FAQ hub, the price table and the press room live in
+                the footer rather than the main nav: the header keeps the five
+                decision-stage links it was specified with, and a sitewide
+                footer link is what these hubs actually need to be crawled and
+                to receive link equity from every page.
+
+                Order is deliberate. Guides and the FAQ are what a visitor
+                might click; the price table and the press room are mainly here
+                so they are one hop from every page on the site, which is what
+                an outreach target checks first. */}
+            {(['/guides', '/faq', '/market', '/press'] as const).map((href) => (
+              <li key={href}>
+                <Link
+                  href={href}
+                  className="text-white/80 transition-colors hover:text-white"
+                >
+                  {tNav(href.slice(1))}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 

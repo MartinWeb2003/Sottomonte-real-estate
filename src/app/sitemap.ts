@@ -1,11 +1,12 @@
 import type { MetadataRoute } from 'next';
 import { routing, localeUrl, type AppPathname, type Locale } from '@/i18n/routing';
 import {
-  getGuides,
+  getGuideSitemapEntries,
   getLocationSitemapEntries,
   getPropertySitemapEntries,
 } from '@sanity-config/lib/queries';
 import { SITE_URL } from '@/lib/seo';
+import type { LocaleCoverage } from '@/types';
 
 const STATIC_ROUTES: AppPathname[] = [
   '/',
@@ -13,7 +14,10 @@ const STATIC_ROUTES: AppPathname[] = [
   '/buying',
   '/selling',
   '/guides',
+  '/faq',
+  '/market',
   '/contact',
+  '/press',
   '/privacy',
 ];
 
@@ -30,14 +34,42 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [properties, locations, guides] = await Promise.all([
     getPropertySitemapEntries(),
     getLocationSitemapEntries(),
-    getGuides(),
+    getGuideSitemapEntries(),
   ]);
 
   const entries: MetadataRoute.Sitemap = [];
 
-  const alternatesFor = (route: AppPathname, params?: Record<string, string>) => ({
+  /**
+   * Which locales a document is submitted in.
+   *
+   * A sitemap is a set of claims about pages worth indexing, and hreflang
+   * inside it is a claim that those pages are translations of each other.
+   * Every CMS-backed page is statically generated in all four locales, but a
+   * property whose description exists only in Croatian renders that same
+   * Croatian text under /de/immobilien/... Submitting it as the German version
+   * asks Google to index four near-identical pages per listing, which is how a
+   * site ends up competing with itself.
+   *
+   * Uncovered locales are therefore left out of the sitemap entirely and go
+   * `noindex, follow` on the page (see lib/i18nCoverage). The pages stay live
+   * and linked; they just stop being offered as search results. Documents with
+   * no coverage information fall back to all locales, matching the fail-open
+   * behaviour on the page side.
+   */
+  const coveredLocales = (coverage?: LocaleCoverage): Locale[] => {
+    const covered = routing.locales.filter(
+      (l) => coverage?.[l as Locale]
+    ) as Locale[];
+    return covered.length ? covered : (routing.locales as readonly Locale[]).slice();
+  };
+
+  const alternatesFor = (
+    route: AppPathname,
+    params: Record<string, string> | undefined,
+    locales: readonly Locale[]
+  ) => ({
     languages: Object.fromEntries(
-      routing.locales.map((l) => [l, localeUrl(SITE_URL, l as Locale, route, params)])
+      locales.map((l) => [l, localeUrl(SITE_URL, l, route, params)])
     ),
   });
 
@@ -48,15 +80,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'];
       priority: number;
       lastModified?: string;
+      /** Defaults to all four: static pages are fully translated by definition,
+          since their copy lives in the message files. */
+      locales?: readonly Locale[];
     }
   ) => {
-    for (const locale of routing.locales) {
+    const locales = opts.locales ?? (routing.locales as readonly Locale[]);
+    for (const locale of locales) {
       entries.push({
-        url: localeUrl(SITE_URL, locale as Locale, route, opts.params),
+        url: localeUrl(SITE_URL, locale, route, opts.params),
         ...(opts.lastModified ? { lastModified: new Date(opts.lastModified) } : {}),
         changeFrequency: opts.changeFrequency,
         priority: opts.priority,
-        alternates: alternatesFor(route, opts.params),
+        alternates: alternatesFor(route, opts.params, locales),
       });
     }
   };
@@ -65,13 +101,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     push(route, {
       // Privacy is a legal page rather than a ranking target: indexed, but
       // at the lowest priority of the static set.
+      // The market table recomputes whenever a listing changes, so it is as
+      // volatile as the grid itself. Press is near static.
       changeFrequency:
-        route === '/properties'
+        route === '/properties' || route === '/market'
           ? 'daily'
-          : route === '/privacy'
+          : route === '/privacy' || route === '/press'
             ? 'yearly'
             : 'weekly',
-      priority: route === '/' ? 1 : route === '/privacy' ? 0.2 : 0.8,
+      priority:
+        route === '/'
+          ? 1
+          : route === '/privacy'
+            ? 0.2
+            : route === '/press'
+              ? 0.4
+              : 0.8,
     });
   }
 
@@ -84,6 +129,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'weekly',
       priority: 0.9,
       lastModified: property._updatedAt,
+      locales: coveredLocales(property.coverage),
     });
   }
 
@@ -100,6 +146,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'weekly',
       priority: 0.7,
       lastModified,
+      locales: coveredLocales(location.coverage),
     });
   }
 
@@ -111,7 +158,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       params: { slug: guide.slug },
       changeFrequency: 'monthly',
       priority: 0.7,
-      lastModified: guide.updatedAt || guide.publishedAt,
+      lastModified: guide._updatedAt,
+      locales: coveredLocales(guide.coverage),
     });
   }
 

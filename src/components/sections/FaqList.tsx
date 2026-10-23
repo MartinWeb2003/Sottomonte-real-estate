@@ -22,7 +22,20 @@ import type { FaqItem } from './FaqSection';
  * aria-expanded do not, but they are the standard accessible accordion and are
  * the only way to get exclusivity plus animation reliably across browsers.
  */
-export function FaqList({ items }: { items: FaqItem[] }) {
+export function FaqList({
+  items,
+  idPrefix = 'faq',
+}: {
+  items: FaqItem[];
+  /**
+   * Namespaces the button/region ids. Required once a page renders more than
+   * one list, as the FAQ hub does: the ids are index-based, so three lists
+   * sharing the default prefix would put three `faq-answer-0` elements in one
+   * document and leave aria-controls pointing at whichever the browser found
+   * first.
+   */
+  idPrefix?: string;
+}) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [minHeight, setMinHeight] = useState<number>();
   const containerRef = useRef<HTMLDivElement>(null);
@@ -76,8 +89,8 @@ export function FaqList({ items }: { items: FaqItem[] }) {
               <button
                 type="button"
                 aria-expanded={isOpen}
-                aria-controls={`faq-answer-${i}`}
-                id={`faq-question-${i}`}
+                aria-controls={`${idPrefix}-answer-${i}`}
+                id={`${idPrefix}-question-${i}`}
                 onClick={() => setOpenIndex(isOpen ? null : i)}
                 className="flex w-full cursor-pointer items-baseline justify-between gap-6 py-5 text-left text-base font-medium text-navy transition-colors hover:text-navy-soft md:text-lg"
               >
@@ -94,9 +107,9 @@ export function FaqList({ items }: { items: FaqItem[] }) {
               </button>
             </h3>
             <div
-              id={`faq-answer-${i}`}
+              id={`${idPrefix}-answer-${i}`}
               role="region"
-              aria-labelledby={`faq-question-${i}`}
+              aria-labelledby={`${idPrefix}-question-${i}`}
               className={cn(
                 // duration-300, not 400: Tailwind's default scale has no 400
                 // and the class would silently emit nothing.

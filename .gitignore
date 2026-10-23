@@ -69,3 +69,6 @@ CLAUDE.md
 # Client-facing PDFs generated from the schema. Regenerated on demand and not
 # source, so they stay out of the repo.
 *.pdf
+
+# Unpublished guide drafts (Markdown working copies, never deployed)
+/content/

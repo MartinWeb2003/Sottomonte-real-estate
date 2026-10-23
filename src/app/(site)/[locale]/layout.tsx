@@ -66,6 +66,18 @@ export default async function LocaleLayout({
         <link rel="dns-prefetch" href="https://api.maptiler.com" />
         <link rel="preconnect" href="https://cdn.sanity.io" crossOrigin="" />
         <link rel="dns-prefetch" href="https://cdn.sanity.io" />
+        {/*
+         * The guides feed for THIS locale only. Advertising all four would
+         * offer a German visitor a Croatian subscription, and a reader who
+         * subscribes to the wrong language unsubscribes once and never comes
+         * back. Feed readers and aggregators discover the feed from here.
+         */}
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="Sottomonte"
+          href={`/feed/${locale}`}
+        />
       </head>
       <body>
         <NextIntlClientProvider messages={messages}>

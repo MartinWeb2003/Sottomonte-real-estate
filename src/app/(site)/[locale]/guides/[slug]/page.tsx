@@ -16,7 +16,8 @@ import {
   getRelatedGuides,
 } from '@sanity-config/lib/queries';
 import { imageUrl } from '@sanity-config/lib/image';
-import { pickLocale, pickLocaleBlocks } from '@/lib/utils';
+import { pickLocale, pickLocaleBlocks, pickLocaleList } from '@/lib/utils';
+import { guideLocales } from '@/lib/i18nCoverage';
 import { formatGuideDate } from '@/lib/formatters';
 import {
   buildMetadata,
@@ -65,6 +66,10 @@ export async function generateMetadata({
     route: '/guides/[slug]',
     params: { slug },
     image: cover ? imageUrl(cover, { width: 1200, height: 630 }) : undefined,
+    // An untranslated guide renders its Croatian body under /de/ratgeber/...
+    // That page is useful to a reader who followed a link and worthless as a
+    // German search result, so it stays reachable but unindexed.
+    availableLocales: guideLocales(guide),
   });
 }
 
@@ -99,6 +104,7 @@ export default async function GuidePage({
   const title = pickLocale(guide.title, locale);
   const excerpt = pickLocale(guide.excerpt, locale);
   const body = pickLocaleBlocks(guide.body, locale);
+  const takeaways = pickLocaleList(guide.keyTakeaways, locale);
   const cover = guide.coverImage;
 
   const authorName = guide.author?.name;
@@ -129,6 +135,7 @@ export default async function GuidePage({
           image: coverUrl?.startsWith('http') ? coverUrl : undefined,
           authorName,
           authorRole: authorRole || undefined,
+          takeaways,
         })}
       />
       {faqItems.length > 0 && <JsonLd data={faqJsonLd(faqItems)} />}
@@ -181,6 +188,36 @@ export default async function GuidePage({
             </div>
             <HairlineDivider className="mt-8" />
           </div>
+
+          {/* Answer first, then the argument.
+              A reader who arrived from a search, and an assistant reading the
+              page on someone's behalf, both want the conclusion before the
+              context. Putting it above the body costs a scroll for the person
+              who wanted the long version and saves everyone else the whole
+              article.
+
+              Styled with a navy rule rather than a gold one: the hairline
+              under the byline directly above is already this viewport's single
+              gold element. */}
+          {takeaways.length > 0 && (
+            <div>
+              <div className="mt-12 max-w-2xl border-l-2 border-navy/15 pl-8">
+                <h2 className="font-display text-lg text-navy">
+                  {t('takeawaysTitle')}
+                </h2>
+                <ul className="mt-5 space-y-3">
+                  {takeaways.map((item) => (
+                    <li
+                      key={item}
+                      className="text-base leading-relaxed text-navy md:text-lg"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          )}
 
           {body && (
             <div>

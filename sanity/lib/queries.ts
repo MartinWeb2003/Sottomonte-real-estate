@@ -4,13 +4,37 @@ import type {
   Guide,
   Location,
   Property,
+  LocaleCoverage,
   PropertyFilters,
+  SitemapEntry,
   TeamMember,
   Testimonial,
 } from '@/types';
 /**
  * ALL GROQ queries for the site live here — never inline them in pages.
  */
+
+/**
+ * Per-locale "is this document actually written in this language" flags,
+ * evaluated on the Sanity side.
+ *
+ * The sitemap needs this for every property, village and guide at once, and
+ * the alternative is downloading four localised bodies per document just to
+ * check whether they are empty. The rule matches `lib/i18nCoverage`: a
+ * headline AND a body, both in that locale. Keep the two in step.
+ */
+function coverageProjection(titleField: string, bodyField: string) {
+  const locale = (id: string) =>
+    `"${id}": defined(${titleField}.${id}) && ${titleField}.${id} != "" && count(${bodyField}.${id}) > 0`;
+  return groq`{ ${['hr', 'en', 'de', 'pl'].map(locale).join(', ')} }`;
+}
+
+/** Villages are judged on the description alone: the name is the same word in
+    every language, so requiring it would mark every village as translated. */
+function descriptionCoverageProjection(bodyField: string) {
+  const locale = (id: string) => `"${id}": count(${bodyField}.${id}) > 0`;
+  return groq`{ ${['hr', 'en', 'de', 'pl'].map(locale).join(', ')} }`;
+}
 
 const LOCATION_PROJECTION = groq`{
   _id,
@@ -178,22 +202,20 @@ export function getPropertySlugs() {
 const propertySitemapQuery = groq`
   *[_type == "property" && status != "sold"] | order(_updatedAt desc) {
     "slug": slug.current,
-    _updatedAt
+    _updatedAt,
+    "coverage": ${coverageProjection('title', 'description')}
   }
 `;
 
 export function getPropertySitemapEntries() {
-  return sanityFetch<Array<{ slug: string; _updatedAt: string }>>(
-    propertySitemapQuery,
-    {},
-    []
-  );
+  return sanityFetch<SitemapEntry[]>(propertySitemapQuery, {}, []);
 }
 
 const locationSitemapQuery = groq`
   *[_type == "location" && defined(slug.current)] {
     "slug": slug.current,
     _updatedAt,
+    "coverage": ${descriptionCoverageProjection('description')},
     "propertiesUpdatedAt": *[_type == "property" && status != "sold" && references(^._id)]
       | order(_updatedAt desc)[0]._updatedAt
   }
@@ -205,9 +227,11 @@ const locationSitemapQuery = groq`
  * and a truthful lastmod is the only kind worth sending.
  */
 export function getLocationSitemapEntries() {
-  return sanityFetch<
-    Array<{ slug: string; _updatedAt: string; propertiesUpdatedAt?: string }>
-  >(locationSitemapQuery, {}, []);
+  return sanityFetch<Array<SitemapEntry & { propertiesUpdatedAt?: string }>>(
+    locationSitemapQuery,
+    {},
+    []
+  );
 }
 
 /** Similar: same village first, then same type in a similar price range. */
@@ -229,6 +253,49 @@ export function getSimilarProperties(
     { slug, locationSlug, type },
     []
   );
+}
+
+/* --------------------------------- market -------------------------------- */
+
+/**
+ * Every live listing, reduced to the fields the asking-price table needs.
+ *
+ * Deliberately not `getProperties({})`: that one paginates and carries
+ * galleries. This is an aggregate over the whole portfolio, so it must not be
+ * capped at a page size, and it has no use for images.
+ *
+ * Sold listings are excluded to stay consistent with the rest of the site,
+ * which is also the honest choice: a sold property's asking price is history,
+ * and mixing it into a "what things cost now" table would misdate the data.
+ */
+const marketSnapshotQuery = groq`
+  *[_type == "property" && status != "sold" && defined(location->slug.current)] {
+    _id,
+    _createdAt,
+    "slug": slug.current,
+    status,
+    type,
+    price,
+    priceOnRequest,
+    area,
+    landArea,
+    seaDistance,
+    title,
+    "location": location->{ _id, name, "slug": slug.current }
+  }
+`;
+
+export function getMarketProperties() {
+  return sanityFetch<Property[]>(marketSnapshotQuery, {}, []);
+}
+
+/** When the table last changed, for the "as of" line and the Dataset markup. */
+const marketUpdatedQuery = groq`
+  *[_type == "property" && status != "sold"] | order(_updatedAt desc)[0]._updatedAt
+`;
+
+export function getMarketUpdatedAt() {
+  return sanityFetch<string | null>(marketUpdatedQuery, {}, null);
 }
 
 /* --------------------------------- guides -------------------------------- */
@@ -262,6 +329,7 @@ const GUIDE_FULL_PROJECTION = groq`{
   coverImage,
   publishedAt,
   updatedAt,
+  keyTakeaways,
   body,
   faq,
   "author": author->${GUIDE_AUTHOR_PROJECTION},
@@ -288,6 +356,54 @@ const guideBySlugQuery = groq`
 
 export function getGuideBySlug(slug: string) {
   return sanityFetch<Guide | null>(guideBySlugQuery, { slug }, null);
+}
+
+const guideSitemapQuery = groq`
+  *[${publishedGuideFilter}] | order(publishedAt desc) {
+    "slug": slug.current,
+    "_updatedAt": coalesce(updatedAt, publishedAt, _updatedAt),
+    "coverage": ${coverageProjection('title', 'body')}
+  }
+`;
+
+/**
+ * Guides for the sitemap: slug, the date an editor actually stands behind,
+ * and which languages the guide exists in.
+ *
+ * Separate from `getGuides`, which powers the index cards and has no reason to
+ * fetch four localised bodies. `_updatedAt` here is the editorial date, not
+ * Sanity's document timestamp, so a typo fix does not claim the article was
+ * revised.
+ */
+export function getGuideSitemapEntries() {
+  return sanityFetch<SitemapEntry[]>(guideSitemapQuery, {}, []);
+}
+
+const guideFeedQuery = groq`
+  *[${publishedGuideFilter}] | order(publishedAt desc)[0...20] {
+    "slug": slug.current,
+    title,
+    excerpt,
+    publishedAt,
+    updatedAt,
+    "coverage": ${coverageProjection('title', 'body')}
+  }
+`;
+
+/**
+ * The twenty most recent guides, for the RSS feeds.
+ *
+ * Capped because a feed is a "what is new" surface, not an archive: readers
+ * pull it repeatedly and every extra item is bandwidth spent on articles the
+ * subscriber already has. Coverage rides along so each locale's feed carries
+ * only the guides actually written in that language.
+ */
+export function getGuideFeedEntries() {
+  return sanityFetch<
+    Array<Pick<Guide, 'slug' | 'title' | 'excerpt' | 'publishedAt' | 'updatedAt'> & {
+      coverage?: LocaleCoverage;
+    }>
+  >(guideFeedQuery, {}, []);
 }
 
 const guideSlugsQuery = groq`
@@ -333,6 +449,28 @@ const guidesForLocationQuery = groq`
 
 export function getGuidesForLocation(locationId: string) {
   return sanityFetch<Guide[]>(guidesForLocationQuery, { locationId }, []);
+}
+
+/**
+ * Every question-and-answer pair an editor has attached to a guide, with the
+ * guide it came from.
+ *
+ * Feeds the FAQ hub, which collects the questions scattered across the buying
+ * page, the selling page and the guides into one place. Only guides that
+ * actually have FAQ entries come back, so the hub does not have to filter.
+ */
+const guideFaqQuery = groq`
+  *[${publishedGuideFilter} && count(faq) > 0] | order(publishedAt desc) {
+    "slug": slug.current,
+    title,
+    faq
+  }
+`;
+
+export function getGuideFaqs() {
+  return sanityFetch<
+    Array<Pick<Guide, 'slug' | 'title' | 'faq'>>
+  >(guideFaqQuery, {}, []);
 }
 
 /* --------------------------------- other --------------------------------- */

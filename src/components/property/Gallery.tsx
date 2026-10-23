@@ -18,6 +18,14 @@ import { Lightbox } from './Lightbox';
 import { IMAGES } from '@/lib/images';
 
 /**
+ * A drone video is either a YouTube/Vimeo embed URL (iframe) or a file
+ * uploaded to Sanity's CDN (native <video>, muted loop like the hero).
+ */
+function isVideoFile(url: string) {
+  return url.startsWith('https://cdn.sanity.io/files/') || /\.(mp4|webm|mov)(\?|$)/i.test(url);
+}
+
+/**
  * Airbnb pattern: 1 large + 2 stacked, "View all photos (N)" opens the
  * fullscreen lightbox. A tab switches to the drone video when present.
  */
@@ -130,13 +138,27 @@ export function Gallery({
       {tab === 'video' && droneVideoUrl ? (
         <div className="container-site">
           <div className="relative aspect-video w-full bg-navy">
-            <iframe
-              src={droneVideoUrl}
-              title={`${title} drone video`}
-              className="absolute inset-0 h-full w-full"
-              allow="autoplay; fullscreen"
-              allowFullScreen
-            />
+            {isVideoFile(droneVideoUrl) ? (
+              <video
+                src={droneVideoUrl}
+                title={`${title} drone video`}
+                className="absolute inset-0 h-full w-full object-cover"
+                poster={images[0] ? imageUrl(images[0], { width: 1920 }) : undefined}
+                autoPlay
+                muted
+                loop
+                playsInline
+                controls
+              />
+            ) : (
+              <iframe
+                src={droneVideoUrl}
+                title={`${title} drone video`}
+                className="absolute inset-0 h-full w-full"
+                allow="autoplay; fullscreen"
+                allowFullScreen
+              />
+            )}
           </div>
         </div>
       ) : (

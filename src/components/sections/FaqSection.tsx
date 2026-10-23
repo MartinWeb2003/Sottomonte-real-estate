@@ -20,9 +20,12 @@ export function FaqSection({
   items,
   centered = false,
   animate = true,
+  idPrefix,
 }: {
   title: string;
   items: FaqItem[];
+  /** Pass a unique value wherever a page renders more than one FAQ list. */
+  idPrefix?: string;
   /** Centres the block in the container. Text stays left-aligned inside it,
       so this stays clear of the centered-everything anti-pattern. */
   centered?: boolean;
@@ -46,7 +49,7 @@ export function FaqSection({
             <SectionHeader title={title} />
           </Reveal>
           <Reveal delay={120}>
-            <FaqList items={items} />
+            <FaqList items={items} idPrefix={idPrefix} />
           </Reveal>
         </div>
       </div>

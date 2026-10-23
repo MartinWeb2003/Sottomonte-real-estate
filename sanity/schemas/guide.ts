@@ -86,6 +86,15 @@ export const guide = defineType({
       ],
     }),
     defineField({
+      name: 'keyTakeaways',
+      title: 'Key facts',
+      type: 'localizedStringList',
+      group: 'content',
+      description:
+        'Three to five short lines that answer this guide\'s question before the reader scrolls. Write each one as a complete statement that stands on its own out of context, because that is how an AI assistant will quote it: "EU citizens buy in Croatia on the same terms as Croatians", not "Rules for EU citizens". Numbers and percentages get quoted far more often than prose does.',
+      validation: (rule) => rule.max(6),
+    }),
+    defineField({
       name: 'body',
       title: 'Body',
       type: 'localizedBlockContent',

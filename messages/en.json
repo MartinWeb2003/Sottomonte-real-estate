@@ -5,7 +5,10 @@
     "selling": "Selling",
     "contact": "Contact",
     "buying": "Buying",
-    "guides": "Guides"
+    "guides": "Guides",
+    "market": "Prices",
+    "faq": "FAQ",
+    "press": "Press"
   },
   "notFound": {
     "title": "Page not found",
@@ -342,6 +345,18 @@
     "guide": {
       "title": "{title} | Sottomonte",
       "descriptionFallback": "A guide for buyers and sellers on the Pelješac peninsula. Real costs, real timelines, real paperwork, with none of the boilerplate."
+    },
+    "market": {
+      "title": "Property prices on Pelješac | Sottomonte",
+      "description": "Median asking price per m², price range and listing count by village on Pelješac. Data from our own portfolio, free to cite."
+    },
+    "press": {
+      "title": "Press room | Sottomonte",
+      "description": "Price data, expert comment and materials for journalists covering property and life on the Pelješac peninsula."
+    },
+    "faq": {
+      "title": "Property FAQ for Pelješac, Croatia | Sottomonte",
+      "description": "Answers on buying and selling property on Pelješac: costs, paperwork, timescales and buying from abroad."
     }
   },
   "draftMode": {
@@ -469,6 +484,99 @@
     "emptyTitle": "The first guides are being written.",
     "emptyBody": "We write them ourselves, from sales we handled, which takes longer than copying them would. Until then, ask us directly. We reply within 24 hours.",
     "emptyCta": "Ask a question",
-    "viewAll": "All guides"
+    "viewAll": "All guides",
+    "takeawaysTitle": "In short"
+  },
+  "market": {
+    "title": "Property prices on Pelješac",
+    "subtitle": "Asking prices from our portfolio, village by village.",
+    "breadcrumb": "Prices",
+    "leadStatement": "These are asking prices from our listings, not market averages.",
+    "leadBody": "Croatia has no public register of achieved prices that an agency can search, so every published statistic for Pelješac rests on asking prices. Ours at least says so openly. The figures below are computed from every live listing in our portfolio and change along with it.",
+    "asOf": "Data as of {date}.",
+    "statListings": "Live listings in the portfolio",
+    "statVillages": "Villages with live listings",
+    "statMedian": "Median asking price per built m²",
+    "statNearSea": "Listings within 500 m of the sea",
+    "naLabel": "no data",
+    "rangeValue": "{min} to {max}",
+    "tableTitle": "Village by village",
+    "tableIntro": "Listing count, median asking price and price range for each village. The village name links to its own page.",
+    "tableCaption": "Asking prices for property by village on Pelješac",
+    "colVillage": "Village",
+    "colListings": "Listings",
+    "colMedian": "Median per m²",
+    "colLand": "Land per m²",
+    "colRange": "Price range",
+    "colNearSea": "Near the sea",
+    "tableFootnote": "A median is shown only where a village has at least {min} comparable listings. Below that the figure would be an opinion rather than a statistic. The Near the sea column counts listings no more than {meters} m from the water.",
+    "methodTitle": "How we calculate this",
+    "methodSource": "The only source is our own live listings. Sold properties are excluded, because their asking price no longer says anything about today.",
+    "methodMedian": "We use the median, not the average. One multi million euro villa in a village with four listings would pull the average above anything you could actually buy there.",
+    "methodLimits": "One agency portfolio is not the whole market. These numbers are useful as an order of magnitude and as a comparison between villages, but they are not a valuation of any individual property.",
+    "citeTitle": "Please take these numbers",
+    "citeBody": "For journalists, researchers and anyone writing about Pelješac: the data is free to use with attribution. If you need a breakdown by property type or by period, write to us and we will prepare it.",
+    "citeCta": "Request a breakdown",
+    "citeMailSubject": "Price data, Pelješac",
+    "citePress": "Press room",
+    "citeLicense": "Licence: Creative Commons BY 4.0. You may publish, quote and adapt this with attribution.",
+    "citeAttribution": "Attribution: Sottomonte, property prices on Pelješac, sottomonte.hr",
+    "datasetName": "Property asking prices on Pelješac",
+    "datasetDescription": "Median asking price per square metre, price range and listing count by village on the Pelješac peninsula, computed from live listings held by the Sottomonte agency.",
+    "measurement": "Median asking price per square metre",
+    "emptyTitle": "Not enough listings yet",
+    "emptyBody": "The table fills in as soon as the portfolio holds enough live listings with a price and an area on record."
+  },
+  "press": {
+    "title": "Press room",
+    "subtitle": "Data, comment and materials for journalists.",
+    "breadcrumb": "Press",
+    "boilerplateTitle": "The agency, in one paragraph",
+    "boilerplateBody": "Sottomonte is a specialist real estate agency for the Pelješac peninsula, based in Orebić. It works with a small number of properties it knows directly, including the owners and the state of the paperwork, and acts for Croatian buyers as well as buyers from Germany, Austria, Switzerland and Poland. The agency publishes the asking prices in its own portfolio, village by village.",
+    "boilerplateNote": "Please use this paragraph unedited, or ask us for a shorter version.",
+    "factsTitle": "Key facts",
+    "factBase": "Based in",
+    "factCoverage": "Villages covered",
+    "factCoverageFallback": "The whole Pelješac peninsula",
+    "factListings": "Live listings",
+    "factLanguages": "Languages",
+    "factLicence": "Status",
+    "factContact": "Press contact",
+    "topicsTitle": "What we can speak to",
+    "topicsIntro": "Subjects we work on daily and can comment on concretely, with numbers, at short notice.",
+    "topic1Title": "Foreigners buying in Croatia",
+    "topic1Body": "What EU citizens may do without any restriction, what the process demands of non EU buyers, how long it really takes and where it usually stalls.",
+    "topic2Title": "Prices on Pelješac",
+    "topic2Body": "How villages differ, what distance from the sea actually does to a price, and why asking and achieved prices keep diverging.",
+    "topic3Title": "Stone ruins and renovation",
+    "topic3Body": "Derelict stone houses as a market category of their own: prices, permits, real renovation costs and the traps a photograph does not show.",
+    "topic4Title": "Life on the peninsula out of season",
+    "topic4Body": "How these villages work in November, what stays open, and what that means for someone moving in rather than holidaying.",
+    "dataTitle": "The numbers we publish",
+    "dataBody": "Asking prices by village, with the methodology explained and a licence that allows publication with attribution. Updated automatically along with the portfolio.",
+    "dataCta": "See the data",
+    "assetsTitle": "Materials",
+    "assetsBody": "Logos at full resolution. For photographs of villages and properties, write to us: publication rights are agreed case by case.",
+    "assetLogoDark": "Logo, dark",
+    "assetLogoWhite": "Logo, white",
+    "assetLogoFull": "Logo with gold frame",
+    "assetPhotoNote": "Property photographs belong to the agency and to the owners, so we do not release them without an explicit agreement. Village photography and drone footage of the peninsula we can usually supply straight away.",
+    "contactTitle": "Need comment before a deadline?",
+    "contactBody": "Write to us and name the deadline. If the subject is ours, we answer quickly and concretely, with figures you can check.",
+    "contactCta": "Write to us",
+    "contactMailSubject": "Press enquiry"
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "subtitle": "What buyers and sellers ask us most, collected in one place.",
+    "breadcrumb": "FAQ",
+    "leadStatement": "Straight answers, including the ones that do not flatter us.",
+    "leadBody": "These questions are collected from the buying and selling pages and from our guides. Under each group is a link to the page where the subject is worked through in full.",
+    "buyingTitle": "Buying a property",
+    "buyingLink": "The full buying guide",
+    "sellingTitle": "Selling a property",
+    "sellingLink": "The full selling guide",
+    "guideLink": "Read the guide",
+    "emptyBody": "No questions are published yet. Write to us and we will answer directly."
   }
 }

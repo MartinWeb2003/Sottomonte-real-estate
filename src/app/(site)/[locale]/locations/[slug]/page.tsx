@@ -19,8 +19,14 @@ import {
   getProperties,
 } from '@sanity-config/lib/queries';
 import { imageUrl, VILLAGE_IMAGE } from '@sanity-config/lib/image';
-import { pickLocale, pickLocaleBlocks } from '@/lib/utils';
-import { buildMetadata, breadcrumbJsonLd, JsonLd } from '@/lib/seo';
+import { pickLocale, pickLocaleBlocks, blocksToPlainText } from '@/lib/utils';
+import { locationLocales } from '@/lib/i18nCoverage';
+import {
+  buildMetadata,
+  breadcrumbJsonLd,
+  locationJsonLd,
+  JsonLd,
+} from '@/lib/seo';
 import { routing } from '@/i18n/routing';
 import type { Locale } from '@/types';
 import { IMAGES } from '@/lib/images';
@@ -51,6 +57,10 @@ export async function generateMetadata({
     route: '/locations/[slug]',
     params: { slug },
     image: photo ? imageUrl(photo, { width: 1200, height: 630 }) : undefined,
+    // A village whose description has not been translated into this locale is
+    // the same Croatian text under a German URL. It stays reachable and keeps
+    // passing link equity, but it is not offered as a German search result.
+    availableLocales: locationLocales(location),
   });
 }
 
@@ -92,8 +102,31 @@ export default async function LocationPage({
     return [blocks.slice(0, mid), blocks.slice(mid)];
   })();
 
+  // Village photos, absolute, for the Place node. Sanity already returns
+  // absolute CDN URLs; the guard is for a locally-served placeholder.
+  const placeImages = photos
+    .slice(0, 3)
+    .map((photo) => imageUrl(photo, { width: 1200, height: 900 }))
+    .filter((url) => url.startsWith('http'));
+
   return (
     <>
+      {/* The village as an entity, the page as a document about it, and the
+          listings currently offered there. Before this the page carried a
+          breadcrumb and nothing else, which left the site's main local-search
+          surface saying nothing machine-readable about the place it is for. */}
+      <JsonLd
+        data={locationJsonLd({
+          location,
+          locale,
+          name,
+          description: blocksToPlainText(description, 300) || tagline,
+          properties: items,
+          images: placeImages,
+          listTitle: t('propertiesTitle'),
+        })}
+      />
+
       <JsonLd
         data={breadcrumbJsonLd(
           [

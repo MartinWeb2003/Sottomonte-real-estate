@@ -69,6 +69,30 @@ export const pathnames = {
     de: '/kontakt',
     pl: '/kontakt',
   },
+  // Asking-price data, published so it can be cited. The segment carries the
+  // query a person actually types ("cijene nekretnina Pelješac"), not the
+  // internal route name.
+  '/market': {
+    hr: '/cijene-nekretnina',
+    en: '/market-data',
+    de: '/immobilienpreise',
+    pl: '/ceny-nieruchomosci',
+  },
+  // Press room. Croatian and Polish read as "for the media", which is what a
+  // journalist scanning a site looks for; German and English use the
+  // established word.
+  '/press': {
+    hr: '/za-medije',
+    en: '/press',
+    de: '/presse',
+    pl: '/dla-mediow',
+  },
+  '/faq': {
+    hr: '/cesta-pitanja',
+    en: '/faq',
+    de: '/haeufige-fragen',
+    pl: '/czeste-pytania',
+  },
   '/privacy': {
     hr: '/privatnost',
     en: '/privacy',

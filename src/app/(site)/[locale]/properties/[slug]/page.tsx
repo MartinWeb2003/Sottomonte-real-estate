@@ -21,6 +21,7 @@ import {
 import { imageUrl } from '@sanity-config/lib/image';
 import { formatArea, formatPrice, formatPricePerM2 } from '@/lib/formatters';
 import { pickLocale, pickLocaleBlocks } from '@/lib/utils';
+import { propertyLocales } from '@/lib/i18nCoverage';
 import {
   buildMetadata,
   breadcrumbJsonLd,
@@ -61,6 +62,10 @@ export async function generateMetadata({
     route: '/properties/[slug]',
     params: { slug },
     image: cover ? imageUrl(cover, { width: 1200, height: 630 }) : undefined,
+    // A listing whose description exists only in Croatian is not a German
+    // page, however German its URL is. Uncovered locales drop out of the
+    // hreflang set and the sitemap and go noindex, follow.
+    availableLocales: propertyLocales(property),
   });
 }
 

@@ -99,12 +99,18 @@ const nextConfig = {
       ['hr', 'contact', 'kontakt'],
       ['de', 'contact', 'kontakt'],
       ['hr', 'privacy', 'privatnost'],
+      ['hr', 'market', 'cijene-nekretnina'],
+      ['hr', 'press', 'za-medije'],
+      ['hr', 'faq', 'cesta-pitanja'],
       ['de', 'properties', 'immobilien'],
       ['de', 'locations', 'orte'],
       ['de', 'guides', 'ratgeber'],
       ['de', 'buying', 'immobilie-kaufen'],
       ['de', 'selling', 'immobilie-verkaufen'],
       ['de', 'privacy', 'datenschutz'],
+      ['de', 'market', 'immobilienpreise'],
+      ['de', 'press', 'presse'],
+      ['de', 'faq', 'haeufige-fragen'],
       // Polish is new and has no indexed URLs, so these are not strictly
       // redirects of anything. They are here so a hand-typed English-shaped
       // Polish URL still resolves instead of 404ing.
@@ -115,6 +121,9 @@ const nextConfig = {
       ['pl', 'buying', 'kupno-nieruchomosci'],
       ['pl', 'selling', 'sprzedaz-nieruchomosci'],
       ['pl', 'privacy', 'prywatnosc'],
+      ['pl', 'market', 'ceny-nieruchomosci'],
+      ['pl', 'press', 'dla-mediow'],
+      ['pl', 'faq', 'czeste-pytania'],
     ].flatMap(([locale, from, to]) => [
       // The section index, e.g. /hr/properties -> /hr/nekretnine
       {

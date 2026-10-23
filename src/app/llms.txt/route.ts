@@ -74,6 +74,9 @@ ostale jezične verzije.
 - [Kupnja nekretnine](${url('/buying')}): postupak kupnje, troškovi i porezi, uključujući pravila za strane državljane.
 - [Prodaja nekretnine](${url('/selling')}): procjena vrijednosti, priprema dokumentacije i prodajni postupak.
 - [Vodiči](${url('/guides')}): dubinski tekstovi o kupnji, prodaji i tržištu na Pelješcu.
+- [Česta pitanja](${url('/faq')}): sva pitanja i odgovori sa stranica o kupnji i prodaji te iz vodiča, na jednom mjestu.
+- [Cijene nekretnina](${url('/market')}): medijan tražene cijene po m², raspon cijena i broj oglasa po mjestima. Izračunato iz naših aktivnih oglasa, objašnjena metodologija, slobodno za citiranje uz navođenje izvora (CC BY 4.0).
+- [Za medije](${url('/press')}): opis agencije za citiranje, osnovni podaci, teme za komentar i logotipi.
 - [Kontakt](${url('/contact')}): kontakt podaci i upit.
 
 ## Mjesta na Pelješcu
@@ -88,7 +91,18 @@ ${guideLines.length ? guideLines.join('\n') : '- (u pripremi)'}
 
 - E-mail: ${AGENCY.email}${AGENCY.phone ? `\n- Telefon: ${AGENCY.phone}` : ''}
 - Adresa: ${AGENCY.address}, Hrvatska
-- Jezici: hrvatski, engleski, njemački
+- Jezici: hrvatski, engleski, njemački i poljski
+
+## Strojno čitljivi izvori
+
+- [RSS vodiča](${SITE_URL}/feed/hr): novi vodiči, po jedan feed za svaki jezik (/feed/hr, /feed/en, /feed/de, /feed/pl).
+- [Sitemap](${SITE_URL}/sitemap.xml): sve indeksirane stranice s hreflang poveznicama.
+
+## Korištenje sadržaja
+
+Brojke sa stranice o cijenama slobodno je citirati uz navođenje izvora
+(Sottomonte, sottomonte.hr). Za razradu podataka po tipu nekretnine ili
+razdoblju javite se na ${AGENCY.email}.
 `;
 
   return new Response(body, {

@@ -36,6 +36,28 @@ export const localizedText = defineType({
   ),
 });
 
+/**
+ * { hr, en, de, pl } list of short lines.
+ *
+ * Grouped by language rather than by item, so a translator works down one
+ * column instead of opening every entry. The trade-off is that the lists can
+ * fall out of alignment between locales, which is acceptable: a German reader
+ * needs the German answers, not a one-to-one mapping of the Croatian ones.
+ */
+export const localizedStringList = defineType({
+  name: 'localizedStringList',
+  title: 'Localized list',
+  type: 'object',
+  fields: LOCALES.map((locale) =>
+    defineField({
+      name: locale.id,
+      title: locale.title,
+      type: 'array',
+      of: [{ type: 'string' }],
+    })
+  ),
+});
+
 /** { hr, en, de } portable text — for rich descriptions */
 export const localizedBlockContent = defineType({
   name: 'localizedBlockContent',

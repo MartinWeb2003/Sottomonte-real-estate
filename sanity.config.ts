@@ -5,16 +5,23 @@ import { structureTool } from 'sanity/structure';
 import { presentationTool, defineLocations } from 'sanity/presentation';
 import { visionTool } from '@sanity/vision';
 import { schemaTypes } from './sanity/schemas';
+import { structure } from './sanity/structure';
 import { projectId, dataset, apiVersion } from './sanity/env';
 
 /**
- * Every locale renders the same document, so a document maps to three URLs.
- * Croatian leads because it is the default locale and the source of truth.
+ * Every locale renders the same document, so a document maps to one URL per
+ * locale. Croatian leads because it is the default locale and the source of
+ * truth.
+ *
+ * Polish was missing here while the site had four locales, so an editor
+ * previewing a document could reach the German page but not the Polish one,
+ * which is the version most likely to need checking.
  */
 const localeLocations = (title: string, path: string) => [
   { title: `${title} (HR)`, href: `/hr${path}` },
   { title: `${title} (EN)`, href: `/en${path}` },
   { title: `${title} (DE)`, href: `/de${path}` },
+  { title: `${title} (PL)`, href: `/pl${path}` },
 ];
 
 export default defineConfig({
@@ -24,7 +31,7 @@ export default defineConfig({
   projectId,
   dataset,
   plugins: [
-    structureTool(),
+    structureTool({ structure }),
     /**
      * Side-by-side editing: the document on the left, the real page on the
      * right, rendering the draft. This is what makes it possible to read a

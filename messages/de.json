@@ -5,7 +5,10 @@
     "selling": "Verkaufen",
     "contact": "Kontakt",
     "buying": "Kaufen",
-    "guides": "Ratgeber"
+    "guides": "Ratgeber",
+    "market": "Preise",
+    "faq": "Häufige Fragen",
+    "press": "Presse"
   },
   "notFound": {
     "title": "Seite nicht gefunden",
@@ -342,6 +345,18 @@
     "guide": {
       "title": "{title} | Sottomonte",
       "descriptionFallback": "Ein Ratgeber für Käufer und Verkäufer auf der Halbinsel Pelješac. Konkrete Kosten, Fristen und Unterlagen, ohne Floskeln."
+    },
+    "market": {
+      "title": "Immobilienpreise auf Pelješac | Sottomonte",
+      "description": "Median des Angebotspreises je m², Preisspanne und Anzahl der Inserate nach Orten auf Pelješac. Daten aus unserem Portfolio, frei zitierbar."
+    },
+    "press": {
+      "title": "Presse | Sottomonte",
+      "description": "Preisdaten, Einschätzungen und Material für Redaktionen, die über Immobilien und das Leben auf Pelješac berichten."
+    },
+    "faq": {
+      "title": "Häufige Fragen zu Immobilien auf Pelješac | Sottomonte",
+      "description": "Antworten zum Kauf und Verkauf auf Pelješac: Kosten, Unterlagen, Fristen und der Kauf aus dem Ausland."
     }
   },
   "draftMode": {
@@ -469,6 +484,99 @@
     "emptyTitle": "Die ersten Ratgeber entstehen gerade.",
     "emptyBody": "Wir schreiben sie selbst, auf Basis der Verkäufe, die wir begleitet haben. Das dauert länger als abschreiben. Fragen Sie uns bis dahin direkt, wir antworten innerhalb von 24 Stunden.",
     "emptyCta": "Frage stellen",
-    "viewAll": "Alle Ratgeber"
+    "viewAll": "Alle Ratgeber",
+    "takeawaysTitle": "Kurz gefasst"
+  },
+  "market": {
+    "title": "Immobilienpreise auf Pelješac",
+    "subtitle": "Angebotspreise aus unserem Portfolio, Ort für Ort.",
+    "breadcrumb": "Preise",
+    "leadStatement": "Dies sind Angebotspreise aus unseren Inseraten, keine Marktdurchschnitte.",
+    "leadBody": "In Kroatien gibt es kein öffentliches Register erzielter Kaufpreise, das ein Makler abfragen könnte. Jede veröffentlichte Statistik zu Pelješac beruht daher auf Angebotspreisen. Unsere sagt das wenigstens offen. Die Zahlen unten werden aus allen aktiven Inseraten unseres Portfolios berechnet und ändern sich mit ihm.",
+    "asOf": "Stand: {date}.",
+    "statListings": "Aktive Inserate im Portfolio",
+    "statVillages": "Orte mit aktiven Inseraten",
+    "statMedian": "Median des Angebotspreises je Wohnfläche in m²",
+    "statNearSea": "Inserate bis 500 m zum Meer",
+    "naLabel": "keine Angabe",
+    "rangeValue": "{min} bis {max}",
+    "tableTitle": "Ort für Ort",
+    "tableIntro": "Anzahl der Inserate, Median des Angebotspreises und Preisspanne je Ort. Der Ortsname führt auf die jeweilige Seite.",
+    "tableCaption": "Angebotspreise für Immobilien nach Orten auf Pelješac",
+    "colVillage": "Ort",
+    "colListings": "Inserate",
+    "colMedian": "Median je m²",
+    "colLand": "Grundstück je m²",
+    "colRange": "Preisspanne",
+    "colNearSea": "Nah am Meer",
+    "tableFootnote": "Einen Median zeigen wir nur, wenn ein Ort mindestens {min} vergleichbare Inserate hat. Darunter wäre die Zahl eine Meinung und keine Statistik. Die Spalte Nah am Meer zählt Inserate mit höchstens {meters} m Entfernung zum Wasser.",
+    "methodTitle": "So rechnen wir",
+    "methodSource": "Einzige Quelle sind unsere eigenen aktiven Inserate. Verkaufte Objekte bleiben außen vor, denn ihr Angebotspreis sagt über die heutige Lage nichts mehr aus.",
+    "methodMedian": "Wir verwenden den Median, nicht den Durchschnitt. Eine einzige Villa im Millionenbereich würde in einem Ort mit vier Inseraten den Durchschnitt über alles heben, was dort tatsächlich zu kaufen ist.",
+    "methodLimits": "Das Portfolio einer Agentur ist nicht der gesamte Markt. Die Zahlen taugen als Größenordnung und als Vergleich zwischen Orten, aber nicht als Bewertung einer bestimmten Immobilie.",
+    "citeTitle": "Nutzen Sie diese Zahlen",
+    "citeBody": "Für Journalistinnen und Journalisten, für die Forschung und für alle, die über Pelješac schreiben: die Daten sind mit Quellenangabe frei verwendbar. Brauchen Sie eine Auswertung nach Objektart oder Zeitraum, schreiben Sie uns, wir bereiten sie auf.",
+    "citeCta": "Auswertung anfragen",
+    "citeMailSubject": "Preisdaten, Pelješac",
+    "citePress": "Presse",
+    "citeLicense": "Lizenz: Creative Commons BY 4.0. Veröffentlichung, Zitat und Bearbeitung mit Quellenangabe sind erlaubt.",
+    "citeAttribution": "Quellenangabe: Sottomonte, Immobilienpreise auf Pelješac, sottomonte.hr",
+    "datasetName": "Angebotspreise für Immobilien auf Pelješac",
+    "datasetDescription": "Median des Angebotspreises je Quadratmeter, Preisspanne und Anzahl der Inserate nach Orten auf der Halbinsel Pelješac, berechnet aus den aktiven Inseraten der Agentur Sottomonte.",
+    "measurement": "Median des Angebotspreises je Quadratmeter",
+    "emptyTitle": "Noch zu wenige Inserate",
+    "emptyBody": "Die Tabelle füllt sich, sobald das Portfolio genügend aktive Inserate mit hinterlegtem Preis und hinterlegter Fläche enthält."
+  },
+  "press": {
+    "title": "Presse",
+    "subtitle": "Daten, O-Töne und Material für Redaktionen.",
+    "breadcrumb": "Presse",
+    "boilerplateTitle": "Die Agentur, in einem Absatz",
+    "boilerplateBody": "Sottomonte ist eine auf die Halbinsel Pelješac spezialisierte Immobilienagentur mit Sitz in Orebić. Sie arbeitet mit einer überschaubaren Zahl von Objekten, die sie unmittelbar kennt, samt Eigentümern und Stand der Unterlagen, und vermittelt an kroatische Käufer sowie an Käufer aus Deutschland, Österreich, der Schweiz und Polen. Die Agentur veröffentlicht die Angebotspreise ihres eigenen Portfolios, Ort für Ort.",
+    "boilerplateNote": "Verwenden Sie diesen Absatz gerne unverändert oder fragen Sie uns nach einer kürzeren Fassung.",
+    "factsTitle": "Eckdaten",
+    "factBase": "Sitz",
+    "factCoverage": "Abgedeckte Orte",
+    "factCoverageFallback": "Die gesamte Halbinsel Pelješac",
+    "factListings": "Aktive Inserate",
+    "factLanguages": "Sprachen",
+    "factLicence": "Status",
+    "factContact": "Pressekontakt",
+    "topicsTitle": "Worüber wir sprechen können",
+    "topicsIntro": "Themen, an denen wir täglich arbeiten und zu denen wir kurzfristig konkret Stellung nehmen können, mit Zahlen.",
+    "topic1Title": "Ausländer, die in Kroatien kaufen",
+    "topic1Body": "Was EU-Bürger ohne jede Einschränkung dürfen, was das Verfahren von Käufern außerhalb der EU verlangt, wie lange es wirklich dauert und woran es meistens hakt.",
+    "topic2Title": "Preise auf Pelješac",
+    "topic2Body": "Wie stark sich die Orte unterscheiden, was die Entfernung zum Meer tatsächlich ausmacht und warum Angebots- und Kaufpreise regelmäßig auseinandergehen.",
+    "topic3Title": "Steinruinen und Sanierung",
+    "topic3Body": "Verfallene Steinhäuser als eigene Marktkategorie: Preise, Genehmigungen, echte Sanierungskosten und die Fallen, die man auf einem Foto nicht sieht.",
+    "topic4Title": "Leben auf der Halbinsel außerhalb der Saison",
+    "topic4Body": "Wie diese Orte im November funktionieren, was geöffnet bleibt und was das für jemanden bedeutet, der herzieht statt Urlaub zu machen.",
+    "dataTitle": "Die Zahlen, die wir veröffentlichen",
+    "dataBody": "Angebotspreise nach Orten, mit erklärter Methodik und einer Lizenz, die die Veröffentlichung mit Quellenangabe erlaubt. Sie aktualisieren sich automatisch mit dem Portfolio.",
+    "dataCta": "Zu den Daten",
+    "assetsTitle": "Material",
+    "assetsBody": "Logos in voller Auflösung. Für Aufnahmen von Orten und Objekten schreiben Sie uns, die Veröffentlichungsrechte klären wir im Einzelfall.",
+    "assetLogoDark": "Logo, dunkel",
+    "assetLogoWhite": "Logo, weiß",
+    "assetLogoFull": "Logo mit goldenem Rahmen",
+    "assetPhotoNote": "Objektfotos gehören der Agentur und den Eigentümern, wir geben sie ohne ausdrückliche Absprache nicht heraus. Ortsaufnahmen und Drohnenmaterial der Halbinsel können wir in der Regel sofort bereitstellen.",
+    "contactTitle": "Brauchen Sie ein Zitat bis Redaktionsschluss?",
+    "contactBody": "Schreiben Sie uns und nennen Sie den Termin. Ist das Thema unseres, antworten wir schnell und konkret, mit überprüfbaren Zahlen.",
+    "contactCta": "Schreiben Sie uns",
+    "contactMailSubject": "Presseanfrage"
+  },
+  "faq": {
+    "title": "Häufige Fragen",
+    "subtitle": "Was Käufer und Verkäufer uns am häufigsten fragen, an einer Stelle gesammelt.",
+    "breadcrumb": "Häufige Fragen",
+    "leadStatement": "Klare Antworten, auch die, die nicht für uns sprechen.",
+    "leadBody": "Die Fragen stammen von den Seiten zum Kauf und Verkauf sowie aus unseren Ratgebern. Unter jeder Gruppe steht der Link auf die Seite, auf der das Thema vollständig behandelt wird.",
+    "buyingTitle": "Immobilie kaufen",
+    "buyingLink": "Der vollständige Kaufratgeber",
+    "sellingTitle": "Immobilie verkaufen",
+    "sellingLink": "Der vollständige Verkaufsratgeber",
+    "guideLink": "Ratgeber lesen",
+    "emptyBody": "Es sind noch keine Fragen veröffentlicht. Schreiben Sie uns, wir antworten direkt."
   }
 }

@@ -5,6 +5,9 @@ export type Locale = 'hr' | 'en' | 'de' | 'pl';
 /** Localized string field from Sanity: { hr, en, de, pl } */
 export type LocalizedString = Partial<Record<Locale, string>>;
 
+/** Localized list of short strings: { hr: [...], en: [...], ... } */
+export type LocalizedStringList = Partial<Record<Locale, string[]>>;
+
 /** Localized portable text field from Sanity */
 export type LocalizedPortableText = Partial<Record<Locale, PortableTextBlock[]>>;
 
@@ -22,6 +25,20 @@ export interface Geopoint {
   _type: 'geopoint';
   lat: number;
   lng: number;
+}
+
+/**
+ * Which locales a document is genuinely written in, as computed by
+ * `coverageProjection` in the GROQ layer. See `lib/i18nCoverage` for the rule
+ * and for why an uncovered locale is noindexed rather than hidden.
+ */
+export type LocaleCoverage = Partial<Record<Locale, boolean>>;
+
+/** Slug + freshness + translation coverage, the three things the sitemap needs. */
+export interface SitemapEntry {
+  slug: string;
+  _updatedAt: string;
+  coverage?: LocaleCoverage;
 }
 
 export type PropertyStatus = 'available' | 'reserved' | 'sold';
@@ -89,6 +106,10 @@ export interface Guide {
   author?: TeamMember;
   publishedAt?: string;
   updatedAt?: string;
+  /** Answer-first summary, rendered above the body and emitted as the
+      Article's `abstract`. See the field description in the schema for why
+      each line has to stand on its own. */
+  keyTakeaways?: LocalizedStringList;
   body?: LocalizedPortableText;
   /** Villages this guide is relevant to — drives the guide links shown on
       those village pages, and the reverse links back from the guide. */

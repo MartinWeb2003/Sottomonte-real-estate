@@ -5,7 +5,10 @@
     "selling": "Prodaja",
     "contact": "Kontakt",
     "buying": "Kupnja",
-    "guides": "Vodiči"
+    "guides": "Vodiči",
+    "market": "Cijene",
+    "faq": "Česta pitanja",
+    "press": "Za medije"
   },
   "notFound": {
     "title": "Stranica nije pronađena",
@@ -342,6 +345,18 @@
     "guide": {
       "title": "{title} | Sottomonte",
       "descriptionFallback": "Vodič za kupce i prodavatelje nekretnina na Pelješcu. Konkretni troškovi, rokovi i dokumentacija, bez općenitih fraza."
+    },
+    "market": {
+      "title": "Cijene nekretnina na Pelješcu | Sottomonte",
+      "description": "Medijan tražene cijene po m², raspon cijena i broj oglasa po mjestima na Pelješcu. Podaci iz našeg portfelja, besplatni za citiranje."
+    },
+    "press": {
+      "title": "Za medije | Sottomonte",
+      "description": "Podaci o cijenama, izjave i materijali za novinare koji pišu o nekretninama i životu na Pelješcu. Javite se s rokom."
+    },
+    "faq": {
+      "title": "Česta pitanja o nekretninama na Pelješcu | Sottomonte",
+      "description": "Odgovori na pitanja o kupnji i prodaji nekretnina na Pelješcu: troškovi, papiri, rokovi i kupnja iz inozemstva."
     }
   },
   "draftMode": {
@@ -469,6 +484,99 @@
     "emptyTitle": "Prvi vodiči su u pripremi.",
     "emptyBody": "Pišemo ih sami, na temelju prodaja koje smo vodili, pa traju dulje nego da smo ih prepisali. Do tada nas pitajte izravno, odgovaramo u roku od 24 sata.",
     "emptyCta": "Postavite pitanje",
-    "viewAll": "Svi vodiči"
+    "viewAll": "Svi vodiči",
+    "takeawaysTitle": "Ukratko"
+  },
+  "market": {
+    "title": "Cijene nekretnina na Pelješcu",
+    "subtitle": "Tražene cijene iz našeg portfelja, mjesto po mjesto.",
+    "breadcrumb": "Cijene",
+    "leadStatement": "Ovo su tražene cijene iz naših oglasa, a ne prosjeci tržišta.",
+    "leadBody": "U Hrvatskoj ne postoji javni registar postignutih cijena koji bi agencija mogla pretraživati, pa svaka objavljena statistika za Pelješac počiva na traženim cijenama. Naša barem otvoreno kaže odakle dolazi. Brojke ispod izračunate su iz svih aktivnih oglasa u našem portfelju i mijenjaju se zajedno s njim.",
+    "asOf": "Podaci od {date}",
+    "statListings": "Aktivnih oglasa u portfelju",
+    "statVillages": "Mjesta s aktivnim oglasima",
+    "statMedian": "Medijan tražene cijene po m² izgrađenog",
+    "statNearSea": "Oglasa do 500 m od mora",
+    "naLabel": "nema podatka",
+    "rangeValue": "{min} do {max}",
+    "tableTitle": "Mjesto po mjesto",
+    "tableIntro": "Broj oglasa, medijan tražene cijene i raspon za svako mjesto. Ime mjesta vodi na njegovu stranicu.",
+    "tableCaption": "Tražene cijene nekretnina po mjestima na Pelješcu",
+    "colVillage": "Mjesto",
+    "colListings": "Oglasa",
+    "colMedian": "Medijan po m²",
+    "colLand": "Zemljište po m²",
+    "colRange": "Raspon cijena",
+    "colNearSea": "Do mora",
+    "tableFootnote": "Medijan prikazujemo samo ako mjesto ima najmanje {min} usporediva oglasa. Ispod toga brojka bi bila mišljenje, a ne statistika. Stupac Do mora broji oglase udaljene najviše {meters} m od mora.",
+    "methodTitle": "Kako računamo",
+    "methodSource": "Izvor su isključivo naši aktivni oglasi. Prodane nekretnine nisu uključene jer njihova tražena cijena više ne govori ništa o današnjem stanju.",
+    "methodMedian": "Koristimo medijan, ne prosjek. Jedna vila od nekoliko milijuna eura u mjestu s četiri oglasa podigla bi prosjek iznad svega što se ondje stvarno može kupiti.",
+    "methodLimits": "Portfelj jedne agencije nije cijelo tržište. Brojke su korisne kao red veličine i kao usporedba između mjesta, ali nisu procjena vrijednosti konkretne nekretnine.",
+    "citeTitle": "Slobodno preuzmite ove brojke",
+    "citeBody": "Novinarima, istraživačima i svima koji pišu o Pelješcu: podaci su besplatni za korištenje uz navođenje izvora. Ako trebate razradu po tipu nekretnine ili po razdoblju, javite se i pripremit ćemo je.",
+    "citeCta": "Zatražite razradu",
+    "citeMailSubject": "Podaci o cijenama, Pelješac",
+    "citePress": "Za medije",
+    "citeLicense": "Licenca: Creative Commons BY 4.0. Smijete objaviti, citirati i preraditi uz navođenje izvora.",
+    "citeAttribution": "Navođenje: Sottomonte, cijene nekretnina na Pelješcu, sottomonte.hr",
+    "datasetName": "Tražene cijene nekretnina na Pelješcu",
+    "datasetDescription": "Medijan tražene cijene po kvadratu, raspon cijena i broj oglasa po mjestima na poluotoku Pelješcu, izračunato iz aktivnih oglasa agencije Sottomonte.",
+    "measurement": "Medijan tražene cijene po kvadratnom metru",
+    "emptyTitle": "Još nema dovoljno oglasa",
+    "emptyBody": "Tablica se popunjava čim u portfelju bude dovoljno aktivnih oglasa s upisanom cijenom i površinom."
+  },
+  "press": {
+    "title": "Za medije",
+    "subtitle": "Podaci, izjave i materijali za novinare.",
+    "breadcrumb": "Za medije",
+    "boilerplateTitle": "O agenciji, u jednom odlomku",
+    "boilerplateBody": "Sottomonte je specijalizirana agencija za nekretnine na poluotoku Pelješcu, sa sjedištem u Orebiću. Radi s manjim brojem nekretnina koje poznaje izravno, uključujući vlasnike i stanje dokumentacije, a posreduje domaćim kupcima te kupcima iz Njemačke, Austrije, Švicarske i Poljske. Agencija javno objavljuje tražene cijene iz vlastitog portfelja, mjesto po mjesto.",
+    "boilerplateNote": "Slobodno preuzmite ovaj odlomak bez izmjena ili nas pitajte za kraću verziju.",
+    "factsTitle": "Osnovni podaci",
+    "factBase": "Sjedište",
+    "factCoverage": "Pokrivena mjesta",
+    "factCoverageFallback": "Cijeli poluotok Pelješac",
+    "factListings": "Aktivnih oglasa",
+    "factLanguages": "Jezici",
+    "factLicence": "Status",
+    "factContact": "Kontakt za medije",
+    "topicsTitle": "O čemu možemo govoriti",
+    "topicsIntro": "Teme na kojima radimo svakodnevno i na koje možemo dati konkretan komentar, s brojkama, u kratkom roku.",
+    "topic1Title": "Stranci koji kupuju u Hrvatskoj",
+    "topic1Body": "Što građani EU smiju bez ikakvih ograničenja, što traži postupak za kupce izvan EU, koliko sve to stvarno traje i gdje se najčešće zapne.",
+    "topic2Title": "Cijene na Pelješcu",
+    "topic2Body": "Razlike među mjestima, utjecaj udaljenosti od mora i zašto se tražene i postignute cijene redovito razilaze.",
+    "topic3Title": "Kamene ruševine i obnova",
+    "topic3Body": "Zapuštene kamene kuće kao zasebna kategorija tržišta: cijene, dozvole, stvarni troškovi obnove i zamke koje se ne vide na fotografiji.",
+    "topic4Title": "Život na poluotoku izvan sezone",
+    "topic4Body": "Kako mjesta funkcioniraju u studenom, što ostaje otvoreno i što to znači za nekoga tko se doseljava, a ne dolazi na ljetovanje.",
+    "dataTitle": "Brojke koje objavljujemo",
+    "dataBody": "Tražene cijene po mjestima, s objašnjenom metodologijom i licencom koja dopušta objavu uz navođenje izvora. Osvježavaju se automatski, zajedno s portfeljem.",
+    "dataCta": "Pogledajte podatke",
+    "assetsTitle": "Materijali",
+    "assetsBody": "Logotipi u punoj rezoluciji. Za fotografije mjesta i nekretnina javite se, pravo objave dogovaramo za svaki slučaj posebno.",
+    "assetLogoDark": "Logotip, tamni",
+    "assetLogoWhite": "Logotip, bijeli",
+    "assetLogoFull": "Logotip sa zlatnim okvirom",
+    "assetPhotoNote": "Fotografije nekretnina vlasništvo su agencije i vlasnika nekretnina, pa ih ne ustupamo bez izričitog dogovora. Snimke mjesta i dronske snimke poluotoka u pravilu možemo ustupiti odmah.",
+    "contactTitle": "Trebate izjavu do roka?",
+    "contactBody": "Pišite nam i recite rok. Ako je tema naša, odgovaramo brzo i konkretno, s brojkama koje možete provjeriti.",
+    "contactCta": "Pišite nam",
+    "contactMailSubject": "Upit medija"
+  },
+  "faq": {
+    "title": "Česta pitanja",
+    "subtitle": "Ono što nas kupci i prodavatelji najčešće pitaju, na jednom mjestu.",
+    "breadcrumb": "Česta pitanja",
+    "leadStatement": "Odgovori bez uvijanja, uključujući one koji nam ne idu u prilog.",
+    "leadBody": "Pitanja su skupljena sa stranica o kupnji i prodaji te iz naših vodiča. Ispod svake skupine je poveznica na stranicu na kojoj je tema razrađena do kraja.",
+    "buyingTitle": "Kupnja nekretnine",
+    "buyingLink": "Cijeli vodič o kupnji",
+    "sellingTitle": "Prodaja nekretnine",
+    "sellingLink": "Cijeli vodič o prodaji",
+    "guideLink": "Pročitajte vodič",
+    "emptyBody": "Trenutno nema objavljenih pitanja. Pišite nam i odgovorit ćemo izravno."
   }
 }

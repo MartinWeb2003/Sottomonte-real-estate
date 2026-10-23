@@ -5,7 +5,10 @@
     "selling": "Sprzedaż",
     "contact": "Kontakt",
     "buying": "Kupno",
-    "guides": "Poradniki"
+    "guides": "Poradniki",
+    "market": "Ceny",
+    "faq": "Częste pytania",
+    "press": "Dla mediów"
   },
   "notFound": {
     "title": "Nie znaleziono strony",
@@ -342,6 +345,18 @@
     "guide": {
       "title": "{title} | Sottomonte",
       "descriptionFallback": "Poradnik dla kupujących i sprzedających nieruchomości na półwyspie Pelješac. Konkretne koszty, terminy i dokumenty, bez ogólników."
+    },
+    "market": {
+      "title": "Ceny nieruchomości na Peljeszacu | Sottomonte",
+      "description": "Mediana ceny ofertowej za m², przedział cen i liczba ogłoszeń według miejscowości na Peljeszacu. Dane z naszego portfela, wolne do cytowania."
+    },
+    "press": {
+      "title": "Dla mediów | Sottomonte",
+      "description": "Dane o cenach, komentarze i materiały dla dziennikarzy piszących o nieruchomościach i życiu na Peljeszacu."
+    },
+    "faq": {
+      "title": "Częste pytania o nieruchomości na Peljeszacu | Sottomonte",
+      "description": "Odpowiedzi o kupnie i sprzedaży nieruchomości na Peljeszacu: koszty, dokumenty, terminy i zakup z zagranicy."
     }
   },
   "draftMode": {
@@ -469,6 +484,99 @@
     "emptyTitle": "Pierwsze poradniki powstają.",
     "emptyBody": "Piszemy je sami, na podstawie transakcji, które prowadziliśmy, więc trwa to dłużej niż przepisanie ich skądinąd. Do tego czasu proszę pytać nas bezpośrednio. Odpowiadamy w ciągu 24 godzin.",
     "emptyCta": "Zadaj pytanie",
-    "viewAll": "Wszystkie poradniki"
+    "viewAll": "Wszystkie poradniki",
+    "takeawaysTitle": "W skrócie"
+  },
+  "market": {
+    "title": "Ceny nieruchomości na Peljeszacu",
+    "subtitle": "Ceny ofertowe z naszego portfela, miejscowość po miejscowości.",
+    "breadcrumb": "Ceny",
+    "leadStatement": "To są ceny ofertowe z naszych ogłoszeń, a nie średnie rynkowe.",
+    "leadBody": "W Chorwacji nie ma publicznego rejestru cen transakcyjnych, do którego agencja mogłaby zajrzeć, więc każda publikowana statystyka dla Peljeszaca opiera się na cenach ofertowych. Nasza przynajmniej mówi to wprost. Liczby poniżej wyliczamy ze wszystkich aktywnych ogłoszeń w naszym portfelu i zmieniają się razem z nim.",
+    "asOf": "Dane na dzień {date}.",
+    "statListings": "Aktywnych ogłoszeń w portfelu",
+    "statVillages": "Miejscowości z aktywnymi ogłoszeniami",
+    "statMedian": "Mediana ceny ofertowej za m² powierzchni",
+    "statNearSea": "Ogłoszeń do 500 m od morza",
+    "naLabel": "brak danych",
+    "rangeValue": "od {min} do {max}",
+    "tableTitle": "Miejscowość po miejscowości",
+    "tableIntro": "Liczba ogłoszeń, mediana ceny ofertowej i przedział cenowy dla każdej miejscowości. Nazwa prowadzi na jej stronę.",
+    "tableCaption": "Ceny ofertowe nieruchomości według miejscowości na Peljeszacu",
+    "colVillage": "Miejscowość",
+    "colListings": "Ogłoszeń",
+    "colMedian": "Mediana za m²",
+    "colLand": "Działka za m²",
+    "colRange": "Przedział cen",
+    "colNearSea": "Blisko morza",
+    "tableFootnote": "Medianę pokazujemy tylko tam, gdzie miejscowość ma co najmniej {min} porównywalne ogłoszenia. Poniżej tego progu liczba byłaby opinią, a nie statystyką. Kolumna Blisko morza liczy ogłoszenia oddalone najwyżej {meters} m od wody.",
+    "methodTitle": "Jak to liczymy",
+    "methodSource": "Jedynym źródłem są nasze własne aktywne ogłoszenia. Nieruchomości sprzedane pomijamy, bo ich cena ofertowa nic już nie mówi o dzisiejszej sytuacji.",
+    "methodMedian": "Używamy mediany, nie średniej. Jedna wielomilionowa willa w miejscowości z czterema ogłoszeniami wywindowałaby średnią ponad wszystko, co można tam realnie kupić.",
+    "methodLimits": "Portfel jednej agencji to nie cały rynek. Te liczby są przydatne jako rząd wielkości i jako porównanie między miejscowościami, ale nie są wyceną konkretnej nieruchomości.",
+    "citeTitle": "Korzystajcie z tych liczb",
+    "citeBody": "Dla dziennikarzy, badaczy i wszystkich, którzy piszą o Peljeszacu: dane są darmowe do wykorzystania z podaniem źródła. Jeśli potrzebujecie zestawienia według typu nieruchomości albo okresu, napiszcie, przygotujemy je.",
+    "citeCta": "Poproś o zestawienie",
+    "citeMailSubject": "Dane o cenach, Peljeszac",
+    "citePress": "Dla mediów",
+    "citeLicense": "Licencja: Creative Commons BY 4.0. Wolno publikować, cytować i przetwarzać z podaniem źródła.",
+    "citeAttribution": "Źródło: Sottomonte, ceny nieruchomości na Peljeszacu, sottomonte.hr",
+    "datasetName": "Ceny ofertowe nieruchomości na Peljeszacu",
+    "datasetDescription": "Mediana ceny ofertowej za metr kwadratowy, przedział cen i liczba ogłoszeń według miejscowości na półwyspie Peljeszac, wyliczone z aktywnych ogłoszeń agencji Sottomonte.",
+    "measurement": "Mediana ceny ofertowej za metr kwadratowy",
+    "emptyTitle": "Jeszcze za mało ogłoszeń",
+    "emptyBody": "Tabela wypełni się, gdy tylko w portfelu znajdzie się dość aktywnych ogłoszeń z wpisaną ceną i powierzchnią."
+  },
+  "press": {
+    "title": "Dla mediów",
+    "subtitle": "Dane, komentarze i materiały dla dziennikarzy.",
+    "breadcrumb": "Dla mediów",
+    "boilerplateTitle": "Agencja w jednym akapicie",
+    "boilerplateBody": "Sottomonte to agencja nieruchomości wyspecjalizowana w półwyspie Peljeszac, z siedzibą w Orebiciu. Pracuje z niewielką liczbą nieruchomości, które zna bezpośrednio, razem z właścicielami i stanem dokumentów, i obsługuje kupujących z Chorwacji oraz z Niemiec, Austrii, Szwajcarii i Polski. Agencja publicznie udostępnia ceny ofertowe z własnego portfela, miejscowość po miejscowości.",
+    "boilerplateNote": "Można wykorzystać ten akapit bez zmian albo poprosić nas o krótszą wersję.",
+    "factsTitle": "Podstawowe dane",
+    "factBase": "Siedziba",
+    "factCoverage": "Obsługiwane miejscowości",
+    "factCoverageFallback": "Cały półwysep Peljeszac",
+    "factListings": "Aktywnych ogłoszeń",
+    "factLanguages": "Języki",
+    "factLicence": "Status",
+    "factContact": "Kontakt dla mediów",
+    "topicsTitle": "O czym możemy mówić",
+    "topicsIntro": "Tematy, którymi zajmujemy się codziennie i do których możemy się konkretnie odnieść, z liczbami, w krótkim czasie.",
+    "topic1Title": "Cudzoziemcy kupujący w Chorwacji",
+    "topic1Body": "Co obywatele UE mogą bez żadnych ograniczeń, czego procedura wymaga od kupujących spoza UE, ile to naprawdę trwa i gdzie najczęściej się zacina.",
+    "topic2Title": "Ceny na Peljeszacu",
+    "topic2Body": "Czym różnią się miejscowości, co naprawdę robi z ceną odległość od morza i dlaczego ceny ofertowe i transakcyjne stale się rozjeżdżają.",
+    "topic3Title": "Kamienne ruiny i remonty",
+    "topic3Body": "Zaniedbane kamienne domy jako osobna kategoria rynku: ceny, pozwolenia, realne koszty remontu i pułapki, których nie widać na zdjęciu.",
+    "topic4Title": "Życie na półwyspie poza sezonem",
+    "topic4Body": "Jak te miejscowości działają w listopadzie, co zostaje otwarte i co to znaczy dla kogoś, kto się przeprowadza, a nie przyjeżdża na wakacje.",
+    "dataTitle": "Liczby, które publikujemy",
+    "dataBody": "Ceny ofertowe według miejscowości, z wyjaśnioną metodologią i licencją, która pozwala na publikację z podaniem źródła. Aktualizują się automatycznie razem z portfelem.",
+    "dataCta": "Zobacz dane",
+    "assetsTitle": "Materiały",
+    "assetsBody": "Logotypy w pełnej rozdzielczości. W sprawie zdjęć miejscowości i nieruchomości napiszcie do nas, prawa do publikacji ustalamy indywidualnie.",
+    "assetLogoDark": "Logotyp, ciemny",
+    "assetLogoWhite": "Logotyp, biały",
+    "assetLogoFull": "Logotyp ze złotą ramką",
+    "assetPhotoNote": "Zdjęcia nieruchomości należą do agencji i do właścicieli, więc nie udostępniamy ich bez wyraźnej zgody. Zdjęcia miejscowości i ujęcia z drona nad półwyspem zwykle możemy przekazać od ręki.",
+    "contactTitle": "Potrzebujecie komentarza na termin?",
+    "contactBody": "Napiszcie i podajcie termin. Jeśli temat jest nasz, odpowiadamy szybko i konkretnie, liczbami, które da się sprawdzić.",
+    "contactCta": "Napiszcie do nas",
+    "contactMailSubject": "Zapytanie medialne"
+  },
+  "faq": {
+    "title": "Częste pytania",
+    "subtitle": "To, o co kupujący i sprzedający pytają nas najczęściej, zebrane w jednym miejscu.",
+    "breadcrumb": "Częste pytania",
+    "leadStatement": "Odpowiedzi wprost, także te, które nam nie schlebiają.",
+    "leadBody": "Pytania pochodzą ze stron o kupnie i sprzedaży oraz z naszych poradników. Pod każdą grupą jest link do strony, na której temat jest omówiony do końca.",
+    "buyingTitle": "Kupno nieruchomości",
+    "buyingLink": "Pełny poradnik o kupnie",
+    "sellingTitle": "Sprzedaż nieruchomości",
+    "sellingLink": "Pełny poradnik o sprzedaży",
+    "guideLink": "Przeczytaj poradnik",
+    "emptyBody": "Nie ma jeszcze opublikowanych pytań. Napiszcie do nas, odpowiemy bezpośrednio."
   }
 }

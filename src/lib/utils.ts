@@ -1,6 +1,12 @@
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-import type { Locale, LocalizedString, LocalizedPortableText } from '@/types';
+import type { PortableTextBlock } from 'next-sanity';
+import type {
+  Locale,
+  LocalizedString,
+  LocalizedStringList,
+  LocalizedPortableText,
+} from '@/types';
 
 /**
  * Locale fallback chain: requested → en → hr. Never returns an empty string
@@ -27,6 +33,19 @@ export function pickLocale(
   return '';
 }
 
+/** Same fallback chain, for the localized string lists. */
+export function pickLocaleList(
+  field: LocalizedStringList | undefined,
+  locale: Locale
+): string[] {
+  if (!field) return [];
+  for (const l of FALLBACK_CHAIN[locale]) {
+    const value = field[l];
+    if (value && value.length > 0) return value.filter((item) => item?.trim());
+  }
+  return [];
+}
+
 export function pickLocaleBlocks(
   field: LocalizedPortableText | undefined,
   locale: Locale
@@ -37,6 +56,42 @@ export function pickLocaleBlocks(
     if (value && value.length > 0) return value;
   }
   return undefined;
+}
+
+/**
+ * Portable text down to a single plain string, for the places that need prose
+ * rather than markup: JSON-LD `description`, meta descriptions, feed summaries.
+ *
+ * Only spans of top-level blocks are read. Images and any other custom block
+ * type contribute nothing, which is correct here — an alt text spliced into
+ * the middle of a sentence reads as corruption.
+ *
+ * Truncation cuts at a word boundary and appends an ellipsis character rather
+ * than three dots, and never mid-word. Descriptions are shown to humans in
+ * search results, so a clean cut matters.
+ */
+export function blocksToPlainText(
+  blocks: PortableTextBlock[] | undefined,
+  maxLength?: number
+): string {
+  if (!blocks?.length) return '';
+
+  const text = blocks
+    .filter((block) => block._type === 'block' && Array.isArray(block.children))
+    .map((block) =>
+      (block.children as Array<{ text?: string }>)
+        .map((child) => child.text ?? '')
+        .join('')
+    )
+    .join(' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  if (!maxLength || text.length <= maxLength) return text;
+
+  const cut = text.slice(0, maxLength);
+  const lastSpace = cut.lastIndexOf(' ');
+  return `${(lastSpace > 0 ? cut.slice(0, lastSpace) : cut).replace(/[.,;:]$/, '')}…`;
 }
 
 /**

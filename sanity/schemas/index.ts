@@ -1,4 +1,9 @@
-import { localizedString, localizedText, localizedBlockContent } from './localized';
+import {
+  localizedString,
+  localizedText,
+  localizedStringList,
+  localizedBlockContent,
+} from './localized';
 import { property } from './property';
 import { guide } from './guide';
 import { location } from './location';
@@ -8,6 +13,7 @@ import { teamMember } from './teamMember';
 export const schemaTypes = [
   localizedString,
   localizedText,
+  localizedStringList,
   localizedBlockContent,
   property,
   guide,

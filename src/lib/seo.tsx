@@ -19,6 +19,16 @@ const WEBSITE_ID = `${SITE_URL}/#website`;
 const abs = (path: string) => `${SITE_URL}${path}`;
 
 /**
+ * The @id of a village's Place node, which lives on that village's own page.
+ *
+ * Every listing in Orebić points at this one id instead of describing a Place
+ * called "Orebić" of its own, which is what lets a crawler read forty listings
+ * and one village page as statements about a single location.
+ */
+const villagePlaceId = (slug: string, locale: Locale) =>
+  `${localeUrl(SITE_URL, locale, '/locations/[slug]', { slug })}#place`;
+
+/**
  * Per-page metadata with hreflang alternates for hr/en/de/pl.
  * `path` is the locale-less pathname, e.g. "/properties".
  */
@@ -29,6 +39,7 @@ export function buildMetadata({
   route,
   params,
   image,
+  availableLocales,
 }: {
   locale: Locale;
   title: string;
@@ -38,6 +49,15 @@ export function buildMetadata({
   /** Dynamic segment values for routes that take them. */
   params?: Record<string, string>;
   image?: string;
+  /**
+   * Locales this page is genuinely written in, from `lib/i18nCoverage`.
+   *
+   * Static pages omit it: their copy lives in the message files, which are
+   * complete in all four locales by definition. CMS-backed pages pass the
+   * real answer, because a German URL rendering fallback Croatian is not a
+   * German page and must not be advertised as one.
+   */
+  availableLocales?: Locale[];
 }): Metadata {
   // Each locale gets its own localised URL. Building these from one literal
   // path, as this used to, would have pointed every hreflang at the Croatian
@@ -45,16 +65,35 @@ export function buildMetadata({
   // actually lives at /de/immobilien.
   const url = (l: Locale) => localeUrl(SITE_URL, l, route, params);
 
+  const covered = availableLocales?.length
+    ? routing.locales.filter((l) => availableLocales.includes(l as Locale))
+    : routing.locales;
+
+  // hreflang is a set of mutual claims about translations that exist. Listing
+  // an untranslated locale here asks Google to treat four copies of the same
+  // Croatian text as four language versions, so uncovered locales are dropped
+  // from the set rather than pointed somewhere else.
+  const xDefault = covered.includes(routing.defaultLocale)
+    ? routing.defaultLocale
+    : (covered[0] as Locale);
+
   const languages = Object.fromEntries([
-    ...routing.locales.map((l) => [l, url(l)]),
+    ...covered.map((l) => [l, url(l as Locale)]),
     // x-default: search-engine fallback for users outside hr/en/de/pl
-    ['x-default', url(routing.defaultLocale)],
+    ['x-default', url(xDefault)],
   ]);
+
+  const uncovered = !covered.includes(locale);
 
   return {
     title,
     description,
     metadataBase: new URL(SITE_URL),
+    // Uncovered locale: still reachable, still passes link equity onward, but
+    // not a search result. Note the canonical below stays self-referential —
+    // pointing it at the Croatian URL would claim these are the same page in
+    // the same language, which they are not.
+    ...(uncovered ? { robots: { index: false, follow: true } } : {}),
     alternates: {
       canonical: url(locale),
       languages,
@@ -248,6 +287,12 @@ export function propertyJsonLd({
         ? {
             containedInPlace: {
               '@type': 'Place',
+              // Links the listing to the village page's own Place node rather
+              // than describing a second, unrelated Orebić. Same reason the
+              // agency is referenced by @id everywhere instead of repeated.
+              ...(property.location?.slug
+                ? { '@id': `${villagePlaceId(property.location.slug, locale)}` }
+                : {}),
               name: locationName,
               address: {
                 '@type': 'PostalAddress',
@@ -255,6 +300,19 @@ export function propertyJsonLd({
                 addressRegion: 'Pelješac',
                 addressCountry: 'HR',
               },
+            },
+          }
+        : {}),
+      // Coordinates only when the owner agreed to publish them. A listing
+      // marked `exactLocationPublic: false` shows an approximate circle on the
+      // map for a reason, and leaking the precise point into machine-readable
+      // markup would quietly undo that decision.
+      ...(property.exactLocationPublic && property.coordinates
+        ? {
+            geo: {
+              '@type': 'GeoCoordinates',
+              latitude: property.coordinates.lat,
+              longitude: property.coordinates.lng,
             },
           }
         : {}),
@@ -292,6 +350,7 @@ export function guideJsonLd({
   image,
   authorName,
   authorRole,
+  takeaways,
 }: {
   guide: Guide;
   locale: Locale;
@@ -300,6 +359,8 @@ export function guideJsonLd({
   image?: string;
   authorName?: string;
   authorRole?: string;
+  /** The rendered key-facts lines, if the guide has any. */
+  takeaways?: string[];
 }) {
   const url = localeUrl(SITE_URL, locale, '/guides/[slug]', { slug: guide.slug });
 
@@ -313,6 +374,14 @@ export function guideJsonLd({
       }
     : { '@id': AGENCY_ID };
 
+  // Villages the guide is tagged to, as references to their Place nodes. This
+  // is the link that lets an assistant answer "what should I know about buying
+  // in Viganj" with this article: without it the guide is topically about
+  // nothing in particular, and the tags exist only as on-page links.
+  const about = (guide.relatedLocations ?? [])
+    .filter((location) => location.slug)
+    .map((location) => ({ '@id': villagePlaceId(location.slug, locale) }));
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -325,6 +394,16 @@ export function guideJsonLd({
     dateModified: guide.updatedAt || guide.publishedAt,
     author,
     publisher: { '@id': AGENCY_ID },
+    ...(about.length ? { about } : {}),
+    ...(takeaways?.length
+      ? {
+          // The same answer-first summary the reader sees at the top of the
+          // page. `abstract` is where a machine looks for "what does this
+          // article conclude", which is exactly the question an AI answer
+          // engine is trying to resolve.
+          abstract: takeaways.join(' '),
+        }
+      : {}),
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
   };
 }
@@ -375,6 +454,174 @@ export function propertyListJsonLd(
       position: i + 1,
       url: localeUrl(SITE_URL, locale, '/properties/[slug]', { slug: property.slug }),
     })),
+  };
+}
+
+/**
+ * Village page graph: the Place itself, the page about it, and the listings
+ * currently offered there.
+ *
+ * These pages are the site's answer to "nekretnine Orebić" and to the
+ * equivalent question asked of an assistant, and until now they emitted a
+ * breadcrumb and nothing else. Every individual listing was richly described
+ * while the page that collects them said nothing about what Orebić is, where
+ * it is, or that the agency covers it.
+ *
+ * Three nodes rather than one, each doing a different job:
+ *  - `Place` is the village as an entity, with coordinates. It carries the
+ *    stable @id that every listing in the village references.
+ *  - `CollectionPage` is this URL, declared as being about that Place.
+ *  - `ItemList` is what is for sale here right now, by URL only — the detail
+ *    pages already describe each listing, and restating it here creates two
+ *    copies of the same facts that drift apart.
+ */
+export function locationJsonLd({
+  location,
+  locale,
+  name,
+  description,
+  properties,
+  images,
+  listTitle,
+}: {
+  location: Location;
+  locale: Locale;
+  name: string;
+  description: string;
+  properties: Property[];
+  images: string[];
+  listTitle: string;
+}) {
+  const url = localeUrl(SITE_URL, locale, '/locations/[slug]', {
+    slug: location.slug,
+  });
+  const placeId = villagePlaceId(location.slug, locale);
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Place',
+        '@id': placeId,
+        name,
+        ...(description ? { description } : {}),
+        ...(images.length ? { image: images } : {}),
+        url,
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: name,
+          addressRegion: 'Pelješac',
+          addressCountry: 'HR',
+        },
+        ...(location.coordinates
+          ? {
+              geo: {
+                '@type': 'GeoCoordinates',
+                latitude: location.coordinates.lat,
+                longitude: location.coordinates.lng,
+              },
+            }
+          : {}),
+        containedInPlace: {
+          '@type': 'Place',
+          name: 'Pelješac',
+          address: {
+            '@type': 'PostalAddress',
+            addressRegion: 'Pelješac',
+            addressCountry: 'HR',
+          },
+        },
+      },
+      {
+        '@type': 'CollectionPage',
+        '@id': `${url}#page`,
+        url,
+        name,
+        ...(description ? { description } : {}),
+        inLanguage: locale,
+        about: { '@id': placeId },
+        isPartOf: { '@id': WEBSITE_ID },
+        // The agency is the one making these statements about the village.
+        // Without this the page is an anonymous description of a place.
+        publisher: { '@id': AGENCY_ID },
+      },
+      {
+        '@type': 'ItemList',
+        '@id': `${url}#listings`,
+        name: listTitle,
+        numberOfItems: properties.length,
+        itemListElement: properties.map((property, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          url: localeUrl(SITE_URL, locale, '/properties/[slug]', {
+            slug: property.slug,
+          }),
+        })),
+      },
+    ],
+  };
+}
+
+/**
+ * The asking-price table, declared as a Dataset.
+ *
+ * This is the one page on the site built to be cited rather than converted
+ * from, and `Dataset` is the vocabulary a search engine and an assistant both
+ * understand for "here are numbers, here is who measured them, here is when".
+ * `creator` points at the agency by @id, which is the whole point: a figure
+ * quoted back by an AI answer carries the name attached to it.
+ *
+ * `license` is stated explicitly. Data nobody is allowed to reuse does not
+ * earn links, and a journalist will not chase permission for one number.
+ */
+export function marketDatasetJsonLd({
+  locale,
+  name,
+  description,
+  updatedAt,
+  villageNames,
+  measurement,
+}: {
+  locale: Locale;
+  name: string;
+  description: string;
+  updatedAt?: string;
+  villageNames: string[];
+  /** Plain-language statement of what is being measured. */
+  measurement: string;
+}) {
+  const url = localeUrl(SITE_URL, locale, '/market');
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Dataset',
+    '@id': `${url}#dataset`,
+    name,
+    description,
+    url,
+    inLanguage: locale,
+    ...(updatedAt ? { dateModified: updatedAt } : {}),
+    creator: { '@id': AGENCY_ID },
+    publisher: { '@id': AGENCY_ID },
+    isAccessibleForFree: true,
+    license: 'https://creativecommons.org/licenses/by/4.0/',
+    variableMeasured: {
+      '@type': 'PropertyValue',
+      name: measurement,
+      unitText: 'EUR/m2',
+    },
+    spatialCoverage: {
+      '@type': 'Place',
+      name: 'Pelješac',
+      address: {
+        '@type': 'PostalAddress',
+        addressRegion: 'Pelješac',
+        addressCountry: 'HR',
+      },
+    },
+    // The villages the table covers, by @id, so the numbers attach to the same
+    // Place entities the village pages and the listings already describe.
+    ...(villageNames.length ? { keywords: villageNames } : {}),
   };
 }
 
